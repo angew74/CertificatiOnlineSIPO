@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="VERIRIC" targetNamespace="http://tempuri.org/VeriRic.xsd" xmlns="http://tempuri.org/VeriRic.xsd" xmlns:mstns="http://tempuri.org/VeriReq.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tc="http://tempuri.org/TipiBase.xsd" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://tempuri.org/TipiBase.xsd" schemaLocation="C:\dev\Com.Unisys\Com.Unisys.Anag\Com.Unisys.Anag.Veri\Data\TipiBase.xsd" />
+	<xs:element name="VERIRIC" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" form="unqualified" name="Ricerca">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="Parametri">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" form="unqualified" name="CodiceIndiv" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="SessoPersona" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="CognomePersona" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="NomePersona" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="DataDiNascitaPersona" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="CodiceFiscale" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="CodiceFamiglia" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="SituazioneAllaData" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="AnnoDa" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="AnnoA" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="Padre" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="Madre" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="ComuneNas" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="CodiceStrada" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="Sedime" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="Strada" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="TipoCivico" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="IntervalloDa" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="Lettera" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="IntervalloA" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="Scala" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="Piano" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="Interno" type="xs:string" nillable="true" />
+                  	<xs:element minOccurs="0" form="unqualified" name="Lotto" type="xs:string" nillable="true" />
+                  	<xs:element minOccurs="0" form="unqualified" name="Palazzina" type="xs:string" nillable="true" />
+                  	<xs:element minOccurs="0" form="unqualified" name="Kilometro" type="xs:string" nillable="true" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="da" type="xs:string" default="" />
+						<xs:attribute name="per" type="xs:string" default="" />
+						<xs:attribute name="TipoRicerca" type="xs:string" default="" />
+						<xs:attribute name="FiltroPersone" type="xs:string" default="" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

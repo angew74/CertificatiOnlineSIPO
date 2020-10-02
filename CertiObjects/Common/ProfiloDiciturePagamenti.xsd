@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProfiloDiciturePagamenti" targetNamespace="http://tempuri.org/ProfiloDiciturePagamenti.xsd" xmlns:mstns="http://tempuri.org/ProfiloDiciturePagamenti.xsd" xmlns="http://tempuri.org/ProfiloDiciturePagamenti.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ProfiloDiciturePagamenti" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ProfiloDiciturePagamenti" msprop:Generator_DataSetName="ProfiloDiciturePagamenti">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DiciturePagamenti" msprop:Generator_UserTableName="DiciturePagamenti" msprop:Generator_RowDeletedName="DiciturePagamentiRowDeleted" msprop:Generator_RowChangedName="DiciturePagamentiRowChanged" msprop:Generator_RowClassName="DiciturePagamentiRow" msprop:Generator_RowChangingName="DiciturePagamentiRowChanging" msprop:Generator_RowEvArgName="DiciturePagamentiRowChangeEvent" msprop:Generator_RowEvHandlerName="DiciturePagamentiRowChangeEventHandler" msprop:Generator_TableClassName="DiciturePagamentiDataTable" msprop:Generator_TableVarName="tableDiciturePagamenti" msprop:Generator_RowDeletingName="DiciturePagamentiRowDeleting" msprop:Generator_TablePropName="DiciturePagamenti">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id_Tipo_Pagamento" msprop:Generator_UserColumnName="Id_Tipo_Pagamento" msprop:Generator_ColumnVarNameInTable="columnId_Tipo_Pagamento" msprop:Generator_ColumnPropNameInRow="Id_Tipo_Pagamento" msprop:Generator_ColumnPropNameInTable="Id_Tipo_PagamentoColumn" type="xs:decimal" default="0" />
+              <xs:element name="Id_Client" msprop:Generator_UserColumnName="Id_Client" msprop:Generator_ColumnVarNameInTable="columnId_Client" msprop:Generator_ColumnPropNameInRow="Id_Client" msprop:Generator_ColumnPropNameInTable="Id_ClientColumn" type="xs:decimal" default="0" />
+              <xs:element name="Id_Tipo_Uso" msprop:Generator_UserColumnName="Id_Tipo_Uso" msprop:Generator_ColumnVarNameInTable="columnId_Tipo_Uso" msprop:Generator_ColumnPropNameInRow="Id_Tipo_Uso" msprop:Generator_ColumnPropNameInTable="Id_Tipo_UsoColumn" type="xs:decimal" default="0" />
+              <xs:element name="Txt_Tipo_Uso_Certificato" msprop:Generator_UserColumnName="Txt_Tipo_Uso_Certificato" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Txt_Tipo_Uso_Certificato" msprop:Generator_ColumnPropNameInTable="Txt_Tipo_Uso_CertificatoColumn" msprop:Generator_ColumnVarNameInTable="columnTxt_Tipo_Uso_Certificato" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Txt_Tipo_Pagamento" msprop:Generator_UserColumnName="Txt_Tipo_Pagamento" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Txt_Tipo_Pagamento" msprop:Generator_ColumnPropNameInTable="Txt_Tipo_PagamentoColumn" msprop:Generator_ColumnVarNameInTable="columnTxt_Tipo_Pagamento" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

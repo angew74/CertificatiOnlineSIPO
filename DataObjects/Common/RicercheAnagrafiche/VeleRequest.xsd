@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="VeleRequest"
+           xmlns="http://tempuri.org/VeleRequest.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+           xmlns:tc="http://tempuri.org/TipiBase.xsd"
+           targetNamespace="http://tempuri.org/VeleRequest.xsd"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+  <xs:import namespace="http://tempuri.org/TipiBase.xsd" schemaLocation="C:\Users\AdminDSI\RootPrj\CertificatiOnLine\CertiObjects\Common\TipiBase.xsd"/>
+  <xs:element name="VeleRequest" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Persona" type="tc:BasePersonaAnag" />
+        <xs:element name="Paging" type="tc:BasePagingType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

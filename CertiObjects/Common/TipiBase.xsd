@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/TipiBase.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/TipiBase.xsd" elementFormDefault="unqualified" attributeFormDefault="unqualified" id="TipiBase">
+	<xs:complexType name="IndirizzoAIREAnagType">
+		<xs:sequence>
+			<xs:element name="Indirizzo" type="xs:string" minOccurs="0"/>
+			<xs:element name="CAP" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodComune" type="xs:string" minOccurs="0"/>
+			<xs:element name="DenominazioneComune" type="xs:string" minOccurs="0"/>
+			<xs:element name="Consolato" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BasePersonaAnag">
+		<xs:sequence>
+			<xs:element name="CodiceIndiv" type="xs:string" default="" nillable="true" minOccurs="0"/>
+			<xs:element name="CodiceFis" type="xs:string" minOccurs="0"/>
+			<xs:element name="NomeIndiv" type="xs:string" minOccurs="0"/>
+			<xs:element name="Cognome" type="xs:string" minOccurs="0"/>
+			<xs:element name="Sesso" type="xs:string" minOccurs="0"/>
+			<xs:element name="FlagVR" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodFam" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataNasc" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BasePersonaInFamigliaAnag">
+		<xs:complexContent>
+			<xs:extension base="BasePersonaAnag">
+				<xs:sequence>
+					<xs:element name="RapportoParentela" type="xs:string" minOccurs="0" />
+				</xs:sequence> 
+			</xs:extension>
+		</xs:complexContent> 
+	</xs:complexType>
+	<xs:complexType name="BaseOperazioneUtenteAnag">
+		<xs:sequence>
+			<xs:element name="Username" type="xs:string" minOccurs="0"/>
+			<xs:element name="Data_operazione" type="xs:string" minOccurs="0"/>
+			<xs:element name="Operazione" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseMessaggioAnag">
+		<xs:sequence>
+			<xs:element name="Codice" type="xs:string" minOccurs="0"/>
+			<xs:element name="Livello" type="xs:string" minOccurs="0"/>
+			<xs:element name="Descrizione" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseDatiUnlock">
+		<xs:sequence>
+			<xs:element name="TipoPratica" type="xs:string" minOccurs="0"/>
+			<xs:element name="UserSblocca" type="xs:string" minOccurs="0"/>
+			<xs:element name="DipUserSblocca" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BasePraticaCRAB">
+		<xs:sequence>
+			<xs:element name="AnnoPratica" type="xs:string" minOccurs="0"/>
+			<xs:element name="NumeroPratica" type="xs:string" minOccurs="0"/>
+			<xs:element name="StatusPratica" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BasePraticaCRABTipo">
+		<xs:complexContent>
+			<xs:extension base="BasePraticaCRAB">
+				<xs:sequence>
+					<xs:element name="TipoPratica" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PersonaInPraticaCRAB">
+		<xs:complexContent>
+			<xs:extension base="BasePersonaAnag">
+				<xs:sequence>
+					<xs:element name="Progressivo" type="xs:string" minOccurs="0"/>
+					<xs:element name="StatusPersona" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DatiGeneraliPraticaCRE">
+		<xs:complexContent>
+			<xs:extension base="BasePraticaCRAB">
+				<xs:sequence>
+					<xs:element name="DataPratica" type="xs:string" minOccurs="0"/>
+					<xs:element name="PraticaImm" type="xs:string" minOccurs="0"/>
+					<xs:element name="DataPraticaImm" type="xs:string" minOccurs="0"/>
+					<xs:element name="Conteggio" type="xs:string" minOccurs="0"/>
+					<xs:element name="DataEmigrazione" type="xs:string" minOccurs="0"/>
+					<xs:element name="Istanza" type="xs:string" minOccurs="0"/>
+					<xs:element name="Componenti" type="xs:string" minOccurs="0"/>
+					<xs:element name="Richiesta" type="xs:string" minOccurs="0"/>
+					<xs:element name="NotePratica" type="xs:string" minOccurs="0"/>
+					<xs:element name="InvioComune" type="xs:string" minOccurs="0"/>
+					<xs:element name="IndirizzoAIRE" type="IndirizzoAIREAnagType" minOccurs="0"/>
+					<xs:element name="IntestatarioSchedaAIRE" type="BasePersonaAnag" minOccurs="0"/>
+					<xs:element name="DataCirConsAIRE" type="xs:string" minOccurs="0"/>
+					<xs:element name="AnnoRif" type="xs:string" minOccurs="0"/>
+					<xs:element name="PersInPratica" type="xs:string" minOccurs="0"/>
+					<xs:element name="Manuale" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Lista">
+		<xs:attribute name="da"/>
+		<xs:attribute name="a"/>
+		<xs:attribute name="totale"/>
+	</xs:complexType>
+	<xs:complexType name="DatiGeneraliPraticaCDF">
+		<xs:complexContent>
+			<xs:extension base="BasePraticaCRAB">
+				<xs:sequence>
+					<xs:element name="DataPratica" type="xs:string" minOccurs="0"/>
+					<xs:element name="CodCirc" type="xs:string" minOccurs="0"/>
+					<xs:element name="SedeCirc" type="xs:string" minOccurs="0"/>
+					<xs:element name="DataCambio" type="xs:string" minOccurs="0"/>
+					<xs:element name="Istanza" type="xs:string" minOccurs="0"/>
+					<xs:element name="Componenti" type="xs:string" minOccurs="0"/>
+					<xs:element name="NotePratica" type="xs:string" minOccurs="0"/>
+					<xs:element name="NuovoIndirizzo" type="BaseIndirizzoType" minOccurs="0"/>
+					<xs:element name="IntestatarioScheda" type="BasePersonaAnag" minOccurs="0"/>
+					<xs:element name="PraticaCollegata" minOccurs="0"/>
+					<xs:element name="TuttaFamiglia" minOccurs="0"/>
+					<xs:element name="RapportoParentelaRichiedente" minOccurs="0"/>
+					<xs:element name="DocumentoRichiedente" minOccurs="0"/>
+					<xs:element name="Dichiarante" type="BasePersonaAnag" minOccurs="0"/>
+					<xs:element name="CodiceVecchiaFamiglia" minOccurs="0"/>
+					<xs:element name="CodiceNuovaFamiglia" minOccurs="0"/>
+					<xs:element name="FlagFamConNew" minOccurs="0"/>
+					<xs:element name="FlagEntrataFam" minOccurs="0"/>
+					<xs:element name="PersInPratica" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PersonaCRI">
+		<xs:complexContent>
+			<xs:extension base="PersonaInPraticaCRAB">
+				<xs:sequence>
+					<xs:element name="ReiscComp" type="xs:string" minOccurs="0"/>
+					<xs:element name="EsitoAccerComp" type="xs:string" minOccurs="0"/>
+					<xs:element name="CNascita" type="xs:string" minOccurs="0"/>
+					<xs:element name="DCNascita" type="xs:string" minOccurs="0"/>
+					<xs:element name="AttoNascita" type="xs:string" minOccurs="0"/>
+					<xs:element name="ParteNascita" type="xs:string" minOccurs="0"/>
+					<xs:element name="SerieNascita" type="xs:string" minOccurs="0"/>
+					<xs:element name="EspNascita" type="xs:string" minOccurs="0"/>
+					<xs:element name="AnnoAttoN" type="xs:string" minOccurs="0"/>
+					<xs:element name="TipoComuneAttoN" type="xs:string" minOccurs="0"/>
+					<xs:element name="ComuneAttoN" type="xs:string" minOccurs="0"/>
+					<xs:element name="DComuneAttoN" type="xs:string" minOccurs="0"/>
+					<xs:element name="Padre" type="xs:string" minOccurs="0"/>
+					<xs:element name="Madre" type="xs:string" minOccurs="0"/>
+					<xs:element name="Cittadinanza" type="xs:string" minOccurs="0"/>
+					<xs:element name="Nazionalita" type="xs:string" minOccurs="0"/>
+					<xs:element name="StatoCivile" type="xs:string" minOccurs="0"/>
+					<xs:element name="Rappar" type="xs:string" minOccurs="0"/>
+					<xs:element name="Professione" type="xs:string" minOccurs="0"/>
+					<xs:element name="PosizioneProf" type="xs:string" minOccurs="0"/>
+					<xs:element name="Attivita" type="xs:string" minOccurs="0"/>
+					<xs:element name="CondizioneProf" type="xs:string" minOccurs="0"/>
+					<xs:element name="TStudio" type="xs:string" minOccurs="0"/>
+					<xs:element name="FlagFiltro" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PersonaInPraticaCRE">
+		<xs:complexContent>
+			<xs:extension base="PersonaInPraticaCRAB">
+				<xs:sequence>
+					<xs:element name="CodPos" type="xs:string" minOccurs="0"/>
+					<xs:element name="CodNPos" type="xs:string" minOccurs="0"/>
+					<xs:element name="CodSett" type="xs:string" minOccurs="0"/>
+					<xs:element name="TipConf" type="xs:string" minOccurs="0"/>
+					<xs:element name="EsitoAcc" type="xs:string" minOccurs="0"/>
+					<xs:element name="NumProt" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PersonaInPraticaCDF">
+		<xs:complexContent>
+			<xs:extension base="PersonaInPraticaCRAB">
+				<xs:sequence>
+					<xs:element name="Rappar" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BaseRichiestaType">
+		<xs:sequence>
+			<xs:element name="IdPratica" type="BasePraticaCRAB"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseRichiestaPagingType">
+		<xs:sequence>
+			<xs:element name="Paging">
+				<xs:complexType>
+					<xs:attribute name="da"/>
+					<xs:attribute name="per"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseRichiestaPraticaPagingType">
+		<xs:sequence>
+			<xs:element name="Paging">
+				<xs:complexType>
+					<xs:attribute name="da"/>
+					<xs:attribute name="per"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="IdPratica" type="BasePraticaCRAB"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseRispostaType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="Messaggio" type="BaseMessaggioAnag"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ListaCodiciIndividuali">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="CodiceIndiv"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ListaCodici">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Codice" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseCertificato">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Codice" type="xs:string"/>
+			<xs:element name="CodiceEmettibilita" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BasePatenteANAGType">
+		<xs:sequence>
+			<xs:element name="NumeroPat" type="xs:string" minOccurs="0"/>
+			<xs:element name="Categoria" type="xs:string" minOccurs="0"/>
+			<xs:element name="EnteRil" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataRil" type="xs:string" minOccurs="0"/>
+			<xs:element name="StatusPat" type="xs:string" minOccurs="0"/>
+			<xs:element name="ComuRil" type="xs:string" minOccurs="0"/>
+			<xs:element name="DescComRil" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodIndPossessore" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseTargaAnagType">
+		<xs:sequence>
+			<xs:element name="TipVeicolo" type="xs:string" minOccurs="0"/>
+			<xs:element name="TargaVeicolo" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodIndPossessore" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BasePagingType">
+		<xs:attribute name="da" type="xs:string"/>
+		<xs:attribute name="per" type="xs:string"/>
+		<xs:attribute name="element" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="BaseIndirizzoType">
+		<xs:sequence>
+			<xs:element name="CodVia" type="xs:string" minOccurs="0"/>
+			<xs:element name="NomeVia" type="xs:string" minOccurs="0"/>
+			<xs:element name="Civ" type="xs:string" minOccurs="0"/>
+			<xs:element name="TipoCiv" type="xs:string" minOccurs="0"/>
+			<xs:element name="Lett" type="xs:string" minOccurs="0"/>
+			<xs:element name="Esp" type="xs:string" minOccurs="0"/>
+			<xs:element name="Piano" type="xs:string" minOccurs="0"/>
+			<xs:element name="Lotto" type="xs:string" minOccurs="0"/>
+			<xs:element name="Palaz" type="xs:string" minOccurs="0"/>
+			<xs:element name="Scala" type="xs:string" minOccurs="0"/>
+			<xs:element name="Interno" type="xs:string" minOccurs="0"/>
+			<xs:element name="IndirizzoNonStandard" type="xs:string" minOccurs="0"/>
+			<xs:element name="IndirizzoDecodif" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseDatiAnnullamentoPraticaCrab">
+		<xs:sequence>
+			<xs:element name="DataAnnullamento" type="xs:string"/>
+			<xs:element name="NoteAnnull" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseRicercaPrecisaType">
+		<xs:sequence>
+			<xs:element name="Nome" type="xs:string"/>
+			<xs:element name="Valore" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Documenti -->
+	<xs:complexType name="BasePensioneAnagType">
+		<xs:sequence>
+			<xs:element name="NumeroPen" type="xs:string" minOccurs="0"/>
+			<xs:element name="CategoriaPen" type="xs:string" minOccurs="0"/>
+			<xs:element name="Ente" type="xs:string" minOccurs="0"/>
+			<xs:element name="Sede" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataPen" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodIndPossessore" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseLibrettoDiLavoroAnagType">
+		<xs:sequence>
+			<xs:element name="NumeroLib" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataLib" type="xs:string" minOccurs="0"/>
+			<xs:element name="Modalita" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodComuneLib" type="xs:string" minOccurs="0"/>
+			<xs:element name="DescComuneLib" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodIndPossessore" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseCartaIdentitaAnagType">
+		<xs:sequence>
+			<xs:element name="TipoCarta" type="xs:string" minOccurs="0"/>
+			<xs:element name="NumeroCarta" type="xs:string" minOccurs="0"/>
+			<xs:element name="Espatrio" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataRil" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodComuneRil" type="xs:string" minOccurs="0"/>
+			<xs:element name="DescComuneRil" type="xs:string" minOccurs="0"/>
+			<xs:element name="Consolato" type="xs:string" minOccurs="0"/>
+			<xs:element name="DescConsolato" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodIndPossessore" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BasePermessoSoggiornoAnagType">
+		<xs:sequence>
+			<xs:element name="TipoPermesso" type="xs:string" minOccurs="0"/>
+			<xs:element name="Permesso" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodQuestura" type="xs:string" minOccurs="0"/>
+			<xs:element name="DesQuestura" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataRil" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataRinn" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataScad" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataRichNuovo" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--Pratiche di stato Stato Civile-->
+	<xs:complexType name="IdAttoStatoCivile">
+		<xs:sequence>
+			<xs:element name="AnnoSs" type="xs:string" minOccurs="0"/>
+			<xs:element name="NumeroSs" type="xs:string" minOccurs="0"/>
+			<xs:element name="ParteSs" type="xs:string" minOccurs="0"/>
+			<xs:element name="SerieSs" type="xs:string" minOccurs="0"/>
+			<xs:element name="EspSs" type="xs:string" minOccurs="0"/>
+			<xs:element name="TipoComAttoSs" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodComAttoSs" type="xs:string" minOccurs="0"/>
+			<xs:element name="DesComAttoSs" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseEventoStatoCivileType">
+		<xs:complexContent>
+			<xs:extension base="IdAttoStatoCivile">
+				<xs:sequence>
+					<xs:element name="DataEvtSs" type="xs:string" minOccurs="0"/>
+					<xs:element name="CodComEvtSs" type="xs:string" minOccurs="0"/>
+					<xs:element name="DesComEvtSs" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BaseMatrimonioType">
+		<xs:complexContent>
+			<xs:extension base="BaseEventoStatoCivileType">
+				<xs:sequence>
+					<xs:element name="SceltaPat" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BaseDivorzioType">
+		<xs:complexContent>
+			<xs:extension base="IdAttoStatoCivile">
+				<xs:sequence>
+					<xs:element name="TipoSentenza" type="xs:string" minOccurs="0"/>
+					<xs:element name="DelDella" type="xs:string" minOccurs="0"/>
+					<xs:element name="Autorita" type="xs:string" minOccurs="0"/>
+					<xs:element name="DataSentenza" type="xs:string" minOccurs="0"/>
+					<xs:element name="TipoAutorita" type="xs:string" minOccurs="0"/>
+					<xs:element name="DelDellaAut" type="xs:string" minOccurs="0"/>
+					<xs:element name="AutoritaAut" type="xs:string" minOccurs="0"/>
+					<xs:element name="DataSentenzaAut" type="xs:string" minOccurs="0"/>
+					<xs:element name="DataTimbro" type="xs:string" minOccurs="0"/>
+					<xs:element name="DataTrascrizione" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BaseDecessoType">
+		<xs:complexContent>
+			<xs:extension base="BaseEventoStatoCivileType">
+				<xs:sequence>
+					<xs:element name="CodComResDec" type="xs:string" minOccurs="0"/>
+					<xs:element name="DesComResDec" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Circolari-->
+	<xs:complexType name="BaseCircolare16AnagType">
+		<xs:sequence>
+			<xs:element name="TipoDoc" type="xs:string" minOccurs="0"/>
+			<xs:element name="NumeroDoc" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataRich" type="xs:string" minOccurs="0"/>
+			<xs:element name="FlagRicQuest" type="xs:string" minOccurs="0"/>
+			<xs:element name="FlagRicUffPost" type="xs:string" minOccurs="0"/>
+			<xs:element name="ContrSoggSportImm" type="xs:string" minOccurs="0"/>
+			<xs:element name="RichPermSogg" type="xs:string" minOccurs="0"/>
+			<xs:element name="NullaOstaRicong" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseCircolare19TitolareAnagType">
+		<xs:sequence>
+			<xs:element name="TipoDoc" type="xs:string" minOccurs="0"/>
+			<xs:element name="NumeroDoc" type="xs:string" minOccurs="0"/>
+			<xs:element name="AttLavor" type="xs:string" minOccurs="0"/>
+			<xs:element name="AttRisEconLb" type="xs:string" minOccurs="0"/>
+			<xs:element name="AssSanit" type="xs:string" minOccurs="0"/>
+			<xs:element name="IscrIstituto" type="xs:string" minOccurs="0"/>
+			<xs:element name="TitolAss" type="xs:string" minOccurs="0"/>
+			<xs:element name="AttRisEconLc" type="xs:string" minOccurs="0"/>
+			<xs:element name="RicCartSoggQ" type="xs:string" minOccurs="0"/>
+			<xs:element name="RicCSoggP" type="xs:string" minOccurs="0"/>
+			<xs:element name="RicRinPermQ" type="xs:string" minOccurs="0"/>
+			<xs:element name="RicRinPermP" type="xs:string" minOccurs="0"/>
+			<xs:element name="PermSoggValScad" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseCircolare19FamiliareAnagType">
+		<xs:sequence>
+			<xs:element name="TipoDoc" type="xs:string" minOccurs="0"/>
+			<xs:element name="NumeroDoc" type="xs:string" minOccurs="0"/>
+			<xs:element name="DocFamilUe" type="xs:string" minOccurs="0"/>
+			<xs:element name="DocACaricoUe" type="xs:string" minOccurs="0"/>
+			<xs:element name="DocGenItal" type="xs:string" minOccurs="0"/>
+			<xs:element name="NrAttestFam" type="xs:string" minOccurs="0"/>
+			<xs:element name="CodIndTitolare" type="xs:string" minOccurs="0"/>
+			<xs:element name="CognTit" type="xs:string" minOccurs="0"/>
+			<xs:element name="NomeTit" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataNasTit" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DatiPratica">
+		<xs:sequence>
+			<xs:element name="AnnoPratica" type="xs:string"/>
+			<xs:element name="NumeroPratica" type="xs:string"/>
+			<xs:element name="NotePratica" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataDefinizione" type="xs:string" minOccurs="0"/>
+			<xs:element name="DataConsolare" type="xs:string" minOccurs="0"/>
+			<xs:element name="FlgStep" type="xs:string"/>
+			<xs:element name="StatusPratica" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseSoggiornoAltroComuneType">
+		<xs:sequence>
+			<xs:element name="FlagFamTit" type="xs:string"/>
+			<xs:element name="TipoAtt" type="xs:string"/>
+			<xs:element name="DataRil" type="xs:string"/>
+			<xs:element name="CodComRil" type="xs:string"/>
+			<xs:element name="DesComRil" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- start tipi base estrazioni -->
+	<xs:complexType name="EstrazionePraticheRequest">
+		<xs:sequence>
+			<xs:element name="Scelta" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DataRicDa" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DataRicA" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="UteRic" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="FlagTipo" type="xs:string" form="unqualified" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="da" type="xs:string"/>
+		<xs:attribute name="per" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="EstrazionePraticheResponse">
+		<xs:sequence>
+			<xs:element name="DataOperaz" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="AnnoPratica" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="NumeroPratica" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DataPratica" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="StatusPratica" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="CodComune" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DesComune" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="CapComune" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="ConomeComp" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="UltimoUser" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DataIniVal" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DataInvAcc" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DataRitAcc" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DataInvCom" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DataRitCom" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DichiarPrat" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="TotRitr" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="GiorniManc" type="xs:string" form="unqualified" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EstrazioniPraticheNonDefiniteResponse">
+		<xs:sequence>
+			<xs:element name="AnnoPratica" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="NumeroPratica" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DataPratica" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="StatusPratica" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DataEvento" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="NumPersone" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="CodComune" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="DesComune" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="UltimoUser" type="xs:string" form="unqualified" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EstrazioniPraticheNonDefiniteRequest">
+		<xs:sequence>
+			<xs:element name="AnnoPratica" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="NumeroPraticaDA" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="NumeroPraticaA" type="xs:string" form="unqualified" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="da" type="xs:string"/>
+		<xs:attribute name="per" type="xs:string"/>
+	</xs:complexType>
+	<!-- end tipi base estrazioni -->
+	<!-- start tipi base stampa -->
+	<xs:complexType name="OpzioniStampa">
+		<xs:sequence>
+			<xs:element name="Anteprima" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="Copie" type="xs:string" form="unqualified" minOccurs="0"/>
+			<xs:element name="NumberRow" type="xs:string" form="unqualified" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end tipi base stampa -->
+	<xs:complexType name="DatiRicercaPerMunicipioRequest">
+		<xs:sequence>
+			<xs:element name="MunicipioRic" type="xs:string"/>
+			<xs:element name="SedeRic" type="xs:string"/>
+			<xs:element name="TipoOrd" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

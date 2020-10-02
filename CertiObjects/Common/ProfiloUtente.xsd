@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProfiloUtente" targetNamespace="http://tempuri.org/ProfiloUtente.xsd" elementFormDefault="qualified" xmlns="http://tempuri.org/ProfiloUtente.xsd" xmlns:mstns="http://tempuri.org/ProfiloUtente.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ProfiloUtente">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CodiceFiscale" type="xs:string" />
+				<xs:element name="CodiceIndividuale" type="xs:string" />
+				<xs:element name="Cognome" type="xs:string" />
+				<xs:element name="Nome" type="xs:string" />
+				<xs:element name="IndirizzoIP" type="xs:string" />
+				<xs:element name="UtenteUM" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

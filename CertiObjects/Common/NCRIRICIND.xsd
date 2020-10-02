@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/NCRIRICIND.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:tc="http://tempuri.org/TipiBase.xsd" targetNamespace="http://tempuri.org/NCRIRICIND.xsd" elementFormDefault="unqualified" attributeFormDefault="unqualified" id="NCRIRICIND">
+	<xs:import namespace="http://tempuri.org/TipiBase.xsd" schemaLocation="C:\Users\AdminDSI\RootPrj\CertificatiOnLine\CertiObjects\Common\TipiBase.xsd" />
+	<xs:element name="NCRIRICIND" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" form="unqualified" name="Elenco">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="PersonaElenco">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" form="unqualified" name="AnnoPratica" type="xs:string" />
+										<xs:element minOccurs="0" form="unqualified" name="NumeroPratica" type="xs:string" />
+										<xs:element minOccurs="0" form="unqualified" name="CodiceIndiv" type="xs:string" />
+										<xs:element minOccurs="0" form="unqualified" name="SessoPersona" type="xs:string" />
+										<xs:element minOccurs="0" form="unqualified" name="CognomePersona" type="xs:string" />
+										<xs:element minOccurs="0" form="unqualified" name="NomePersona" type="xs:string" />
+										<xs:element minOccurs="0" form="unqualified" name="DataDiNascitaPersona" type="xs:string" />
+										<xs:element minOccurs="0" form="unqualified" name="CodiceFamiglia" type="xs:string" />
+										<xs:element minOccurs="0" form="unqualified" name="Descrizione" type="xs:string" />
+                    <xs:element minOccurs="0" form="unqualified" name="CodiceFiscale" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="da" type="xs:string" default="" />
+						<xs:attribute name="a" type="xs:string" default="" />
+						<xs:attribute name="totale" type="xs:string" default="" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="Messaggi" type="tc:BaseMessaggioAnag" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

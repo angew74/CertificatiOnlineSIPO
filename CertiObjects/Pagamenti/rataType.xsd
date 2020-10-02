@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+	<xs:complexType name="rataType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		
+    </xs:annotation>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="prograta" type="xs:int"/>
+				<xs:element minOccurs="0" name="datascadenza" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+    <xs:element name="rataType" type="io:rataType">
+  </xs:element>
+</xs:schema>

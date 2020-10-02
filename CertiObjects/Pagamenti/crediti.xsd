@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+    <xs:include schemaLocation="creditoType.xsd"/>
+    <xs:complexType name="crediti">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		
+    </xs:annotation>
+		<xs:sequence>
+            <xs:element minOccurs="0" name="header" type="io:headerCreditiType"/>
+            <xs:element maxOccurs="unbounded" name="credito" type="io:creditoType">
+      </xs:element>
+        </xs:sequence>
+	</xs:complexType>
+    <xs:element name="crediti" type="io:crediti">
+  </xs:element>
+    <xs:annotation>
+    <xs:documentation source="WMQI_DOCUMENTATION"/>
+  </xs:annotation>
+</xs:schema>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fn="http://www.w3.org/2005/xpath-functions"
+	xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+  <xsl:output version="1.0" method="xml" encoding="UTF-8" indent="no" />
+  <xsl:param name="SV_OutputFormat" select="'PDF'" />
+  <xsl:template match="/">
+    <fo:root>
+      <fo:layout-master-set>
+        <fo:simple-page-master master-name="coda-page" page-height="11in" page-width="8.5in" margin-left="0.6in"
+					margin-right="0.6in">
+          <fo:region-body margin-top="0.79in" margin-bottom="0.79in" />
+        </fo:simple-page-master>
+      </fo:layout-master-set>
+      <fo:page-sequence master-reference="coda-page" initial-page-number="1" format="1">
+        <fo:flow flow-name="xsl-region-body">
+          <fo:block font-weight="normal" font-size="12px" font-style="normal" color="#333333" line-height="12px" font-family="Courier New">
+            <xsl:call-template name="Coda" />
+          </fo:block>
+        </fo:flow>
+      </fo:page-sequence>
+    </fo:root>
+  </xsl:template>
+  <xsl:template name="Coda">
+    <fo:block>
+      <fo:leader leader-pattern="space" />
+      <fo:leader leader-pattern="space" />
+    </fo:block>
+    <!--<fo:block  font-size="13px" text-align="center" margin="0in">-->
+    <fo:table table-layout="fixed" width="100%" >
+      <fo:table-column column-width="proportional-column-width(1)" />
+      <fo:table-body start-indent="0pt">
+        <fo:table-row keep-together="always" margin-left="0.8in" margin-right="0.6in" font-size="10px">
+          <fo:table-cell>
+            <xsl:choose>
+              <xsl:when test ="request/indice/tipo = 'MATRIMONIO'">
+                <fo:block />
+              </xsl:when>
+              <xsl:otherwise>
+                <fo:block>
+                  <fo:leader leader-pattern="space"/>
+                  <fo:leader leader-pattern="space"/>
+                  <fo:leader leader-pattern="space" />
+                </fo:block>
+              </xsl:otherwise>
+            </xsl:choose>
+            <fo:block text-align="center">
+              <fo:inline font-weight="bold" font-size="12px">
+                <xsl:value-of select="request/indice/firmatario"/>
+              </fo:inline>
+            </fo:block>
+            <fo:block />
+            <fo:block text-align="center">
+              <fo:inline font-weight="bold" font-size="12px" >
+                <xsl:value-of select="request/indice/nomeFirmatario"/>
+              </fo:inline>
+            </fo:block>
+            <!--</fo:block>-->
+            <fo:block text-align="center">
+              <fo:external-graphic width="1.5in" src="C:\inetpub\wwwroot\CertiWS\config\XSLT\firma.jpg"/>
+            </fo:block>
+            <fo:block  font-size="12px" font-style="normal" margin-left="0.8in" margin-right="0.8in">
+              <fo:block>
+                <fo:leader leader-pattern="space" />
+              </fo:block>
+              <fo:inline>
+                <xsl:value-of select="request/indice/luogoEmissione"/>, <xsl:value-of select="request/indice/dataEmissione"/>
+              </fo:inline>
+              <fo:block>
+                <fo:leader leader-pattern="space" />
+              </fo:block>
+            </fo:block>
+            <fo:block font-size="9px" font-style="normal" margin-left="0.8in" margin-right="0.8in">
+              <fo:leader leader-pattern="space" />
+            </fo:block>
+            <fo:block />
+            <fo:block font-size="8px">
+              <fo:inline font-weight="bold">
+                Il presente certificato non può essere prodotto agli organi della pubblica
+                amministrazione o ai privati gestori di pubblici servizi
+              </fo:inline>
+            </fo:block>
+            <fo:block>
+              <fo:leader leader-pattern="space" />
+              <fo:leader leader-pattern="space" />
+              <fo:leader leader-pattern="space" />
+            </fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+  </xsl:template>
+</xsl:stylesheet>

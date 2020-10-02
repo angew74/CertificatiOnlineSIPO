@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Registered User (Home) -->
+<xs:schema xmlns="http://tempuri.org/TipiBaseCertificati" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/TipiBaseCertificati">
+	<xs:complexType name="tipoIndiceCertificato">
+		<xs:sequence>
+			<xs:element name="tipo" type="xs:string"/>
+			<xs:element name="txtTipo"/>
+			<xs:element name="ciu" type="xs:string"/>
+			<xs:element name="dataEmissione" type="xs:string"/>
+			<xs:element name="luogoEmissione"/>
+			<xs:element name="ufficioEmittente"/>
+			<xs:element name="ruoloEmittente"/>
+			<xs:element name="azione"/>
+			<xs:element name="firmatario"/>
+			<xs:element name="ufficioRichiesta" type="xs:string"/>
+			<xs:element name="txtCertifica"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoComune">
+		<xs:sequence>
+			<xs:element name="nomeComune" type="xs:string"/>
+			<xs:element name="siglaProvincia" type="xs:string" minOccurs="0"/>
+			<xs:element name="siglaStato" type="xs:string" minOccurs="0"/>
+			<xs:element name="nomeStato" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoAtto">
+		<xs:annotation>
+			<xs:documentation>L'identificazione degli Estremi di un Atto è basata su Comune, Tipo e Anno di Registrazione e  eventuale Numero, Parte, Serie ed Esponente.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="comuneRegistrazione" type="tipoComune"/>
+			<xs:element name="txtComuneRegistrazione" minOccurs="0"/>
+			<xs:element name="tipoRegistrazione" type="tipoRegistrazione"/>
+			<xs:element name="anno" type="xs:string"/>
+			<xs:element name="numero" type="xs:string"/>
+			<xs:element name="txtNumero" minOccurs="0"/>
+			<xs:element name="parte" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtParte"/>
+			<xs:element name="serie" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtSerie" minOccurs="0"/>
+			<xs:element name="esponente" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="tipoRegistrazione">
+		<xs:annotation>
+			<xs:documentation>Iscrizione,Trascrizione,Anomalo</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="I"/>
+			<xs:enumeration value="T"/>
+			<xs:enumeration value=" "/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="tipoGeneralita">
+		<xs:sequence>
+			<xs:element name="nome" type="xs:string"/>
+			<xs:element name="cognome" type="xs:string"/>
+			<xs:element name="sesso" type="xs:string"/>
+			<xs:element name="txtNascita"/>
+			<xs:element name="dataNascita" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtDataNascita" minOccurs="0"/>
+			<xs:element name="luogoNascita" type="tipoComune" minOccurs="0"/>
+			<xs:element name="txtLuogoNascita" minOccurs="0"/>
+			<xs:element name="attoNascita" type="tipoAtto" minOccurs="0"/>
+			<xs:element name="codiceFiscale" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtCodiceFiscale" minOccurs="0"/>
+			<xs:element name="cittadinanza" type="tipoCittadinanza" minOccurs="0"/>
+			<xs:element name="statoCivile" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoMatrimonio">
+		<xs:sequence>
+			<xs:element name="txtMatrimonio"/>
+			<xs:element name="dataMatrimonio" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtDataMatrimonio"/>
+			<xs:element name="luogoMatrimonio" type="tipoComune" minOccurs="0"/>
+			<xs:element name="txtLuogoMatrimonio"/>
+			<xs:element name="attoMatrimonio" type="tipoAtto" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoDecesso">
+		<xs:sequence>
+			<xs:element name="txtDecesso"/>
+			<xs:element name="dataDecesso" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtDataDecesso"/>
+			<xs:element name="luogoDecesso" type="tipoComune" minOccurs="0"/>
+			<xs:element name="txtLuogoDecesso"/>
+			<xs:element name="attoDecesso" type="tipoAtto" minOccurs="0"/>
+			<xs:element name="residenzaAllaDataDecesso" type="tipoComune" minOccurs="0"/>
+			<xs:element name="flagDecessoPresunto" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoIndirizzo">
+		<xs:sequence>
+			<xs:element name="toponimo" type="xs:string"/>
+			<xs:element name="numeroCivico" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="numero" type="xs:string"/>
+						<xs:element name="txtNumero"/>
+						<xs:element name="lettera" type="xs:string" minOccurs="0"/>
+						<xs:element name="esponente" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="lotto" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtLotto" minOccurs="0"/>
+			<xs:element name="palazzina" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtPalazzina"/>
+			<xs:element name="kilometro" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtKilometro"/>
+			<xs:element name="scala" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtScala"/>
+			<xs:element name="piano" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtPiano"/>
+			<xs:element name="interno" type="xs:string" minOccurs="0"/>
+			<xs:element name="txtInterno"/>
+			<xs:element name="indirizzoNonStandard" type="xs:string" minOccurs="0"/>
+			<xs:element name="cap" type="xs:string" minOccurs="0"/>
+			<xs:element name="municipio" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoCittadinanza">
+		<xs:sequence>
+			<xs:element name="descrizione"/>
+			<xs:element name="txtCittadinanza" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

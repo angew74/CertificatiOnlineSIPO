@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/MessaggiDataSet" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:tc="http://tempuri.org/TipiBase.xsd" targetNamespace="http://tempuri.org/MessaggiDataSet" elementFormDefault="unqualified" attributeFormDefault="unqualified" id="MessaggiDataSet">
+  <xs:import namespace="http://tempuri.org/TipiBase.xsd" schemaLocation="C:\Users\AdminDSI\RootPrj\CertificatiOnLine\CertiObjects\Common\TipiBase.xsd" />
+  <xs:element name="MessaggiDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Messaggi" type="tc:BaseMessaggioAnag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

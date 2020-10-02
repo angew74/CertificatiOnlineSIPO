@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProfiloDownload" targetNamespace="http://tempuri.org/ProfiloDownload.xsd" xmlns:mstns="http://tempuri.org/ProfiloDownload.xsd" xmlns="http://tempuri.org/ProfiloDownload.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ProfiloDownload" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ProfiloDownload" msprop:Generator_DataSetName="ProfiloDownload">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Certificati" msprop:Generator_UserTableName="Certificati" msprop:Generator_RowDeletedName="CertificatiRowDeleted" msprop:Generator_RowChangedName="CertificatiRowChanged" msprop:Generator_RowClassName="CertificatiRow" msprop:Generator_RowChangingName="CertificatiRowChanging" msprop:Generator_RowEvArgName="CertificatiRowChangeEvent" msprop:Generator_RowEvHandlerName="CertificatiRowChangeEventHandler" msprop:Generator_TableClassName="CertificatiDataTable" msprop:Generator_TableVarName="tableCertificati" msprop:Generator_RowDeletingName="CertificatiRowDeleting" msprop:Generator_TablePropName="Certificati">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:decimal" />
+              <xs:element name="RICHIESTA_ID" msprop:Generator_UserColumnName="RICHIESTA_ID" msprop:Generator_ColumnPropNameInRow="RICHIESTA_ID" msprop:Generator_ColumnVarNameInTable="columnRICHIESTA_ID" msprop:Generator_ColumnPropNameInTable="RICHIESTA_IDColumn" type="xs:decimal" />
+              <xs:element name="TIPO_CERTIFICATO_ID" msprop:Generator_UserColumnName="TIPO_CERTIFICATO_ID" msprop:Generator_ColumnPropNameInRow="TIPO_CERTIFICATO_ID" msprop:Generator_ColumnVarNameInTable="columnTIPO_CERTIFICATO_ID" msprop:Generator_ColumnPropNameInTable="TIPO_CERTIFICATO_IDColumn" type="xs:decimal" />
+              <xs:element name="TIPO_USO_ID" msprop:Generator_UserColumnName="TIPO_USO_ID" msprop:Generator_ColumnVarNameInTable="columnTIPO_USO_ID" msprop:Generator_ColumnPropNameInRow="TIPO_USO_ID" msprop:Generator_ColumnPropNameInTable="TIPO_USO_IDColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CIU" msprop:Generator_UserColumnName="CIU" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CIU" msprop:Generator_ColumnPropNameInTable="CIUColumn" msprop:Generator_ColumnVarNameInTable="columnCIU">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="STATUS_ID" msprop:Generator_UserColumnName="STATUS_ID" msprop:Generator_ColumnPropNameInRow="STATUS_ID" msprop:Generator_ColumnVarNameInTable="columnSTATUS_ID" msprop:Generator_ColumnPropNameInTable="STATUS_IDColumn" type="xs:decimal" default="9" minOccurs="0" />
+              <xs:element name="XML_CERTIFICATO" msprop:Generator_UserColumnName="XML_CERTIFICATO" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="XML_CERTIFICATO" msprop:Generator_ColumnPropNameInTable="XML_CERTIFICATOColumn" msprop:Generator_ColumnVarNameInTable="columnXML_CERTIFICATO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODICE_PAGAMENTO" msprop:Generator_UserColumnName="CODICE_PAGAMENTO" msprop:nullValue="_null" msprop:Generator_ColumnVarNameInTable="columnCODICE_PAGAMENTO" msprop:Generator_ColumnPropNameInTable="CODICE_PAGAMENTOColumn" msprop:Generator_ColumnPropNameInRow="CODICE_PAGAMENTO" type="xs:string" minOccurs="0" />
+              <xs:element name="XML_PAGAMENTO" msprop:Generator_UserColumnName="XML_PAGAMENTO" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnXML_PAGAMENTO" msprop:Generator_ColumnPropNameInTable="XML_PAGAMENTOColumn" msprop:Generator_ColumnPropNameInRow="XML_PAGAMENTO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SOGGETTO_RITIRO" msprop:Generator_UserColumnName="SOGGETTO_RITIRO" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnSOGGETTO_RITIRO" msprop:Generator_ColumnPropNameInTable="SOGGETTO_RITIROColumn" msprop:Generator_ColumnPropNameInRow="SOGGETTO_RITIRO" type="xs:string" minOccurs="0" />
+              <xs:element name="T_CODICE_FISCALE_INTESTATARIO" msprop:Generator_UserColumnName="T_CODICE_FISCALE_INTESTATARIO" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="T_CODICE_FISCALE_INTESTATARIO" msprop:Generator_ColumnPropNameInTable="T_CODICE_FISCALE_INTESTATARIOColumn" msprop:Generator_ColumnVarNameInTable="columnT_CODICE_FISCALE_INTESTATARIO" type="xs:string" />
+              <xs:element name="T_COGNOME_NOME_INTESTATARIO" msprop:Generator_UserColumnName="T_COGNOME_NOME_INTESTATARIO" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnT_COGNOME_NOME_INTESTATARIO" msprop:Generator_ColumnPropNameInTable="T_COGNOME_NOME_INTESTATARIOColumn" msprop:Generator_ColumnPropNameInRow="T_COGNOME_NOME_INTESTATARIO" type="xs:string" />
+              <xs:element name="T_TIPO_CERTIFICATO" msprop:Generator_UserColumnName="T_TIPO_CERTIFICATO" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="T_TIPO_CERTIFICATO" msprop:Generator_ColumnPropNameInTable="T_TIPO_CERTIFICATOColumn" msprop:Generator_ColumnVarNameInTable="columnT_TIPO_CERTIFICATO" type="xs:string" />
+              <xs:element name="T_DATA_EMISSIONE" msprop:Generator_UserColumnName="T_DATA_EMISSIONE" msprop:Generator_ColumnVarNameInTable="columnT_DATA_EMISSIONE" msprop:Generator_ColumnPropNameInRow="T_DATA_EMISSIONE" msprop:Generator_ColumnPropNameInTable="T_DATA_EMISSIONEColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Certificato4DownloadKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Certificati" />
+      <xs:field xpath="mstns:CIU" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

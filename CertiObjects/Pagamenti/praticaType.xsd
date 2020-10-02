@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+	<xs:complexType name="praticaType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		
+    </xs:annotation>
+			<xs:sequence>
+				<xs:element name="numeroriferimento" type="xs:int"/>
+				<xs:element minOccurs="0" name="datariferimento" type="xs:string"/>
+				<xs:element minOccurs="0" name="annoriferimento" type="xs:int"/>
+				<xs:element minOccurs="0" name="numeroprotocollo" type="xs:int"/>
+				<xs:element minOccurs="0" name="dataprotocollo" type="xs:string"/>
+				<xs:element minOccurs="0" name="datanotifica" type="xs:string"/>
+				<xs:element name="tipo" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+    <xs:element name="praticaType" type="io:praticaType">
+  </xs:element>
+</xs:schema>

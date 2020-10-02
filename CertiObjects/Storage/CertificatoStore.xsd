@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CertificatoStore" targetNamespace="http://tempuri.org/CertificatoStore.xsd" elementFormDefault="qualified" xmlns="http://tempuri.org/CertificatoStore.xsd" xmlns:mstns="http://tempuri.org/CertificatoStore.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="CertificatoStore">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Container">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="FileID" type="xs:string" minOccurs="0" />
+							<xs:element name="Documents" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Document" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Hash" type="xs:hexBinary" minOccurs="0" />
+													<xs:element name="Type" type="xs:string" minOccurs="0" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

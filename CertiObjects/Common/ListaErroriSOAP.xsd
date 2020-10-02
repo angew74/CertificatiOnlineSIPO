@@ -1,0 +1,34 @@
+<xs:schema id="ListaErroriSOAP" targetNamespace="http://tempuri.org/ListaErroriSOAP.xsd" xmlns:mstns="http://tempuri.org/ListaErroriSOAP.xsd" xmlns="http://tempuri.org/ListaErroriSOAP.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified" msdata:schemafragmentcount="2">
+	<xs:annotation>
+		<xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+			<DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+				<Connections>
+				</Connections>
+				<Tables>
+				</Tables>
+				<Sources>
+				</Sources>
+			</DataSource>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:element name="ListaErroriSOAP" msdata:IsDataSet="true" msdata:Locale="en-US" msprop:Generator_UserDSName="ListaErroriSOAP" msprop:Generator_DataSetName="ListaErroriSOAP">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="Errore" form="unqualified" msprop:Generator_UserTableName="Errore" msprop:Generator_RowDeletedName="ErroreRowDeleted" msprop:Generator_TableClassName="ErroreDataTable" msprop:Generator_RowChangedName="ErroreRowChanged" msprop:Generator_RowClassName="ErroreRow" msprop:Generator_RowChangingName="ErroreRowChanging" msprop:Generator_RowEvArgName="ErroreRowChangeEvent" msprop:Generator_RowEvHandlerName="ErroreRowChangeEventHandler" msprop:Generator_TablePropName="Errore" msprop:Generator_TableVarName="tableErrore" msprop:Generator_RowDeletingName="ErroreRowDeleting">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="InternalError" form="unqualified" msprop:Generator_UserColumnName="InternalError" msprop:Generator_ColumnPropNameInRow="InternalError" msprop:Generator_ColumnVarNameInTable="columnInternalError" msprop:Generator_ColumnPropNameInTable="InternalErrorColumn" type="xs:string" />
+							<xs:element name="InternalDescription" form="unqualified" msprop:Generator_UserColumnName="InternalDescription" msprop:Generator_ColumnPropNameInRow="InternalDescription" msprop:Generator_ColumnVarNameInTable="columnInternalDescription" msprop:Generator_ColumnPropNameInTable="InternalDescriptionColumn" type="xs:string" minOccurs="0" />
+							<xs:element name="SOAPDescription" form="unqualified" msprop:Generator_UserColumnName="SOAPDescription" msprop:Generator_ColumnPropNameInRow="SOAPDescription" msprop:Generator_ColumnVarNameInTable="columnSOAPDescription" msprop:Generator_ColumnPropNameInTable="SOAPDescriptionColumn" type="xs:string" minOccurs="0" />
+							<xs:element name="SOAPActor" form="unqualified" msprop:Generator_UserColumnName="SOAPActor" msprop:Generator_ColumnPropNameInRow="SOAPActor" msprop:Generator_ColumnVarNameInTable="columnSOAPActor" msprop:Generator_ColumnPropNameInTable="SOAPActorColumn" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+		<xs:unique name="ErroreKey1" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//Errore" />
+			<xs:field xpath="InternalError" />
+		</xs:unique>
+	</xs:element>
+</xs:schema>

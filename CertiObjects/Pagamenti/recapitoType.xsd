@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+	<xs:complexType name="recapitoType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		
+    </xs:annotation>
+			<xs:sequence>
+				<xs:element name="tipo" type="xs:string"/>
+				<xs:element name="descrizione" type="xs:string">
+      </xs:element>
+				<xs:element name="cap">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="5"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+				<xs:element name="comune" type="xs:string"/>
+				<xs:element minOccurs="0" name="frazione" type="xs:string"/>
+				<xs:element name="provincia">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+            <xs:element minOccurs="0" name="aggiuntiveEdif" type="xs:string"/>
+            <xs:element minOccurs="0" name="presso" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="recapitoType" type="io:recapitoType">
+  </xs:element>
+</xs:schema>

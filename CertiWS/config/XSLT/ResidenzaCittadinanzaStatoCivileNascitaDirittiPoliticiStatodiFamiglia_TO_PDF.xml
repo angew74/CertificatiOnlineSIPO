@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fn="http://www.w3.org/2005/xpath-functions"
+	xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+  <xsl:output version="1.0" method="xml" encoding="UTF-8" indent="no" />
+  <xsl:param name="SV_OutputFormat" select="'PDF'" />
+  <xsl:template match="/">
+    <fo:root>
+      <fo:layout-master-set>
+        <fo:simple-page-master master-name="ResidenzaCittadinanzaStatoCivileNascitaDirittiPoliticiStatodiFamiglia-page" page-height="10in" page-width="8.5in" margin-left="0.6in" margin-right="0.6in">
+          <fo:region-body margin-top="0.79in" margin-bottom="0.79in" />
+        </fo:simple-page-master>
+      </fo:layout-master-set>
+      <fo:page-sequence master-reference="ResidenzaCittadinanzaStatoCivileNascitaDirittiPoliticiStatodiFamiglia-page" initial-page-number="1" format="1">
+        <fo:flow flow-name="xsl-region-body">
+          <fo:block font-weight="normal" font-size="11px" color="#333333" line-height="11px" font-family="Courier New">
+            <xsl:call-template name="ResidenzaCittadinanzaStatoCivileNascitaDirittiPoliticiStatodiFamiglia" />
+          </fo:block>
+        </fo:flow>
+      </fo:page-sequence>
+    </fo:root>
+  </xsl:template>
+  <xsl:template name="ResidenzaCittadinanzaStatoCivileNascitaDirittiPoliticiStatodiFamiglia">
+    <fo:block margin-left="0.8in" margin-right="0.6in" font-size="10px">
+      <fo:inline font-weight="bold" font-size="11px">
+        <xsl:value-of select="request/indice/txtTipo"/>&#160;
+      </fo:inline>
+      <fo:inline font-weight="bold" font-size="11px">
+        <xsl:value-of select="request/indice/tipo"/>
+      </fo:inline>
+      <fo:block>
+        <fo:leader leader-pattern="space"/>
+      </fo:block>
+      <xsl:if test="count(request/indice/txtTipoUsoCertificato) > 0">
+        <fo:inline font-weight="bold">
+          <xsl:value-of select="request/indice/txtTipoUsoCertificato"/>
+        </fo:inline>
+      </xsl:if>
+      <fo:block />
+      <fo:inline>
+        <xsl:value-of select="request/indice/validitaCertificato"/>
+      </fo:inline>
+      <fo:block>
+        <fo:leader leader-pattern="space"/>
+      </fo:block>
+      <fo:inline font-weight="bold">
+        <xsl:value-of select="request/indice/ruoloEmittente"/>
+      </fo:inline>
+      <fo:block />
+      <fo:inline>
+        <xsl:value-of select="request/indice/azione"/>,
+      </fo:inline>
+      <fo:block />
+      <fo:inline>
+        <xsl:value-of select="request/indice/azioneArticolo"/>
+      </fo:inline>
+      <fo:block />
+      <fo:inline font-weight="bold">
+        <xsl:value-of select="request/indice/txtCertifica"/>:
+      </fo:inline>
+    </fo:block>
+    <fo:block>
+      <fo:leader leader-pattern="space"/>
+    </fo:block>
+    <fo:block margin-left="0.8in" margin-right="0.6in" font-size="11px">
+      <fo:inline font-family="Lucida Console">
+        <xsl:value-of select="request/generalita/cognome"/>&#160;
+      </fo:inline>
+      <fo:inline>
+        <xsl:value-of select="request/generalita/nome"/>
+      </fo:inline>
+      <fo:block />
+      <fo:inline>
+        <xsl:value-of select="request/generalita/txtCodiceFiscale"/>&#160;
+      </fo:inline>
+      <fo:inline>
+        <xsl:value-of select="request/generalita/codiceFiscale"/>
+      </fo:inline>
+      <fo:block />
+      <fo:inline>
+        <xsl:value-of select="request/generalita/txtNascita"/>&#160;
+      </fo:inline>
+      <fo:inline>
+        <xsl:value-of select="request/generalita/txtDataNascita"/>&#160;
+      </fo:inline>
+      <fo:inline>
+        <xsl:value-of select="request/generalita/dataNascita"/>&#160;
+      </fo:inline>
+      <xsl:if test="request/generalita/luogoNascita/nomeComune != ''">
+        <fo:inline>
+          <xsl:value-of select="request/generalita/luogoNascita/txtComune"/>&#160;
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/generalita/luogoNascita/nomeComune"/>
+        </fo:inline>
+      </xsl:if>
+      <fo:inline> (</fo:inline>
+      <xsl:if test="request/generalita/luogoNascita/siglaProvincia != ''">
+        <fo:inline>
+          <xsl:value-of select="request/generalita/luogoNascita/siglaProvincia"/>
+        </fo:inline>
+      </xsl:if>
+      <xsl:if test="request/generalita/luogoNascita/nomeStato != '' and request/generalita/luogoNascita/siglaProvincia = ''">
+        <fo:inline>
+          <xsl:value-of select="request/generalita/luogoNascita/nomeStato"/>
+        </fo:inline>
+      </xsl:if>
+      <fo:inline>)</fo:inline>
+      <fo:block/>
+      <!-- Atto di Nascita -->
+      <fo:inline>
+        <xsl:value-of select="request/generalita/attoNascita/txtNumero"/>
+      </fo:inline>
+      <fo:inline>
+        &#160;<xsl:value-of select="request/generalita/attoNascita/numero"/>
+      </fo:inline>
+      <xsl:if test="request/generalita/attoNascita/parte != ''">
+        <fo:inline>
+          &#160;<xsl:value-of select="request/generalita/attoNascita/txtParte"/>&#160;<xsl:value-of select="request/generalita/attoNascita/parte"/>
+        </fo:inline>
+      </xsl:if>
+      <xsl:if test="request/generalita/attoNascita/serie != '' or request/generalita/attoNascita/esponente != ''">
+        <fo:inline>
+          &#160;<xsl:value-of select="request/generalita/attoNascita/txtSerie"/>&#160;<xsl:value-of select="request/generalita/attoNascita/serie"/>
+        </fo:inline>
+      </xsl:if>
+      <xsl:if test="request/generalita/attoNascita/esponente != ''">
+        <fo:inline>
+          <xsl:value-of select="request/generalita/attoNascita/esponente"/>
+        </fo:inline>
+      </xsl:if>
+      <fo:block />
+      <!-- Indirizzo -->
+      <!-- indirizzo -->
+      <!--<fo:inline>
+        <xsl:value-of select="request/indirizzo/txtToponimo"/>&#160;
+      </fo:inline>-->
+      <!-- Residenza -->
+      <fo:inline>
+        <xsl:value-of select="request/iscrizioneAPR/residenza"/>&#160;,
+      </fo:inline>
+      <fo:inline>
+        <xsl:value-of select="request/indirizzo/toponimo"/>&#160;
+      </fo:inline>
+      <fo:inline>
+        <xsl:value-of select="request/indirizzo/numeroCivico/txtNumero"/>
+      </fo:inline>
+      <fo:inline>
+        <xsl:value-of select="request/indirizzo/numeroCivico/numero"/>
+      </fo:inline>
+      <xsl:if test="request/indirizzo/numeroCivico/lettera != ''">
+        <fo:inline>
+          <xsl:value-of select="request/indirizzo/numeroCivico/lettera"/>&#160;
+        </fo:inline>
+      </xsl:if>
+      <xsl:if test="request/indirizzo/numeroCivico/esponente != ''">
+        <fo:inline>
+          <xsl:value-of select="request/indirizzo/numeroCivico/esponente"/>
+        </fo:inline>
+      </xsl:if>
+      <xsl:if test="request/indirizzo/lotto != ''">
+        <fo:inline>
+          &#160;<xsl:value-of select="request/indirizzo/txtLotto"/>
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/indirizzo/lotto"/>
+        </fo:inline>
+      </xsl:if>
+      <xsl:if test="request/indirizzo/palazzina != ''">
+        <fo:inline>
+          &#160;<xsl:value-of select="request/indirizzo/txtPalazzina"/>
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/indirizzo/palazzina"/>
+        </fo:inline>
+      </xsl:if>
+      <xsl:if test="request/indirizzo/kilometro != ''">
+        <fo:inline>
+          &#160;<xsl:value-of select="request/indirizzo/txtKilometro"/>
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/indirizzo/kilometro"/>
+        </fo:inline>
+      </xsl:if>
+      <xsl:if test="request/indirizzo/scala != ''">
+        <fo:inline>
+          &#160;<xsl:value-of select="request/indirizzo/txtScala"/>
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/indirizzo/scala"/>
+        </fo:inline>
+      </xsl:if>
+      <xsl:if test="request/indirizzo/piano != ''">
+        <fo:inline>
+          &#160;<xsl:value-of select="request/indirizzo/txtPiano"/>
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/indirizzo/piano"/>&#160;
+        </fo:inline>
+      </xsl:if>
+      <xsl:if test="request/indirizzo/interno != ''">
+        <fo:inline>
+          &#160;<xsl:value-of select="request/indirizzo/txtInterno"/>
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/indirizzo/interno"/>
+        </fo:inline>
+      </xsl:if>
+      <fo:block/>
+      <!--<xsl:if test="request/iscrizioneAPR/luogoImmigrazione/nomeComune != ''">
+        <fo:inline>
+          <xsl:value-of select="request/iscrizioneAPR/txtDataIscrizione"/>&#160;
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/iscrizioneAPR/dataIscrizioneAPR"/>&#160;
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/iscrizioneAPR/luogoImmigrazione/txtComune"/>&#160;
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/iscrizioneAPR/luogoImmigrazione/nomeComune"/>&#160;
+        </fo:inline>
+        <fo:inline> ( </fo:inline>
+        <xsl:if test="request/iscrizioneAPR/luogoImmigrazione/siglaProvincia != ''">
+          <fo:inline>
+            <xsl:value-of select="request/iscrizioneAPR/luogoImmigrazione/siglaProvincia"/>
+          </fo:inline>
+        </xsl:if>
+        <xsl:if test="request/iscrizioneAPR/luogoImmigrazione/nomeStato != '' and request/iscrizioneAPR/luogoImmigrazione/siglaProvincia = ''">
+          <fo:inline>
+            <xsl:value-of select="request/iscrizioneAPR/luogoImmigrazione/nomeStato"/>
+          </fo:inline>
+        </xsl:if>
+        <fo:inline>)</fo:inline>
+      </xsl:if>
+      <xsl:if test="request/iscrizioneAPR/txtResidenza != ''">
+        <fo:inline>
+          <xsl:value-of select="request/iscrizioneAPR/txtResidenza"/>&#160;
+        </fo:inline>
+      </xsl:if>-->
+      <!--<fo:block />-->
+      <!-- Cittadinanza -->
+      <fo:inline>
+        <xsl:value-of select="request/generalita/statusCittadinanza"/>
+      </fo:inline>
+      <fo:block />
+      <!-- Stato Civile-->
+      <fo:inline>
+        <xsl:value-of select="request/generalita/txtStatoCivile"/>&#160;
+      </fo:inline>
+      <xsl:if test="request/generalita/statoCivile = 'vedovo' or request/generalita/statoCivile = 'vedova' or request/generalita/statoCivile = 'vedova di unione' or request/generalita/statoCivile = 'vedovo di unione'">
+        <xsl:if test="request/coniuge/cognome != ''">
+          <fo:inline>
+            <xsl:value-of select="request/coniuge/txtConiuge"/>&#160;
+          </fo:inline>
+        </xsl:if>
+        <fo:inline>
+          <xsl:value-of select="request/coniuge/cognome"/>&#160;
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/coniuge/nome"/>
+        </fo:inline>
+      </xsl:if>
+      <xsl:if test="request/generalita/statoCivile = 'coniugato' or request/generalita/statoCivile = 'coniugata' or request/generalita/statoCivile = 'unito civilmente' or request/generalita/statoCivile = 'unita civilmente'">
+        <xsl:if test="request/coniuge/cognome != ''">
+          <fo:inline>
+            <xsl:value-of select="request/coniuge/txtConiuge"/>&#160;
+          </fo:inline>
+        </xsl:if>
+        <fo:inline>
+          <xsl:value-of select="request/coniuge/cognome"/>&#160;
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/coniuge/nome"/>
+        </fo:inline>
+        <fo:block/>
+        <xsl:if test="request/matrimonio/attoMatrimonio/numero != ''">
+          <fo:inline>
+            <xsl:value-of select="request/matrimonio/attoMatrimonio/txtNumero"/>&#160;
+          </fo:inline>
+          <fo:inline>
+            <xsl:value-of select="request/matrimonio/attoMatrimonio/numero"/>&#160;
+          </fo:inline>
+        </xsl:if>
+        <xsl:if test="request/matrimonio/attoMatrimonio/parte != ''">
+          <fo:inline>
+            &#160;<xsl:value-of select="request/matrimonio/attoMatrimonio/txtParte"/>&#160;
+          </fo:inline>
+          <fo:inline>
+            <xsl:value-of select="request/matrimonio/attoMatrimonio/parte"/>
+          </fo:inline>
+        </xsl:if>
+        <fo:inline>
+          &#160;<xsl:value-of select="request/matrimonio/attoMatrimonio/txtSerie"/>&#160;
+        </fo:inline>
+        <xsl:if test="request/matrimonio/attoMatrimonio/serie != ''">
+          <fo:inline>
+            <xsl:value-of select="request/matrimonio/attoMatrimonio/serie"/>
+          </fo:inline>
+        </xsl:if>
+        <xsl:if test="request/matrimonio/attoMatrimonio/esponente != ''">
+          <fo:inline>
+            <xsl:value-of select="request/matrimonio/attoMatrimonio/esponente"/>&#160;
+          </fo:inline>
+        </xsl:if>
+        <xsl:if test="request/matrimonio/luogoMatrimonio/nomeComune != ''">
+          <fo:inline>
+            <xsl:value-of select="request/matrimonio/luogoMatrimonio/txtComune"/>&#160;
+          </fo:inline>
+          <fo:inline>
+            <xsl:value-of select="request/matrimonio/luogoMatrimonio/nomeComune"/>&#160;
+          </fo:inline>
+          <fo:inline>(</fo:inline>
+          <xsl:if test="request/matrimonio/luogoMatrimonio/siglaProvincia != ''">
+            <fo:inline>
+              <xsl:value-of select="request/matrimonio/luogoMatrimonio/siglaProvincia"/>
+            </fo:inline>
+          </xsl:if>
+          <xsl:if test="request/matrimonio/luogoMatrimonio/nomeStato != '' and request/matrimonio/luogoMatrimonio/siglaProvincia = ''">
+            <fo:inline>
+              <xsl:value-of select="request/matrimonio/luogoMatrimonio/nomeStato"/>
+            </fo:inline>
+          </xsl:if>
+          <fo:inline>)</fo:inline>&#160;
+        </xsl:if>
+        <fo:inline>
+          <xsl:value-of select="request/matrimonio/txtDataMatrimonio"/>&#160;
+        </fo:inline>
+        <fo:inline>
+          <xsl:value-of select="request/matrimonio/dataMatrimonio"/>
+        </fo:inline>
+      </xsl:if>
+      <fo:block />
+      <xsl:if test="count(request/generalita/txtNascita2) &gt; 0  and request/generalita/txtNascita2 != ''">
+        <xsl:if test="request/generalita/dataNascita != ''">
+          <fo:inline>
+            <xsl:value-of select="request/generalita/txtNascita2"/>&#160;
+          </fo:inline>
+          <fo:inline>
+            <xsl:value-of select="request/generalita/txtDataNascita"/>&#160;
+          </fo:inline>
+          <fo:inline>
+            <xsl:value-of select="request/generalita/dataNascita"/>&#160;
+          </fo:inline>
+        </xsl:if>
+        <xsl:if test="request/generalita/luogoNascita/nomeComune != ''">
+          <fo:inline>
+            <xsl:value-of select="request/generalita/luogoNascita/txtComune"/>&#160;
+          </fo:inline>
+          <fo:inline>
+            <xsl:value-of select="request/generalita/luogoNascita/nomeComune"/>
+          </fo:inline>
+        </xsl:if>
+        <fo:inline> (</fo:inline>
+        <xsl:if test="request/generalita/luogoNascita/siglaProvincia != ''">
+          <fo:inline>
+            <xsl:value-of select="request/generalita/luogoNascita/siglaProvincia"/>
+          </fo:inline>
+        </xsl:if>
+        <xsl:if test="request/generalita/luogoNascita/nomeStato != '' and request/generalita/luogoNascita/siglaProvincia = ''">
+          <fo:inline>
+            <xsl:value-of select="request/generalita/luogoNascita/nomeStato"/>
+          </fo:inline>
+        </xsl:if>
+        <fo:inline>)</fo:inline>
+      </xsl:if>
+      <fo:block />
+      <fo:inline>
+        <xsl:value-of select="request/datiElettorali/txtIscrizione"/>&#160;
+      </fo:inline>
+      <fo:inline>
+        <xsl:value-of select="request/datiElettorali/listaGenerale"/>&#160;e
+      </fo:inline>
+      <fo:block />
+      <fo:inline>
+        <xsl:value-of select="request/datiElettorali/txtDirittiPolitici"/>
+      </fo:inline>
+      <fo:block>
+        <fo:leader leader-pattern="space"/>
+      </fo:block>
+      <fo:inline>
+        <xsl:value-of select="request/indice/azione2"/>:
+      </fo:inline>
+      <fo:block>
+        <fo:leader leader-pattern="space"/>
+        <fo:leader leader-pattern="space"/>
+      </fo:block>
+      <fo:block>
+        <fo:leader leader-pattern="space"/>
+        <fo:block/>
+        <fo:table table-layout="fixed" width="100%" >
+          <fo:table-column column-width="proportional-column-width(1)" />
+          <fo:table-body start-indent="3pt">
+            <xsl:for-each select ="request/componenteFamiglia">
+              <fo:table-row keep-together="always" margin-left="0.8in" margin-right="0.6in" font-size="10px">
+                <fo:table-cell>
+                  <fo:block>
+                    <fo:leader leader-pattern="space"/>
+                    <fo:leader leader-pattern="space"/>
+                    <fo:leader leader-pattern="space"/>
+                  </fo:block>
+                  <fo:block>
+                    <fo:inline>
+                      <xsl:value-of select="generalita/cognome"/>
+                    </fo:inline>
+                    <fo:inline>
+                      &#160;<xsl:value-of select="generalita/nome"/>
+                    </fo:inline>
+                    <xsl:if test="generalita/rapportoParentela = 'I.S.'">
+                      <fo:inline>
+                        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<xsl:value-of select="generalita/rapportoParentela"/>
+                      </fo:inline>
+                    </xsl:if>
+                    <fo:block/>
+                    <xsl:if test="generalita/codiceFiscale != ''">
+                      <fo:inline>
+                        <xsl:value-of select="generalita/txtCodiceFiscale"/>&#160;
+                      </fo:inline>
+                      <fo:inline>
+                        <xsl:value-of select="generalita/codiceFiscale"/>
+                      </fo:inline>
+                    </xsl:if>
+                    <fo:block/>
+                    <xsl:if test="generalita/dataNascita != ''">
+                      <fo:inline>
+                        <xsl:value-of select="generalita/txtNascita"/>&#160;
+                      </fo:inline>
+                      <fo:inline>
+                        <xsl:value-of select="generalita/txtDataNascita"/>&#160;
+                      </fo:inline>
+                      <fo:inline>
+                        <xsl:value-of select="generalita/dataNascita"/>&#160;
+                      </fo:inline>
+                    </xsl:if>
+                    <xsl:if test="generalita/luogoNascita/nomeComune != ''">
+                      <fo:inline>
+                        <xsl:value-of select="generalita/luogoNascita/txtComune"/>&#160;
+                      </fo:inline>
+                      <fo:inline>
+                        <xsl:value-of select="generalita/luogoNascita/nomeComune"/>
+                      </fo:inline>
+                    </xsl:if>
+                    <fo:inline> (</fo:inline>
+                    <xsl:if test="generalita/luogoNascita/siglaProvincia != ''">
+                      <fo:inline>
+                        <xsl:value-of select="generalita/luogoNascita/siglaProvincia"/>
+                      </fo:inline>
+                    </xsl:if>
+                    <xsl:if test="generalita/luogoNascita/nomeStato != '' and generalita/luogoNascita/siglaProvincia = ''">
+                      <fo:inline>
+                        <xsl:value-of select="generalita/luogoNascita/nomeStato"/>
+                      </fo:inline>
+                    </xsl:if>
+                    <fo:inline>)</fo:inline>
+                    <fo:block/>
+                    <fo:inline>
+                      <xsl:value-of select="generalita/attoNascita/txtNumero"/>
+                    </fo:inline>
+                    <fo:inline>
+                      &#160;<xsl:value-of select="generalita/attoNascita/numero"/>
+                    </fo:inline>
+                    <xsl:if test="generalita/attoNascita/parte != ''">
+                      <fo:inline>
+                        &#160;<xsl:value-of select="generalita/attoNascita/txtParte"/>&#160;<xsl:value-of select="generalita/attoNascita/parte"/>
+                      </fo:inline>
+                    </xsl:if>
+                    <xsl:if test="generalita/attoNascita/serie != '' or generalita/attoNascita/esponente != ''">
+                      <fo:inline>
+                        &#160;<xsl:value-of select="generalita/attoNascita/txtSerie"/>&#160;<xsl:value-of select="generalita/attoNascita/serie"/>
+                      </fo:inline>
+                    </xsl:if>
+                    <xsl:if test="generalita/attoNascita/esponente != ''">
+                      <fo:inline>
+                        <xsl:value-of select="generalita/attoNascita/esponente"/>
+                      </fo:inline>
+                    </xsl:if>
+                    <fo:block />
+                    <!-- stato civile -->
+                    <!--<fo:inline>
+                      <xsl:value-of select="generalita/statoCivile"/>
+                    </fo:inline>
+                    <xsl:if test="generalita/statoCivile = 'coniugato' or generalita/statoCivile = 'coniugata'">
+                      <fo:inline>
+                        &#160;<xsl:value-of select="coniuge/txtConiuge"/>&#160;
+                      </fo:inline>
+                    </xsl:if>
+                    <xsl:if test="generalita/statoCivile = 'vedovo' or generalita/statoCivile = 'vedova'">
+                      <fo:inline>
+                        &#160;<xsl:value-of select="coniuge/txtConiuge"/>&#160;
+                      </fo:inline>
+                    </xsl:if>
+                    <xsl:if test="coniuge/cognome != '' and coniuge/nome != ''">
+                      <fo:inline>
+                        <xsl:value-of select="coniuge/cognome"/>&#160;
+                      </fo:inline>
+                      <fo:inline>
+                        <xsl:value-of select="coniuge/nome"/>
+                      </fo:inline>
+                    </xsl:if>-->
+                    <fo:block>
+                    </fo:block>
+                    <fo:block />
+                  </fo:block>
+                  <fo:block/>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:for-each>
+          </fo:table-body>
+        </fo:table>
+        <fo:block>
+          <fo:leader leader-pattern="space"/>
+        </fo:block>
+      </fo:block>
+    </fo:block>
+  </xsl:template>
+</xsl:stylesheet>

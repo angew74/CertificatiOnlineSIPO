@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/TipiComuni" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" targetNamespace="http://tempuri.org/TipiComuni" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation>Schema dati Porta Applicativa del Comune di Roma</xs:documentation>
+		<xs:documentation>Realizzato da UNISYS; variazione del modello ufficiale People</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Messaggio">
+		<xs:sequence>
+			<xs:element name="Codice" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="Livello" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="Descrizione" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="AnnoPratica" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="NumeroPratica" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="StatusPratica" type="xs:string" minOccurs="0" default=" " />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DatiGenerali">
+		<xs:sequence>
+			<xs:element name="AnnoPratica" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="NumeroPratica" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="StatusPratica" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="User" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="DipUser" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="MunicipioUtente" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="SedeUtente" type="xs:string" minOccurs="0" default=" " />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Programmi">
+		<xs:sequence>
+			<xs:element name="Programma">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Nomepgm" type="xs:string" />
+						<xs:element name="Despgm" type="xs:string" />
+						<xs:element name="Funzioni" type="Funzioni" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Funzioni">
+		<xs:sequence>
+			<xs:element name="Funzione">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="NomeFunz" type="xs:string" />
+						<xs:element name="DesFunz" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ElencoAttestati">
+		<xs:sequence>
+			
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DatiUtente">
+		<xs:sequence>
+			<xs:element name="User" type="xs:string" />
+			<xs:element name="DipUser" type="xs:string" />
+			<xs:element name="MunicipioUtente" type="xs:string" />
+			<xs:element name="SedeUtente" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BasePratica">
+		<xs:sequence>
+			<xs:element name="AnnoPratica" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="NumeroPratica" type="xs:string" minOccurs="0" default=" " />
+			<xs:element name="StatusPratica" type="xs:string" minOccurs="0" default=" " />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ListaMessaggi">
+		<xs:sequence>
+			<xs:element name="Messaggio" type="Messaggio" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OpzioniStampa">
+		<xs:sequence>
+			<xs:element name="Anteprima" type="xs:string" minOccurs="0" form="unqualified" />
+			<xs:element name="Copie" type="xs:string" minOccurs="0" form="unqualified" />
+			<xs:element name="NumberRow" type="xs:string" minOccurs="0" form="unqualified" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DatiGenericiStampa">
+		<xs:sequence>
+			<xs:element name="DataRichiesta" type="xs:string" minOccurs="0" form="unqualified" default=" " />
+			<xs:element name="InvioRicorso" type="xs:string" minOccurs="0" form="unqualified" default=" " />
+			<xs:element name="DataDefinizione" type="xs:string" minOccurs="0" form="unqualified" default=" " />
+			<xs:element name="UtenteRic" type="xs:string" minOccurs="0" form="unqualified" default=" " />
+			<xs:element name="AnnoPraticaRic" type="xs:string" minOccurs="0" form="unqualified" default=" " />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DatiNotificaAnnullStampa">
+		<xs:sequence>
+			<xs:element name="Osservazioni" type="xs:string" minOccurs="0" form="unqualified" default=" " />
+			<xs:element name="IndirizzoProvenienza" type="xs:string" minOccurs="0" form="unqualified" default=" " />
+			<xs:element name="TestoMotivazione" type="xs:string" minOccurs="0" form="unqualified" default=" " />
+			<xs:element name="TestoSoluzione" type="xs:string" minOccurs="0" form="unqualified" default=" " />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DatiRicercaPerMunicipioRequest">
+		<xs:sequence>
+			<xs:element name="MunicipioRic" type="xs:string" />
+			<xs:element name="SedeRic" type="xs:string" />
+			<xs:element name="TipoOrd" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DatiStatisticaAttestatiResponse">
+		<xs:sequence>
+			<xs:element name="Tipo" type="xs:string" />
+			<xs:element name="Data" type="xs:string" />
+			<xs:element name="Totale" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DatiRicercaPerMunicResponse">
+		<xs:sequence>
+			<xs:element name="Nominativo" type="xs:string" />
+			<xs:element name="AnnoPratica" type="xs:string" />
+			<xs:element name="NumeroPratica" type="xs:string" />
+			<xs:element name="StatusPratica" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

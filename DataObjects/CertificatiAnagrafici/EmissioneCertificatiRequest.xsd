@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="EmissioneCertificatiRequest" xmlns="http://tempuri.org/EmissioneCertificatiRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:tc="http://tempuri.org/TipiBase.xsd" targetNamespace="http://tempuri.org/EmissioneCertificatiRequest" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://tempuri.org/TipiBase.xsd" schemaLocation="C:\dev\SchemiComuni\TipiBase.xsd" />
+	<xs:element name="EmissioneCertificatiRequest" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Persona" type="tc:BasePersonaAnag" />
+				<xs:element name="CodiciCertificato" type="tc:ListaCodici" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

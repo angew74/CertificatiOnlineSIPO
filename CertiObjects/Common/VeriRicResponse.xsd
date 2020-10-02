@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="VERIRIC_RESP" targetNamespace="http://tempuri.org/VERIRIC_RESP.xsd" 
+		   xmlns="http://tempuri.org/VERIRIC_RESP.xsd" 
+		   xmlns:mstns="http://tempuri.org/VeriReq.xsd" 
+		   xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" 
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		   xmlns:tc="http://tempuri.org/TipiBase.xsd" 
+		   elementFormDefault="unqualified" 
+		   attributeFormDefault="unqualified">
+	<xs:import namespace="http://tempuri.org/TipiBase.xsd" schemaLocation="C:\Users\AdminDSI\RootPrj\CertificatiOnLine\CertiObjects\Common\TipiBase.xsd" />
+	<xs:element name="VERIRIC_RESP" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" form="unqualified" name="Elenco">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="PersonaElenco">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" form="unqualified" name="CodiceIndiv" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="SessoPersona" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="CognomePersona" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="NomePersona" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="DataDiNascitaPersona" type="xs:string" nillable="true" />
+                   	<xs:element minOccurs="0" form="unqualified" name="ComuneNascitaPersona" type="xs:string" nillable="true" />
+                    <xs:element minOccurs="0" form="unqualified" name="ProvinciaNascitaPersona" type="xs:string" nillable="true" />
+                    <xs:element minOccurs="0" form="unqualified" name="IndirizzoPersona" type="xs:string" nillable="true" />
+                    <xs:element minOccurs="0" form="unqualified" name="CapPersona" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="CodiceFiscale" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="CodiceFamiglia" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="CodiceCittadinanza" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="Cittadinanza" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="CodiceComuneNascita" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="ComuneNascita" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="Descrizione" type="xs:string" nillable="true" />
+										<xs:element minOccurs="0" form="unqualified" name="FlagVivoResidente" type="xs:string" nillable="true" />
+										<xs:element  minOccurs="0" form="unqualified" name="RapportoParentela" type="xs:string" nillable="true" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="da" type="xs:string" default="" />
+						<xs:attribute name="per" type="xs:string" default="" />
+						<xs:attribute name="totale" type="xs:string" default="" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="Messaggi" type="tc:BaseMessaggioAnag" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

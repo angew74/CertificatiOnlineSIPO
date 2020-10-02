@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ListaErroriSOAP>
+	<Errore>
+		<InternalError>ERR_001</InternalError>
+		<InternalDescription>Violazione del flusso di emissione</InternalDescription>
+		<SOAPDescription>Violazione del flusso di emissione</SOAPDescription>
+		<SOAPActor>Client</SOAPActor>
+	</Errore>
+	<Errore>
+		<InternalError>ERR_002</InternalError>
+		<InternalDescription>Errore Applicativo Generico</InternalDescription>
+		<SOAPDescription>Errore Applicativo Generico</SOAPDescription>
+		<SOAPActor>Server</SOAPActor>
+	</Errore>
+	<Errore>
+		<InternalError>ERR_003</InternalError>
+		<InternalDescription>Motivo di esenzione assente</InternalDescription>
+		<SOAPDescription>Motivo di esenzione assente</SOAPDescription>
+		<SOAPActor>Client</SOAPActor>
+	</Errore>
+	<Errore>
+		<InternalError>ERR_004</InternalError>
+		<InternalDescription>Motivo di esenzione presente</InternalDescription>
+		<SOAPDescription>Motivo di esenzione presente</SOAPDescription>
+		<SOAPActor>Client</SOAPActor>
+	</Errore>
+	<Errore>
+		<InternalError>ERR_005</InternalError>
+		<InternalDescription>Codifica errata</InternalDescription>
+		<SOAPDescription>Codifica errata</SOAPDescription>
+		<SOAPActor>Client</SOAPActor>
+	</Errore>
+	<Errore>
+		<InternalError>ERR_006</InternalError>
+		<InternalDescription>Certificato richiesto non valido</InternalDescription>
+		<SOAPDescription>Certificato richiesto non valido</SOAPDescription>
+		<SOAPActor>Client</SOAPActor>
+	</Errore>
+	<Errore>
+		<InternalError>ERR_007</InternalError>
+		<InternalDescription>Richiesti certificati non più emettibili</InternalDescription>
+		<SOAPDescription>Richiesti certificati non più emettibili</SOAPDescription>
+		<SOAPActor>Server</SOAPActor>
+	</Errore>
+	<Errore>
+		<InternalError>ERR_008</InternalError>
+		<InternalDescription>Credenziali errate</InternalDescription>
+		<SOAPDescription>Credenziali errate</SOAPDescription>
+		<SOAPActor>Client</SOAPActor>
+	</Errore>
+	<Errore>
+		<InternalError>ERR_009</InternalError>
+		<InternalDescription>Id certificato non valido</InternalDescription>
+		<SOAPDescription>Id certificato non valido</SOAPDescription>
+		<SOAPActor>Client</SOAPActor>
+	</Errore>
+	<Errore>
+		<InternalError>ERR_010</InternalError>
+		<InternalDescription>Operazione non consentita</InternalDescription>
+		<SOAPDescription>Operazione non consentita</SOAPDescription>
+		<SOAPActor>Client</SOAPActor>
+	</Errore>
+	<Errore>
+		<InternalError>ERR_011</InternalError>
+		<InternalDescription>Operazione errata</InternalDescription>
+		<SOAPDescription>Operazione errata</SOAPDescription>
+		<SOAPActor>Server</SOAPActor>
+	</Errore>
+  <Errore>
+    <InternalError>ERR_113</InternalError>
+    <InternalDescription>Operazione errata</InternalDescription>
+    <SOAPDescription>Problema interrogazione servizi centrali</SOAPDescription>
+    <SOAPActor>Server</SOAPActor>
+  </Errore>
+</ListaErroriSOAP>

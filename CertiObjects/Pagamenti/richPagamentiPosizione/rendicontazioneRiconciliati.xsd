@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+  <xsd:complexType name="rendicontazioneRiconciliatiType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="progressivoPosizione" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="codUnivocoPagamento" type="xsd:string"/>
+      <xsd:element minOccurs="1" name="intermediario" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="tipoRiconciliazione" type="xsd:string"/>
+            <xsd:element minOccurs="1" name="dataPagamento" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="dataAccredito" type="xsd:date"/>
+      <xsd:element name="importo" type="xsd:decimal"/>
+      <xsd:element minOccurs="0" name="contoCorrente" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="tipoBollettino" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="canalePagamento" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="idRicevutaPagamento" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="intermediarioFinanziario" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="codUnivocoPosizione" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="idRendicontazione" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="tipoRendicontazione" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="sistemaArea" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="idGruppoComponenti" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="tipoOperazione" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="idRendicontazioneRif" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="codPagamentoSIR" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="codOpzionePagamento" type="xsd:string"/>
+        </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="rendicontazioneRiconciliati" type="io:rendicontazioniRiconciliatiType">
+  </xsd:element>
+  <xsd:complexType name="rendicontazioniRiconciliatiType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="rendicontazione" type="io:rendicontazioneRiconciliatiType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

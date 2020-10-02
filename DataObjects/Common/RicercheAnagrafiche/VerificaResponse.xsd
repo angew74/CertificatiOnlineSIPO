@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/VerificaResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tc="http://tempuri.org/TipiBase.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" targetNamespace="http://tempuri.org/VerificaResponse" elementFormDefault="unqualified" attributeFormDefault="unqualified" id="VerificaResponse">
+	<xs:import namespace="http://tempuri.org/TipiBase.xsd" schemaLocation="C:\Users\AdminDSI\RootPrj\CertificatiOnLine\CertiObjects\Common\TipiBase.xsd"/>
+	<xs:element name="VerificaResponse" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="Messaggi" type="tc:BaseMessaggioAnag" minOccurs="0"/>
+				<xs:element name="Verifica" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="RawXml" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

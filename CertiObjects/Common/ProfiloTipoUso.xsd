@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="ProfiloTipoUso"
+                  targetNamespace="http://tempuri.org/ProfiloTipoUso.xsd"
+                  elementFormDefault="qualified"
+                  xmlns="http://tempuri.org/ProfiloTipoUso.xsd"
+                  xmlns:mstns="http://tempuri.org/ProfiloTipoUso.xsd"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ProfiloTipoUso">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TipoUso">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID" type="xs:int" />
+							<xs:element name="Descrizione" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+

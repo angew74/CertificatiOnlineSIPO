@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+    <xs:include schemaLocation="rispostaSir.xsd"/>
+    <xs:include schemaLocation="strutturaType.xsd"/>
+    <xs:include schemaLocation="posizioneType.xsd"/>
+	<xs:complexType name="creditoType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		
+    </xs:annotation>
+		<xs:sequence>
+            <xs:element name="struttura" type="io:strutturaType">
+      </xs:element>
+			<xs:element maxOccurs="unbounded" name="posizioni" type="io:posizioneType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="creditoType" type="io:creditoType">
+  </xs:element>
+    <xs:element name="credito" type="io:creditoType">
+  </xs:element>
+    <xs:complexType name="creditoTypeExt">
+    <xs:sequence>
+            <xs:element name="lotto" type="xs:long"/>
+            <xs:element name="progPosizione" type="xs:string"/>
+            <xs:element minOccurs="0" name="idPosCreditoria" type="xs:string"/>
+            <xs:element minOccurs="0" name="scarto" type="io:scartoCreditoExtType"/>
+        </xs:sequence>
+  </xs:complexType>
+    <xs:element name="creditoExt" type="io:creditoTypeExt">
+  </xs:element>
+    <xs:complexType name="comunicazioneType">
+    <xs:sequence>
+      <xs:element name="intestazioneUfficio" type="xs:string"/>
+      <xs:element name="oggettoLettera" type="xs:string"/>
+      <xs:element name="testoLibero" type="xs:string"/>
+      <xs:element name="firma" type="xs:string"/>
+      <xs:element minOccurs="0" name="firmaRespProc" type="xs:string"/>
+      <xs:element minOccurs="0" name="testoFirmaSostitutiva" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="headerCreditiType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="comunicazione" type="io:comunicazioneType">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="creditiExtType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="credito" type="io:creditoTypeExt"/>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:element name="creditiExt" type="io:creditiExtType">
+  </xs:element>
+    <xs:complexType name="scartoCreditoExtType">
+    <xs:sequence>
+      <xs:element name="TipoScarto" type="xs:string"/>
+      <xs:element name="DescrizioneScarto" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProfiloCertificato" targetNamespace="http://tempuri.org/ProfiloCertificato.xsd" xmlns:mstns="http://tempuri.org/ProfiloCertificato.xsd" xmlns="http://tempuri.org/ProfiloCertificato.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Certificato" msprop:Generator_UserTableName="Certificato" msprop:Generator_RowDeletedName="CertificatoRowDeleted" msprop:Generator_RowChangedName="CertificatoRowChanged" msprop:Generator_RowClassName="CertificatoRow" msprop:Generator_RowChangingName="CertificatoRowChanging" msprop:Generator_RowEvArgName="CertificatoRowChangeEvent" msprop:Generator_RowEvHandlerName="CertificatoRowChangeEventHandler" msprop:Generator_TableClassName="CertificatoDataTable" msprop:Generator_TableVarName="tableCertificato" msprop:Generator_RowDeletingName="CertificatoRowDeleting" msprop:Generator_TablePropName="Certificato">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CERTID" msprop:Generator_UserColumnName="CERTID" msprop:Generator_ColumnPropNameInRow="CERTID" msprop:Generator_ColumnVarNameInTable="columnCERTID" msprop:Generator_ColumnPropNameInTable="CERTIDColumn" type="xs:int" />
+        <xs:element name="BACKEND_ID" msprop:Generator_UserColumnName="BACKEND_ID" msprop:Generator_ColumnPropNameInRow="BACKEND_ID" msprop:Generator_ColumnVarNameInTable="columnBACKEND_ID" msprop:Generator_ColumnPropNameInTable="BACKEND_IDColumn" type="xs:string" />
+        <xs:element name="PUBLIC_ID" msprop:Generator_UserColumnName="PUBLIC_ID" msprop:Generator_ColumnPropNameInRow="PUBLIC_ID" msprop:Generator_ColumnVarNameInTable="columnPUBLIC_ID" msprop:Generator_ColumnPropNameInTable="PUBLIC_IDColumn" type="xs:string" />
+        <xs:element name="TIPO_USO_ID" msprop:Generator_UserColumnName="TIPO_USO_ID" msprop:Generator_ColumnPropNameInRow="TIPO_USO_ID" msprop:Generator_ColumnVarNameInTable="columnTIPO_USO_ID" msprop:Generator_ColumnPropNameInTable="TIPO_USO_IDColumn" type="xs:int" />
+        <xs:element name="NOME" msprop:Generator_UserColumnName="NOME" msprop:Generator_ColumnPropNameInRow="NOME" msprop:Generator_ColumnVarNameInTable="columnNOME" msprop:Generator_ColumnPropNameInTable="NOMEColumn" type="xs:string" />
+        <xs:element name="CLIENT_ID" msprop:Generator_UserColumnName="CLIENT_ID" msprop:Generator_ColumnPropNameInRow="CLIENT_ID" msprop:Generator_ColumnVarNameInTable="columnCLIENT_ID" msprop:Generator_ColumnPropNameInTable="CLIENT_IDColumn" type="xs:int" default="0" />
+        <xs:element name="ATTIVO" msprop:Generator_UserColumnName="ATTIVO" msprop:Generator_ColumnVarNameInTable="columnATTIVO" msprop:Generator_ColumnPropNameInRow="ATTIVO" msprop:Generator_ColumnPropNameInTable="ATTIVOColumn" type="xs:int" default="-1" />
+        <xs:element name="ALIAS" msprop:Generator_UserColumnName="ALIAS" msprop:Generator_ColumnPropNameInRow="ALIAS" msprop:Generator_ColumnVarNameInTable="columnALIAS" msprop:Generator_ColumnPropNameInTable="ALIASColumn" type="xs:string" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProfiloCertificato" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ProfiloCertificato" msprop:Generator_DataSetName="ProfiloCertificato">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="Certificato" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

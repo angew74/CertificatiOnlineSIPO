@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by roby (EMBRACE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+	<xs:complexType name="anagraficaType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		
+    </xs:annotation>
+		<xs:sequence>
+			<xs:element name="progressivo" type="xs:int"/>
+			<xs:element name="codice" type="xs:string"/>
+			<xs:element name="persona" type="xs:string">
+      </xs:element>
+			<xs:element name="soggetto" type="xs:string"/>
+			<xs:element minOccurs="0" name="cognome" type="xs:string"/>
+			<xs:element minOccurs="0" name="nome" type="xs:string"/>
+			<xs:element minOccurs="0" name="denominazione" type="xs:string"/>
+			<xs:element minOccurs="0" name="nascita" type="xs:string"/>
+			<xs:element minOccurs="0" name="localita" type="xs:string"/>
+			<xs:element minOccurs="0" name="provincia" type="xs:string"/>
+			<xs:element minOccurs="0" name="cf">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+                        <xs:pattern value="[A-Za-z]{6}[0-9lmnpqrstuvLMNPQRSTUV]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9lmnpqrstuvLMNPQRSTUV]{2}[A-Za-z]{1}[0-9lmnpqrstuvLMNPQRSTUV]{3}[A-Za-z]{1}"/>
+                        <xs:pattern value="[0-9]{11}"/>
+                    </xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="piva" type="xs:string"/>
+			<xs:element minOccurs="0" name="sesso" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:element name="anagraficaType" type="io:anagraficaType">
+  </xs:element>
+</xs:schema>

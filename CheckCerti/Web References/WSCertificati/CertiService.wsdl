@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s0="http://www.comune.roma.it/certificati/data" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.comune.roma.it/certificati" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.comune.roma.it/certificati" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.comune.roma.it/certificati/data">
+      <s:element name="ricercaPersona">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="idClient" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codiceFiscale" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ricercaPersonaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="persona" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ricercaComponentiFamiglia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="idClient" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codiceFiscaleRichiedente" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ricercaComponentiFamigliaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="componentiFamiglia" type="s0:ArrayOfComponenteFamigliaType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfComponenteFamigliaType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="componente" type="s0:ComponenteFamigliaType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ComponenteFamigliaType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codiceIndividuale" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codiceFiscale" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="cognome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="rapportoParentela" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="recuperaDocumento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="idClient" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codiceFiscale" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="CIU" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="recuperaDocumentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recuperaDocumentoResult" type="s0:ArrayOfBase64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="richiestaCredenziali">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="transactionRequest" type="s0:TransactionRequestType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TransactionRequestType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codiceFiscaleIntestatario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codiceFiscaleRichiedente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="idTransazione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="idPod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="sistema" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="richiestaCredenzialiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="credenziali" type="s0:CredenzialiType" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="intestatarioTrovato" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CredenzialiType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="idFlusso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="transactionData" type="s0:TransactionRequestType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="verificaEmettibilita">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="credenziali" type="s0:CredenzialiType" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="certificati" type="s0:ArrayOfInfoCertificatoType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInfoCertificatoType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="certificato" type="s0:InfoCertificatoType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InfoCertificatoType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="idNomeCertificato" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="IdUso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="idMotivoEsenzione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="dicituraVariabile" type="s:string" />
+        </s:sequence>
+        <s:attribute name="emettibile" type="s:boolean" />
+      </s:complexType>
+      <s:complexType name="CertificatoType">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:InfoCertificatoType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="IdDocumento" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="bin" type="s:base64Binary" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="verificaEmettibilitaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="certificati" type="s0:ArrayOfInfoCertificatoType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="richiestaCertificati">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="credenziali" type="s0:CredenzialiType" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="certificati" type="s0:ArrayOfInfoCertificatoType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="richiestaCertificatiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="certificati" type="s0:ArrayOfCertificatoType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCertificatoType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="certificato" type="s0:CertificatoType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="confermaStampa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="credenziali" type="s0:CredenzialiType" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="certificati" type="s0:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="idDocumento" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="confermaStampaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="esitoConferma" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ricercaPersonaSoapIn">
+    <wsdl:part name="parameters" element="s0:ricercaPersona" />
+  </wsdl:message>
+  <wsdl:message name="ricercaPersonaSoapOut">
+    <wsdl:part name="parameters" element="s0:ricercaPersonaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ricercaComponentiFamigliaSoapIn">
+    <wsdl:part name="parameters" element="s0:ricercaComponentiFamiglia" />
+  </wsdl:message>
+  <wsdl:message name="ricercaComponentiFamigliaSoapOut">
+    <wsdl:part name="parameters" element="s0:ricercaComponentiFamigliaResponse" />
+  </wsdl:message>
+  <wsdl:message name="recuperaDocumentoSoapIn">
+    <wsdl:part name="parameters" element="s0:recuperaDocumento" />
+  </wsdl:message>
+  <wsdl:message name="recuperaDocumentoSoapOut">
+    <wsdl:part name="parameters" element="s0:recuperaDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="richiestaCredenzialiSoapIn">
+    <wsdl:part name="parameters" element="s0:richiestaCredenziali" />
+  </wsdl:message>
+  <wsdl:message name="richiestaCredenzialiSoapOut">
+    <wsdl:part name="parameters" element="s0:richiestaCredenzialiResponse" />
+  </wsdl:message>
+  <wsdl:message name="verificaEmettibilitaSoapIn">
+    <wsdl:part name="parameters" element="s0:verificaEmettibilita" />
+  </wsdl:message>
+  <wsdl:message name="verificaEmettibilitaSoapOut">
+    <wsdl:part name="parameters" element="s0:verificaEmettibilitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="richiestaCertificatiSoapIn">
+    <wsdl:part name="parameters" element="s0:richiestaCertificati" />
+  </wsdl:message>
+  <wsdl:message name="richiestaCertificatiSoapOut">
+    <wsdl:part name="parameters" element="s0:richiestaCertificatiResponse" />
+  </wsdl:message>
+  <wsdl:message name="confermaStampaSoapIn">
+    <wsdl:part name="parameters" element="s0:confermaStampa" />
+  </wsdl:message>
+  <wsdl:message name="confermaStampaSoapOut">
+    <wsdl:part name="parameters" element="s0:confermaStampaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ComuneCertificatiBinding">
+    <wsdl:operation name="ricercaPersona">
+      <wsdl:input message="tns:ricercaPersonaSoapIn" />
+      <wsdl:output message="tns:ricercaPersonaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ricercaComponentiFamiglia">
+      <wsdl:input message="tns:ricercaComponentiFamigliaSoapIn" />
+      <wsdl:output message="tns:ricercaComponentiFamigliaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="recuperaDocumento">
+      <wsdl:input message="tns:recuperaDocumentoSoapIn" />
+      <wsdl:output message="tns:recuperaDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="richiestaCredenziali">
+      <wsdl:input message="tns:richiestaCredenzialiSoapIn" />
+      <wsdl:output message="tns:richiestaCredenzialiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verificaEmettibilita">
+      <wsdl:input message="tns:verificaEmettibilitaSoapIn" />
+      <wsdl:output message="tns:verificaEmettibilitaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="richiestaCertificati">
+      <wsdl:input message="tns:richiestaCertificatiSoapIn" />
+      <wsdl:output message="tns:richiestaCertificatiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="confermaStampa">
+      <wsdl:input message="tns:confermaStampaSoapIn" />
+      <wsdl:output message="tns:confermaStampaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ComuneCertificatiBinding" type="tns:ComuneCertificatiBinding">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ricercaPersona">
+      <soap:operation soapAction="http://www.comune.roma.it/certificati/ricercaPersona" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ricercaComponentiFamiglia">
+      <soap:operation soapAction="http://www.comune.roma.it/certificati/ricercaComponentiFamiglia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recuperaDocumento">
+      <soap:operation soapAction="http://www.comune.roma.it/certificati/recuperaDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="richiestaCredenziali">
+      <soap:operation soapAction="http://www.comune.roma.it/certificati/richiestaCredenziali" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verificaEmettibilita">
+      <soap:operation soapAction="http://www.comune.roma.it/certificati/verificaEmettibilita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="richiestaCertificati">
+      <soap:operation soapAction="http://www.comune.roma.it/certificati/richiestaCertificati" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confermaStampa">
+      <soap:operation soapAction="http://www.comune.roma.it/certificati/confermaStampa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ComuneCertificatiBinding1" type="tns:ComuneCertificatiBinding">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ricercaPersona">
+      <soap12:operation soapAction="http://www.comune.roma.it/certificati/ricercaPersona" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ricercaComponentiFamiglia">
+      <soap12:operation soapAction="http://www.comune.roma.it/certificati/ricercaComponentiFamiglia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="recuperaDocumento">
+      <soap12:operation soapAction="http://www.comune.roma.it/certificati/recuperaDocumento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="richiestaCredenziali">
+      <soap12:operation soapAction="http://www.comune.roma.it/certificati/richiestaCredenziali" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verificaEmettibilita">
+      <soap12:operation soapAction="http://www.comune.roma.it/certificati/verificaEmettibilita" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="richiestaCertificati">
+      <soap12:operation soapAction="http://www.comune.roma.it/certificati/richiestaCertificati" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="confermaStampa">
+      <soap12:operation soapAction="http://www.comune.roma.it/certificati/confermaStampa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CertiService">
+    <wsdl:port name="ComuneCertificatiBinding" binding="tns:ComuneCertificatiBinding">
+      <soap:address location="http://10.173.2.168/CertiWS/CertiService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ComuneCertificatiBinding1" binding="tns:ComuneCertificatiBinding1">
+      <soap12:address location="http://10.173.2.168/CertiWS/CertiService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

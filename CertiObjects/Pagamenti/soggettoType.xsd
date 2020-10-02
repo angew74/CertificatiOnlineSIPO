@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+    <xs:include schemaLocation="recapitoType.xsd"/>
+    <xs:include schemaLocation="anagraficaType.xsd"/>
+	<xs:complexType name="soggettoType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		
+    </xs:annotation>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="persona" type="io:anagraficaType">
+      </xs:element>
+				<xs:element maxOccurs="unbounded" name="recapiti" type="io:recapitoType">
+      </xs:element>
+			</xs:sequence>
+		</xs:complexType>
+    <xs:element name="soggettoType" type="io:soggettoType">
+  </xs:element>
+</xs:schema>

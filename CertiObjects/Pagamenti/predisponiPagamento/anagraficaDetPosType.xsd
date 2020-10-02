@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+    <xsd:include schemaLocation="recapitoDetPosType.xsd"/>
+    <xsd:complexType name="anagraficaDetPosType">
+    <xsd:sequence>
+            <xsd:element form="qualified" minOccurs="0" name="nome" type="xsd:string"/>
+      <xsd:element form="qualified" minOccurs="0" name="cognome" type="xsd:string"/>
+      <xsd:element form="qualified" minOccurs="0" name="codiceFiscale" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="codiceAnagrafico" type="xsd:string"/>
+            <xsd:element form="qualified" minOccurs="0" name="denominazione" type="xsd:string"/>
+      <xsd:element form="qualified" minOccurs="0" name="partitaIVA" type="xsd:string"/>
+      <xsd:element form="qualified" name="tipoPersona" type="xsd:string"/>
+      <xsd:element form="qualified" name="tipoSoggetto" type="xsd:string"/>
+      <xsd:element form="qualified" minOccurs="0" name="recapito" type="io:recapitoDetPosType"/>
+            <xsd:element minOccurs="0" name="telefono" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="email" type="xsd:string"/>
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

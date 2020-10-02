@@ -1,0 +1,181 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Codebehind="UnisysPortaleCdR.master.cs"
+    Inherits="Com.Unisys.CdR.Certi.WebApp.UnisysPortaleCdR" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>COL</title>
+    <meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="content-type" content="text/html" />
+    <meta http-equiv="MSThemeCompatible" content="false" />
+    <meta http-equiv="imagetoolbar" content="false" />
+    <meta content="true" name="MSSmartTagsPreventParsing" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+</head>
+<body>
+    <!-- menu rapido -->
+    <p class="hidden" id="quickmenu">
+        <a name="quickmenu"><strong>menu di scelta rapida</strong></a><br />
+        <a accesskey="1" href="#content">vai ai contenuti [1]</a> &nbsp;|&nbsp; <a accesskey="2"
+            href="#macro">navigazione del sito [2]</a> &nbsp;|&nbsp; <a href="#cerca">cerca nel
+                sito [3]</a>
+    </p>
+    <hr />
+    <!-- testata -->
+    <div id="head">
+        <h1 class="hidden">
+            Portale del Comune di Roma</h1>
+        <hr />
+        <div id="subtestata">
+            <h2 class="hidden">
+                Ricerca</h2>
+            <form id="formricerca" action="http://62.77.61.54/search" method="get">
+                <div class="right">
+                    <label for="cerca">
+                        Ricerca</label><span class="hidden"> &nbsp;</span><input id="cerca" name="q" type="text"
+                            size="17" accesskey="3" />
+                    <input type="hidden" value="0" name="filter" /><input type="submit" id="submit" title="Avvia la ricerca"
+                        value="Vai" />
+                </div>
+            </form>
+            <!-- titolo area -->
+            <div id="titoloarea">
+                <hr style="height: 2" />
+                <p>
+                    Certificati anagrafici online</p>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <!-- fine testata -->
+    <!-- layout -->
+    <form id="form1" runat="server">
+        <div id="layout">
+            <!-- screenrender portlets -->
+            <div id="wpsportletsx">
+                <h2 class="hidden">
+                    <a name="wpsportletsx">Navigazione del sito</a></h2>
+                <div class="containersx">
+                    <ul id="macro">
+                        <li class="first"><a accesskey="4" href="https://www.comune.roma.it/wass/wps/myportal/!ut/p/_s.7_0_A/7_0_21L?menuPage=/"
+                            name="macro">Home</a> </li>
+                        <li><a accesskey="5" href="https://www.comune.roma.it/wass/wps/myportal/!ut/p/_s.7_0_A/7_0_21L?menuPage=/&amp;targetPage=/Menu_Orizzontale/Mappa/index.jsp">
+                            Mappa</a> </li>
+                        <li class="last"><a accesskey="6" href="https://www.comune.roma.it/wass/wps/myportal/!ut/p/_s.7_0_A/7_0_21L?menuPage=/&amp;targetPage=/Menu_Orizzontale/Guida_alla_navigazione/index.jsp">
+                            Guida alla navigazione</a> </li>
+                    </ul>
+                </div>
+                <div class="containersx user">
+                    <h3>
+                        Servizi on line</h3>
+                    <div id="connect">
+                        <p>
+                            <asp:Label ID="Lbl_CodFis" runat="server" Text=""></asp:Label><br />
+                        </p>
+                    </div>
+                    <ul class="servizi">
+                        <li class="first"><a title="Elenco servizi online" href="https://www.comune.roma.it/wass/wps/myportal/!ut/p/_s.7_0_A/7_0_21L?menuPage=/Area_di_navigazione/Servizi_on_line/Elenco_servizi_online/">
+                            Elenco servizi online<span id="asdads" style="left: 0px; top: 0px"></span></a> </li>
+                    </ul>
+                </div>
+                <!-- INIZIO MENU DI NAVIGAZIONE -->
+                <div class="containersx">
+                    <h3>
+                        Servizi Anagrafici</h3>
+                    <ul>
+                        <li class="first">Certificati anagrafici online
+                            <ul>
+                                <li class="first">
+                                    <asp:HyperLink ID="hyp_CON" Text="Consegna certificato" NavigateUrl="recupero/Consegna.aspx"
+                                        runat="server" EnableViewState="False" />
+                                </li>
+                                <li class="first">
+                                    <asp:HyperLink ID="hyp_EMI" Text="Richiesta certificati" NavigateUrl="emissione/Emissione.aspx"
+                                        runat="server" EnableViewState="False" />
+                                </li>
+                                <li class="first">
+                                    <asp:HyperLink ID="hyp_RIT" Text="Recupero certificati" NavigateUrl="emissione/Ritiro.aspx"
+                                        runat="server" EnableViewState="False" />
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- portlet dx -->
+            <div class="big" id="wpsportletdx">
+                <!-- pathbar -->
+                <p id="pathbar">
+                    <span class="hidden">Percorso: </span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; <a></a>
+                </p>
+                <div class="clear path">
+                </div>
+                <!-- fine pathbar -->
+                <!-- area content sx -->
+                <div class="divleft big info">
+                    <a id="content" name="content"></a>
+                    <div class="hidden">
+                        <hr />
+                        <h2>
+                            Contenuti</h2>
+                        <p>
+                            <a href="#quickmenu">torna al menu di scelta rapida</a></p>
+                    </div>
+                    <div class="divleft big services">
+                        <!-- new -->
+                        <!--<div class="contentservizi">-->
+                        <!-- end new -->
+                        <div class="iscontentcentrale">
+                            <asp:Panel ID="pnlContainerMsg" runat="server" Width="100%" Visible="false" CssClass="pnlCertiError">
+                                <div>
+                                    <asp:Literal ID="litErrore" runat="server"></asp:Literal>
+                                </div>
+                                <asp:Panel ID="pnlMessaggi" runat="server" CssClass="pnlMessaggi">
+                                    <div style="margin-bottom: 5px">
+                                        <asp:Literal ID="litMsgErrore" runat="server"></asp:Literal>
+                                    </div>
+                                </asp:Panel>
+                            </asp:Panel>
+                            <asp:HiddenField ID="hfCenterTitle" runat="server" />
+                            <h3>
+                               <!-- Dalle ore 17.00 di giovedì 15/04/2010 il servizio non sarà disponibile causa attività manutentive. 
+                                Il servizio sarà riattivato al termine dell'attività. Ci scusiamo per il disagio.-->
+                                <!--ATTENZIONE IL SERVIZIO NON SARA' DISPONIBILE TRA LE ORE 17:00 ALLE ORE 17:45 PER
+                                ATTIVITA' DI MANUTENZIONE ORDINARIA--></h3>
+                            <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+                <!-- content -->
+                <!-- fine area content sx -->
+            </div>
+            <!-- fine portlet dx -->
+            <div class="clear">
+            </div>
+            <!-- fine screenrender portlets -->
+        </div>
+    </form>
+    <!-- fine layout -->
+    <!-- footer -->
+    <div id="footerhp">
+        <hr />
+        <p class="hidden">
+            Collegamenti al sito del <a title="vai al sito del W3C" href="http://www.w3.org">W3C</a>
+            (World Wide Web Consortium) per la validazione di questa pagina:</p>
+        <ul>
+            <li><a title="Verifica la validita' del codice XHTML 1.0" href="http://validator.w3.org/check?uri=referer">
+                <img class="imgValidator" alt="XHTML 1.0 Valido" src="../App_Themes/unisysPortale/images/w3cXHTML.gif" /></a>
+            </li>
+            <li><a title="Verifica la validita' dei fogli di stile" href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img class="imgValidator" alt="CSS Valido" src="../App_Themes/unisysPortale/images/w3cCSS.gif" /></a>
+            </li>
+        </ul>
+    </div>
+    <!-- fine footer -->
+    <div>
+    </div>
+</body>
+</html>

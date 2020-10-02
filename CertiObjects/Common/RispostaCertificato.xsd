@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Registered User (Home) -->
+<xs:schema xmlns="http://tempuri.org/RispostaCertificato" xmlns:tc="http://tempuri.org/TipiBaseCertificati" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:NameSpace1="http://schemas.microsoft.com/BizTalk/2003" targetNamespace="http://tempuri.org/RispostaCertificato">
+	<xs:import namespace="http://tempuri.org/TipiBaseCertificati" schemaLocation="C:\dev\CertificatiOnLine\CertiObjects\Common\TipiBaseCertificati.xsd" />
+	<xs:annotation>
+		<xs:appinfo>
+			<references xmlns="http://schemas.microsoft.com/BizTalk/2003">
+				<reference targetNamespace="http://tempuri.org/TipiBaseCertificati" />
+			</references>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:element name="RispostaCertificato">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="indice" type="tc:tipoIndiceCertificato" />
+				<xs:element name="generalita" type="tc:tipoGeneralita" />
+				<xs:element name="coniuge" type="tc:tipoGeneralita" minOccurs="0" />
+				<xs:element name="matrimonio" type="tc:tipoMatrimonio" minOccurs="0" />
+				<xs:element name="decesso" type="tc:tipoDecesso" minOccurs="0" />
+				<xs:element name="indirizzo" type="tc:tipoIndirizzo" minOccurs="0" />
+				<xs:element name="iscrizioneAPR" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="dataIscrizioneAPR" type="xs:string" minOccurs="0" />
+							<xs:element name="numeroPraticaIscrizioneAPR" minOccurs="0" />
+							<xs:element name="luogoImmigrazione" type="tc:tipoComune" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

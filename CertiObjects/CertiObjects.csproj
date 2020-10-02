@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0925BB05-B48D-4FEC-A907-AE21E8BCAF24}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Com.Unisys.CdR.Certi.Objects</RootNamespace>
+    <AssemblyName>Com.Unisys.CdR.Certi.Objects</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>panet_strongname.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ListaDecodificaErrori.cs">
+      <DependentUpon>ListaDecodificaErrori.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ListaErroriSOAP.cs">
+      <DependentUpon>ListaErroriSOAP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ListaMessaggi.cs" />
+    <Compile Include="Common\LivelloMessaggio.cs" />
+    <Compile Include="Common\Messaggio.cs" />
+    <Compile Include="Common\NCRIRICIND.cs">
+      <DependentUpon>NCRIRICIND.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\PraticaRequest.cs">
+      <DependentUpon>PraticaRequest.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ProfiloCertificato.cs">
+      <DependentUpon>ProfiloCertificato.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ProfiloClient.cs">
+      <DependentUpon>ProfiloClient.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ProfiloDiciturePagamenti.cs">
+      <DependentUpon>ProfiloDiciturePagamenti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ProfiloDownload.cs">
+      <DependentUpon>ProfiloDownload.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ProfiloFamiglia.cs">
+      <DependentUpon>ProfiloFamiglia.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ProfiloMotivazione.cs">
+      <DependentUpon>ProfiloMotivazione.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ProfiloRichiesta.cs">
+      <DependentUpon>ProfiloRichiesta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ProfiloTipoUso.cs">
+      <DependentUpon>ProfiloTipoUso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ProfiloUtente.cs">
+      <DependentUpon>ProfiloUtente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\VERIRIC.cs">
+      <DependentUpon>VeriRic.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\VeriRicResponse.cs">
+      <DependentUpon>VeriRicResponse.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Pagamenti\ResponseJson.cs" />
+    <Compile Include="Pagamenti\crediti.cs">
+      <DependentUpon>crediti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Pagamenti\metadata.cs" />
+    <Compile Include="Pagamenti\predisponiPagamento\carrelloPosizioniPagamento.cs">
+      <DependentUpon>carrelloPosizioniPagamento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Pagamenti\ResponseJsonPredisponi.cs" />
+    <Compile Include="Pagamenti\richPagamentiPosizione\rendicontazioneRiconciliati.cs">
+      <DependentUpon>rendicontazioneRiconciliati.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SIPO\RecuperaCertificato.cs" />
+    <Compile Include="SIPO\ResponseRecuperaCertificato.cs" />
+    <Compile Include="SIPO\ResponseRicercaPosAnag.cs" />
+    <Compile Include="SIPO\RicercaPosAnag.cs" />
+    <Compile Include="SIPO\ResponseRichiestaToken.cs" />
+    <Compile Include="SIPO\VerificaEmettibilita.cs" />
+    <Compile Include="Storage\CertificatoDoc.cs">
+      <DependentUpon>CertificatoDoc.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Storage\CertificatoMD.cs">
+      <DependentUpon>CertificatoMD.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Storage\CertificatoStore.cs">
+      <DependentUpon>CertificatoStore.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Common\ListaDecodificaErrori.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Common\ListaErroriSOAP.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Common\NCRIRICIND.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Common\PraticaRequest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Common\ProfiloCertificato.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Common\ProfiloClient.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Common\ProfiloDiciturePagamenti.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Common\ProfiloDownload.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Common\ProfiloFamiglia.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Common\ProfiloMotivazione.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Common\ProfiloRichiesta.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Common\ProfiloTipoUso.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Common\ProfiloUtente.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Common\RispostaCertificato.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Common\TipiBaseCertificati.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Common\TipiComuni.xsd" />
+    <None Include="Common\VeriRic.xsd" />
+    <None Include="Common\VeriRicResponse.xsd" />
+    <None Include="Pagamenti\anagraficaType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\crediti.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\creditoType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\dettaglioType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\posizioneType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\praticaType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\predisponiPagamento\anagraficaDetPosType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\predisponiPagamento\carrelloPosizioniPagamento.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\predisponiPagamento\recapitoDetPosType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\rataType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\recapitoType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\richPagamentiPosizione\rendicontazioneRiconciliati.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\rispostaSir.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\soggettoType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\strutturaType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Pagamenti\voceType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="panet_strongname.snk" />
+    <None Include="Storage\CertificatoDoc.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Storage\CertificatoMD.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Storage\CertificatoStore.xsd">
+      <SubType>
+      </SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Lib\Newtonsoft.Json.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

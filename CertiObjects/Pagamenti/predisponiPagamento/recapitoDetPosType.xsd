@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+  <xsd:complexType name="recapitoDetPosType">
+    <xsd:sequence>
+      <xsd:element form="qualified" minOccurs="0" name="indirizzo" type="xsd:string"/>
+      <xsd:element form="qualified" minOccurs="0" name="cap" type="xsd:string"/>
+      <xsd:element form="qualified" minOccurs="0" name="comune" type="xsd:string"/>
+      <xsd:element form="qualified" minOccurs="0" name="provincia" type="xsd:string"/>
+      <xsd:element form="qualified" minOccurs="0" name="aggiuntiveEdif" type="xsd:string"/>
+      <xsd:element form="qualified" minOccurs="0" name="presso" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

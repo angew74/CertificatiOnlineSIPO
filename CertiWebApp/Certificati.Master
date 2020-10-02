@@ -1,0 +1,268 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Certificati.master.cs"  Inherits="Com.Unisys.CdR.Certi.WebApp.Certificati" %>
+
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-store">
+<meta http-equiv="cache-control" content="must-revalidate">
+<meta http-equiv="cache-control" content="proxy-revalidate">
+<meta name="robots" content="noindex">
+<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="content-type" content="text/html" />
+<meta http-equiv="MSThemeCompatible" content="false" />
+<meta http-equiv="imagetoolbar" content="false" />
+<meta content="true" name="MSSmartTagsPreventParsing" />
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<html>
+<head runat="server">   
+    <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/build/RomaIcons.css") %>">  
+    <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/build/site.css") %>">
+    <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/raw/css/itaicons.css") %>">
+    <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/raw/css/font-awesome.min.css") %>"> 
+    <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/build/build.css") %>"> 
+    <link media="screen"  rel="stylesheet"  href="<%# Page.ResolveClientUrl("~/build/build.min.css") %>">  
+    <link rel="shortcut icon" type="image/png"
+        href="http://www.comune.roma.it/web-resources/static/images/favicon.png">
+     <script type="text/javascript" 
+        src="<%# Page.ResolveClientUrl("~/build/vendor/jquery.min.js") %>"></script>
+      <script type="text/javascript" 
+        src="<%# Page.ResolveClientUrl("~/build/vendor/modernizr.js") %>"></script>
+      <script type="text/javascript" 
+        src="<%# Page.ResolveClientUrl("~/build/vendor/respond.min.js") %>"></script>
+      <script type="text/javascript" 
+        src="<%# Page.ResolveClientUrl("~/build/vendor/rem.min.js") %>"></script>
+      <script type="text/javascript" 
+        src="<%# Page.ResolveClientUrl("~/build/vendor/polyfill.min.js") %>"></script>
+      <script type="text/javascript" 
+        src="<%# Page.ResolveClientUrl("~/build/vendor/slice.js") %>"></script>
+      <script type="text/javascript" 
+        src="<%# Page.ResolveClientUrl("~/build/vendor/yepnope.js") %>"></script>
+      <script type="text/javascript" 
+        src="<%# Page.ResolveClientUrl("~/build/vendor/selectivizr.js") %>"></script>
+      <script type="text/javascript" 
+        src="<%# Page.ResolveClientUrl("~/build/vendor/IWT.min.js") %>"></script>  
+    <title>Roma Capitale | Certificati OnLine</title>
+</head>
+<body
+    class="Roma c-hideFocus enhanced" style="padding-top: 150px; position: relative; min-height: 100%; top: 0px;">
+    <header class="Header Headroom--fixed js-Headroom u-hiddenPrint Headroom Headroom--top Headroom--not-bottom"
+        style="position: fixed; top: 0px;">
+        <!-- header nuovo -->
+        <div class="Header-navbar">
+            <div class="u-layout-wide Grid Grid--alignMiddle u-layoutCenter">
+                <div class="Header-logo Grid-cell" aria-hidden="true">
+                    <a href="http://www.comune.roma.it/web/it/home.page"
+                        title="ROMA_CAPITALE_LOGO_TITLE">
+                        <img src="../raw/header/logo_roma.png" alt="Logo di Roma Capitale">
+                    </a>
+                </div>
+                <h1 class="Header-titleLink">Roma Capitale</h1>
+                <!-- Menu mobile inizio-->
+                <div class="Header-toggle Grid-cell"
+                    style="margin-left: auto !important; margin-right: 0%">
+                    <a title="Apri il Menu"
+                        class="Hamburger-toggleContainer js-fr-offcanvas-open u-nojsDisplayInlineBlock u-lg-hidden u-md-hidden"
+                        aria-controls="menu"
+                        aria-label="Apri il Menu" href="#menu">
+                        <span class="Hamburger-toggle" role="presentation"></span>
+                    </a>
+                </div>
+                <!-- Menu mobile fine-->
+            </div>
+        </div>
+        <div class="Headroom-hideme u-textCenter u-hidden u-md-block u-lg-block">
+            <nav class="Megamenu Megamenu--roma">
+                <ul class="Megamenu-list">
+                    <li class="Megamenu-item">
+                     <a  href="<%= Page.ResolveClientUrl("~/emissione/emissione.aspx") %>">Richiesta certificati                                                                                   
+                        </a>
+                    </li>
+                    <li class="Megamenu-item">
+                    <a  href="<%= Page.ResolveClientUrl("~/emissione/Ritiro.aspx") %>">Recupero Certificati
+                        </a>
+                    </li>
+                      <li class="Megamenu-item">
+                    <a  href="www.comune.roma.it">HomePage Roma Capitale
+                        </a>
+                    </li>
+                    <li class="Megamenu-item Megamenu-yellow-item">       
+                        <a id="Lbl_CodFis" runat="server" class="item-area-riservata"></a>                                       
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Menu mobile inizio  -->
+    <section class="Offcanvas Offcanvas--right Offcanvas--modal js-fr-offcanvas u-jsVisibilityHidden u-nojsDisplayNone u-hiddenPrint is-ready" id="menu" aria-hidden="true" style="visibility: hidden;">
+        <h2 class="u-hiddenVisually">Menu di navigazione</h2>
+        <div class="Offcanvas-content u-background-white">
+            <div class="Offcanvas-toggleContainer u-background-70 u-jsHidden">
+                <a title="Chiudi il Menu" class="Hamburger-toggleContainer u-block u-color-white u-padding-bottom-xxl u-padding-left-s u-padding-top-xxl js-fr-offcanvas-close"
+                    aria-controls="menu" aria-label="Chiudi il Menu"
+                    href="#">
+                    <span class="Hamburger-toggle is-active" aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="Offcanvas-intro">
+                <img class="logo" alt="Logo di Roma Capitale"
+                    src="../raw/header/logo_roma.png">
+                <span class="menutitle"></span>
+            </div>
+            <nav>
+                <ul class="Linklist Linklist--padded Treeview Treeview--default u-text-r-xs">   
+                    <ul>
+                        <li class="level1">
+                            <a href="<%= Page.ResolveClientUrl("~/emissione/emissione.aspx") %>">Richiesta certificati 
+                                <span class=" u-inline u-floatRight"></span></a>
+                        </li>
+                        <li class="level1">
+                            <a  href="<%= Page.ResolveClientUrl("~/emissione/Ritiro.aspx") %>">Recupero certificati 
+                                <span class=" u-inline u-floatRight"></span></a>
+                        </li>
+                        <li class="level1">
+                            <a  href="www.comune.roma.it">HomePage Roma Capitale 
+                                <span class=" u-inline u-floatRight"></span></a>
+                        </li>
+                        </ul>
+                    </ul>                
+            </nav>
+        </div>
+    </section>
+    <!-- Menu mobile fine  -->
+    <div style="background-color: #ececec;">
+        <div id="main" class="u-xs-margin-left-none u-xs-margin-right-none"
+            style="background-color: #ffffff; text-align: center; padding-top: 5%; padding-bottom: 5%; margin-left: 12.5%; margin-right: 12.5%;">
+            <div class="iscontentcentrale">
+                <form id="form1" runat="server">
+                    <asp:Panel ID="pnlContainerMsg" runat="server" class="contentgruppo"
+                        Visible="false">                       
+                         <h4 class="u-text-h4"><asp:Literal ID="litErrore" runat="server"></asp:Literal></h4>                        
+                            <asp:Panel ID="pnlMessaggi" runat="server" class="u-layout-prose u-color-grey-90 u-text-p u-padding-r-all u" style="margin-left:30%">                             
+                                    <asp:Literal ID="litMsgErrore" runat="server"></asp:Literal>                             
+                            </asp:Panel>                       
+                    </asp:Panel>
+                    <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br />
+    <footer class="Footer u-padding-all-xxl">
+        <script src="<%# Page.ResolveClientUrl("~/build/vendor/IWT.min.js") %>"></script>
+        <script>
+            var c = 0;
+            var Megamenu = {
+                init: function () {
+                    $(document).on('click', '.Megamenu-item a[aria-haspopup="true"]',
+                        function (e) {
+                            console.log("click");
+                            c++;
+                            console.log(c);
+                            e.preventDefault();
+                            e.stopPropagation();
+                            Megamenu.showSubnav($(this));
+                        });
+                    $(document).on('click', '.Megamenu-background', function () {
+                        Megamenu.openSubnav();
+                        Megamenu.showBackground();
+                    });
+                    $(window).on('resize', function () {
+                        Megamenu.setSubnav();
+                    });
+                    Megamenu.setSubnav();
+                },
+                setSubnav: function () {
+                    $('.Roma .Megamenu--roma .Megamenu-romasubnav').css('top',
+                        $('.Roma .Megamenu--roma').height() - 1);
+                }, showSubnav: function (a) {
+                    var $b = $(a.next('.Megamenu-romasubnav'));
+                    if ($b.hasClass('open')) {
+                        Megamenu.openSubnav();
+                    } else {
+                        Megamenu.openSubnav();
+                        $b.addClass('open');
+                        a.attr('aria-expanded', 'true');
+                    };
+                    Megamenu.showBackground();
+                },
+                openSubnav: function () {
+                    $('.Megamenu-romasubnav').removeClass('open');
+                    $('.Megamenu-item a[aria-haspopup="true"]').attr('aria-expanded',
+                        'false');
+                },
+                showBackground: function () {
+                    if ($('.Megamenu-romasubnav.open').length > 0) {
+                        $('.Megamenu-background').show();
+                    } else {
+                        $('.Megamenu-background').hide();
+                    }
+                }
+            };
+            Megamenu.init();
+        </script>
+        <div class="u-cf">           
+            <img class="Footer-logo" src="<%# Page.ResolveClientUrl("~raw/header/logo_roma.png") %>" alt="">
+            <p class="Footer-siteName">
+                Roma Capitale                                                                              
+            </p>
+        </div>
+        <div class="Grid Grid--withGutter">
+            <div class="Footer-block Grid-cell u-md-size1of3 u-lg-size1of3">
+                <h2 class="Footer-blockTitle">Contatti</h2>
+                <div class="Footer-subBlock">
+                    <address>
+                        Piazza del Campidoglio 1<br>
+                        00186 Roma                                                                           
+                    </address>
+                    <ul>
+                        <li><a href="http://www.comune.roma.it/web/it/chiama-roma-060606.page">
+                        <li><a href="http://www.comune.roma.it/web/it/contatti.page">Tutti i contatti                          
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="Footer-block Grid-cell u-md-size1of3 u-lg-size1of3">
+                <h2 class="Footer-blockTitle">Trasparenza</h2>
+                <div class="Footer-subBlock">
+                    <ul class="Footer-links Footer-suplinks u-cf">
+                        <li>
+                            <a href="http://www.comune.roma.it/web/it/trasparenza-accesso-civico.page">Accesso civico</a></li>
+                        <li><a
+                            href="http://www.comune.roma.it/web/it/amministrazione-trasparente.page">Amministrazione Trasparente</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="Footer-block Grid-cell u-md-size1of3 u-lg-size1of3">
+                <h2 class="Footer-blockTitle">Pubblicità legale</h2>
+                <div class="Footer-subBlock subPages">
+                    <ul class="Footer-links Footer-suplinks u-cf">
+                        <li><a href="http://www.comune.roma.it/web/it/albo-pretorio-online.page">Albo pretorio online</a></li>
+                        <li><a href="http://www.comune.roma.it/web/it/pubblicazione-matrimoni.page">Pubblicazione matrimoni</a></li>
+                        <li><a href="http://www.comune.roma.it/web/it/atti-di-notifica.page">Atti di notifica</a></li>
+                        <li>
+                            <a href="http://www.comune.roma.it/web/it/notifica-unica-atti-giudiziari.page">Notifica unica atti giudiziari</a></li>
+                        <li><a href="http://www.comune.roma.it/web/it/servizio-notificazione-deposito                                               
+-e-pubblicit-legale-degli-atti.page">Servizio notificazione,                                                                
+deposito e pubblicità legale degli atti</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <ul class="Footer-links u-cf">
+            <li><a href="http://www.comune.roma.it/web/it/accessibilita.page">Accessibilità                                             
+            </a></li>
+            <li><a href="http://www.comune.roma.it/web/it/privacy.page">Privacy e cookie</a>
+            </li>
+            <li><a href="http://www.comune.roma.it/web/it/note-legali.page">Note legali</a>
+            </li>
+            <li><a href="http://www.comune.roma.it/web/it/social-media-policy.page">Social media policy</a></li>
+        </ul>
+
+    </footer>
+
+</body>
+</html>

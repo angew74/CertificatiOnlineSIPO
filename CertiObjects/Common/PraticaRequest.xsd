@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" 
+           xmlns:tc="http://tempuri.org/TipiComuni">
+  <xs:import schemaLocation="C:\Users\AdminDSI\RootPrj\CertificatiOnLine\CertiObjects\Common\TipiComuni.xsd" namespace="http://tempuri.org/TipiComuni" />
+  <xs:element name="PraticaRequest" msdata:IsDataSet="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DatiGenerali" type="tc:DatiGenerali" />
+        <xs:element name="Dati">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FlagRic" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="FlagFiltro" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="CodiceIndividuale" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="Cognome" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="Nome" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="GiornoNascita" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="MeseNascita" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="AnnoNascita" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="Sesso" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="CFiscale" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="CodiceFamiglia" type="xs:string" minOccurs="0" nillable="true" />
+              <xs:element name="DataImmigrazione" type="xs:string" nillable="true" />
+            </xs:sequence>
+            <xs:attribute name="da" type="xs:string" />
+            <xs:attribute name="per" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

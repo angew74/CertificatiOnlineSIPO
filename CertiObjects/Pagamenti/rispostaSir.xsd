@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Giorginus (EMBRACE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+	<xs:element name="rispostaSir" type="io:rispostaSirType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		
+    
+    </xs:annotation>
+	</xs:element>
+	<xs:complexType name="rispostaCreditiType">
+		<xs:sequence>
+            <xs:element minOccurs="0" name="inseriti" type="io:creditiInseritiRispostaType"/>
+            <xs:element minOccurs="0" name="scartati" type="io:creditiScartatiRispostaType"/>
+        </xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="rispostaCreditoType">
+		<xs:sequence>
+			<xs:element name="ProgPosizione" type="xs:string"/>
+			<xs:element minOccurs="0" name="IdPosizione" type="xs:long"/>
+            <xs:element minOccurs="0" name="IdEvento" type="xs:string"/>
+			<xs:element minOccurs="0" name="rate" type="io:rateType"/>
+			<xs:element minOccurs="0" name="protocolli" type="io:protocolliType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="scartoType">
+		<xs:sequence>
+			<xs:element name="ProgPosizione" type="xs:string"/>
+			<xs:element name="TipoScarto" type="xs:string"/>
+			<xs:element name="DescrizioneScarto" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="rateType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="rataSir" type="io:rataSirType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="rataSirType">
+		<xs:sequence>
+			<xs:element name="numeroRata" type="xs:integer"/>
+			<xs:element minOccurs="0" name="codicePostel" type="xs:string"/>
+			<xs:element minOccurs="0" name="codiceSisal" type="xs:string"/>
+			<xs:element minOccurs="0" name="progRata" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="protocolliType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="protocolloSir" type="io:protocolloSirType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="protocolloSirType">
+		<xs:sequence>
+			<xs:element name="numeroEmissioneSir" type="xs:integer"/>
+			<xs:element name="tipoDocumentoSir" type="xs:string"/>
+			<xs:element minOccurs="0" name="tipoProtocollo" type="xs:string"/>
+			<xs:element minOccurs="0" name="progressivoProtocollo" type="xs:string"/>
+			<xs:element minOccurs="0" name="annoProtocollo" type="xs:string"/>
+			<xs:element minOccurs="0" name="dataProtocollo" type="xs:dateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="rispostaSirType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="lotto" type="xs:long"/>
+			<xs:element minOccurs="0" name="dataElaborazione" type="xs:dateTime">
+      </xs:element>
+			<xs:element minOccurs="0" name="rispostaCrediti" type="io:rispostaCreditiType"/>
+			<xs:element minOccurs="0" name="rispostaPoste"/>
+			<xs:element minOccurs="0" name="rispostaSisal" type="io:rispostaSisalType"/>
+            <xs:element minOccurs="0" name="rispostaPosteFtp" type="io:rispostaPosteFtpType"/>
+        </xs:sequence>
+	</xs:complexType>
+    <xs:complexType name="rispostaPosteFtpType">
+    <xs:sequence>
+            <xs:element name="FileName" type="xs:string"/>
+            <xs:element name="versamenti" type="io:versamentiPosteFtpType"/>
+            <xs:element name="scartati" type="io:scartiPosteFtpType"/>
+        </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="versamentoPosteFtpType">
+    <xs:sequence>
+      <xs:element name="universalKey" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="scartoPosteFtpType">
+    <xs:sequence>
+      <xs:element name="universalKey" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="rispostaSisalType">
+    <xs:sequence>
+      <xs:element name="scartato" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="versamento" type="io:versamentoRispostaSisalType"/>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="versamentoRispostaSisalType">
+    <xs:sequence>
+      <xs:element name="universalKey" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="creditiInseritiRispostaType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="credito" type="io:rispostaCreditoType"/>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="creditiScartatiRispostaType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="scarto" type="io:scartoType"/>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="versamentiPosteFtpType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="versamento" type="io:versamentoPosteFtpType"/>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="scartiPosteFtpType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="scarto" type="io:scartoPosteFtpType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

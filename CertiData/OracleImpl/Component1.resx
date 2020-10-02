@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="certificatiOracleDataAdapter1.IsNewCom" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="certificatiOracleDataAdapter1.HintUpdCmdType" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>4</value>
+  </metadata>
+  <metadata name="certificatiOracleDataAdapter1.HintInsCmdType" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>4</value>
+  </metadata>
+  <metadata name="certificatiOracleDataAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>207, 17</value>
+  </metadata>
+  <metadata name="certificatiOracleDataAdapter1.HintDelCmdType" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>4</value>
+  </metadata>
+  <metadata name="certificatiOracleDataAdapter1.AssocComNames" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAARAQAAAAQAAAAGAgAAAB9jZXJ0aWZpY2F0aVNlbGVjdE9yYWNsZUNvbW1h
+        bmQxBgMAAAAfY2VydGlmaWNhdGlJbnNlcnRPcmFjbGVDb21tYW5kMQYEAAAAH2NlcnRpZmljYXRpVXBk
+        YXRlT3JhY2xlQ29tbWFuZDEGBQAAAB9jZXJ0aWZpY2F0aURlbGV0ZU9yYWNsZUNvbW1hbmQxCw==
+</value>
+  </metadata>
+  <metadata name="certificatiOracleDataAdapter1.HintSelCmdType" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>0</value>
+  </metadata>
+  <metadata name="certificatiOracleDataAdapter1.HintConnId" xml:space="preserve">
+    <value>1</value>
+  </metadata>
+  <metadata name="certificatiDeleteOracleCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="certificatiDeleteOracleCommand1.CommandText" xml:space="preserve">
+    <value>DELETE FROM "CERTIFICATI" WHERE "ID"=:original_ID_param0 AND "RICHIESTA_ID"=:original_RICHIESTA_ID_param1 AND "TIPO_CERTIFICATO_ID"=:original_TIPO_CERTIFICA_param2 AND ((:original_TIPO_USO_ID_param3 IS NULL AND "TIPO_USO_ID" IS NULL) OR "TIPO_USO_ID"=:original_TIPO_USO_ID_param4) AND ((:original_CIU_param5 IS NULL AND "CIU" IS NULL) OR "CIU"=:original_CIU_param6) AND "STATUS_ID"=:original_STATUS_ID_param7 AND ((:original_CODICE_PAGAMEN_param8 IS NULL AND "CODICE_PAGAMENTO" IS NULL) OR "CODICE_PAGAMENTO"=:original_CODICE_PAGAMEN_param9) AND ((:original_DATA_EMISSION_param10 IS NULL AND "DATA_EMISSIONE" IS NULL) OR "DATA_EMISSIONE"=:original_DATA_EMISSION_param11) AND ((:original_SOGGETTO_RITI_param12 IS NULL AND "SOGGETTO_RITIRO" IS NULL) OR "SOGGETTO_RITIRO"=:original_SOGGETTO_RITI_param13)</value>
+  </data>
+  <metadata name="certificatiOracleConnection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="certificatiInsertOracleCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="certificatiInsertOracleCommand1.CommandText" xml:space="preserve">
+    <value>INSERT INTO "CERTIFICATI"( "ID", "RICHIESTA_ID", "TIPO_CERTIFICATO_ID", "TIPO_USO_ID", "CIU", "STATUS_ID", "XML_CERTIFICATO", "CODICE_PAGAMENTO", "XML_PAGAMENTO", "DATA_EMISSIONE", "SOGGETTO_RITIRO") VALUES ( :current_ID_param0, :current_RICHIESTA_ID_param1, :current_TIPO_CERTIFICAT_param2, :current_TIPO_USO_ID_param3, :current_CIU_param4, :current_STATUS_ID_param5, :current_XML_CERTIFICATO_param6, :current_CODICE_PAGAMENT_param7, :current_XML_PAGAMENTO_param8, :current_DATA_EMISSIONE_param9, :current_SOGGETTO_RITIR_param10)</value>
+  </data>
+  <metadata name="certificatiSelectOracleCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="certificatiUpdateOracleCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="certificatiUpdateOracleCommand1.CommandText" xml:space="preserve">
+    <value>UPDATE "CERTIFICATI" SET "ID"=:current_ID_param0, "RICHIESTA_ID"=:current_RICHIESTA_ID_param1, "TIPO_CERTIFICATO_ID"=:current_TIPO_CERTIFICAT_param2, "TIPO_USO_ID"=:current_TIPO_USO_ID_param3, "CIU"=:current_CIU_param4, "STATUS_ID"=:current_STATUS_ID_param5, "XML_CERTIFICATO"=:current_XML_CERTIFICATO_param6, "CODICE_PAGAMENTO"=:current_CODICE_PAGAMENT_param7, "XML_PAGAMENTO"=:current_XML_PAGAMENTO_param8, "DATA_EMISSIONE"=:current_DATA_EMISSIONE_param9, "SOGGETTO_RITIRO"=:current_SOGGETTO_RITIR_param10 WHERE "ID"=:original_ID_param11 AND "RICHIESTA_ID"=:original_RICHIESTA_ID_param12 AND "TIPO_CERTIFICATO_ID"=:original_TIPO_CERTIFIC_param13 AND ((:original_TIPO_USO_ID_param14 IS NULL AND "TIPO_USO_ID" IS NULL) OR "TIPO_USO_ID"=:original_TIPO_USO_ID_param15) AND ((:original_CIU_param16 IS NULL AND "CIU" IS NULL) OR "CIU"=:original_CIU_param17) AND "STATUS_ID"=:original_STATUS_ID_param18 AND ((:original_CODICE_PAGAME_param19 IS NULL AND "CODICE_PAGAMENTO" IS NULL) OR "CODICE_PAGAMENTO"=:original_CODICE_PAGAME_param20) AND ((:original_DATA_EMISSION_param21 IS NULL AND "DATA_EMISSIONE" IS NULL) OR "DATA_EMISSIONE"=:original_DATA_EMISSION_param22) AND ((:original_SOGGETTO_RITI_param23 IS NULL AND "SOGGETTO_RITIRO" IS NULL) OR "SOGGETTO_RITIRO"=:original_SOGGETTO_RITI_param24)</value>
+  </data>
+  <metadata name="$this.TrayLargeIcon" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+</root>

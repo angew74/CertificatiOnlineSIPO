@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+    <xs:include schemaLocation="soggettoType.xsd"/>
+    <xs:include schemaLocation="dettaglioType.xsd"/>
+    <xs:include schemaLocation="rataType.xsd"/>
+    <xs:include schemaLocation="praticaType.xsd"/>
+    <xs:include schemaLocation="voceType.xsd"/>
+	<xs:complexType name="posizioneType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		
+    </xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="dettaglio" type="io:dettaglioType">
+      </xs:element>
+			<xs:element minOccurs="0" name="pratica" type="io:praticaType">
+      </xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="rata" type="io:rataType">
+      </xs:element>
+			<xs:element maxOccurs="unbounded" name="soggetto" type="io:soggettoType">
+      </xs:element>
+			<xs:element maxOccurs="unbounded" name="voce" type="io:voceType">
+      </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:element name="posizioneType" type="io:posizioneType">
+  </xs:element>
+</xs:schema>

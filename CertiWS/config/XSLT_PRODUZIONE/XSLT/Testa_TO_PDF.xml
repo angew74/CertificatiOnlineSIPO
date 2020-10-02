@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fn="http://www.w3.org/2005/xpath-functions"
+	xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+	<xsl:output version="1.0" method="xml" encoding="UTF-8" indent="no" />
+	<xsl:param name="SV_OutputFormat" select="'PDF'" />
+	<xsl:template match="/">
+		<fo:root>
+			<fo:layout-master-set>
+				<fo:simple-page-master master-name="Testa-page">
+					<fo:region-body margin-top="0in" margin-bottom="0in" />
+        </fo:simple-page-master> 
+			</fo:layout-master-set>
+			<fo:page-sequence master-reference="Testa-page" initial-page-number="1" format="1">
+				<fo:flow flow-name="xsl-region-body">
+					<fo:block font-weight="normal" font-size="12px" color="#333333" line-height="12px" font-family="Courier New">\
+					</fo:block>
+				</fo:flow>
+			</fo:page-sequence>
+		</fo:root>
+	</xsl:template>
+	<xsl:template name="Testa">
+              <fo:block>
+                <fo:external-graphic src="url('http://localhost/CertiWS/config/XSLT/Testata_certificato.jpg')"/>
+              </fo:block>
+              <fo:inline>               </fo:inline>
+
+  </xsl:template>
+</xsl:stylesheet>

@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D5F64B5B-4615-457A-8BE8-B466A9ADF488}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Com.Unisys.CdR.Certi.WebApp</RootNamespace>
+    <AssemblyName>Com.Unisys.CdR.Certi.WebApp</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\..\UnisysComponents\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unisys.CdR.Tracer">
+      <HintPath>..\..\..\..\..\UnisysComponents\PABase\Unisys.CdR.Tracer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="build\build.css" />
+    <Content Include="build\build.min.css" />
+    <Content Include="build\RomaIcons.css" />
+    <Content Include="build\RomaIcons.svg" />
+    <Content Include="build\site.css" />
+    <Content Include="build\vendor\iconfinder.png" />
+    <Content Include="build\vendor\IWT.min.js" />
+    <Content Include="build\vendor\jquery.min.js" />
+    <Content Include="build\vendor\modernizr.js" />
+    <Content Include="build\vendor\polyfill.min.js" />
+    <Content Include="build\vendor\rem.min.js" />
+    <Content Include="build\vendor\respond.min.js" />
+    <Content Include="build\vendor\selectivizr.js" />
+    <Content Include="build\vendor\slice.js" />
+    <Content Include="build\vendor\yepnope.js" />
+    <Content Include="emissione\Emissione.aspx" />
+    <Content Include="emissione\Ritiro.aspx" />
+    <Content Include="raw\css\font-awesome.min.css" />
+    <Content Include="raw\css\itaicons.css" />
+    <Content Include="raw\css\multi_step_progress_bar.css" />
+    <Content Include="raw\css\RomaIcons.css" />
+    <Content Include="raw\css\RomaIcons.svg" />
+    <Content Include="raw\header\logo_roma.png" />
+    <Content Include="raw\header\logo_roma_nopad.png" />
+    <Content Include="raw\header\logo_roma_rosso_nopad.png" />
+    <Content Include="raw\urbs\UrbsDisplay-Bold.svg" />
+    <Content Include="raw\urbs\UrbsDisplay-Regular.svg" />
+    <Content Include="recupero\Errore.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CaptchaManager\AlfabetoWav.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CaptchaManager\BitmapFilter.cs" />
+    <Compile Include="CaptchaManager\CaptchaHandler.cs" />
+    <Compile Include="CaptchaManager\ImageUtil.cs" />
+    <Compile Include="CaptchaManager\RandomProvider.cs" />
+    <Compile Include="CaptchaManager\Wave.cs" />
+    <Compile Include="CaptchaManager\WaveUtil.cs" />
+    <Compile Include="Certificati.Master.cs">
+      <DependentUpon>Certificati.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Certificati.Master.designer.cs">
+      <DependentUpon>Certificati.Master</DependentUpon>
+    </Compile>
+    <Compile Include="common\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="common\Info.cs" />
+    <Compile Include="common\PagamentiHandler.cs" />
+    <Compile Include="controls\UCPaging.ascx.cs">
+      <DependentUpon>UCPaging.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\UCPaging.ascx.designer.cs">
+      <DependentUpon>UCPaging.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="controls\UCRicerca.ascx.cs">
+      <DependentUpon>UCRicerca.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\UCRicerca.ascx.designer.cs">
+      <DependentUpon>UCRicerca.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="emissione\Emissione.aspx.cs">
+      <DependentUpon>Emissione.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="emissione\Emissione.aspx.designer.cs">
+      <DependentUpon>Emissione.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="emissione\Ritiro.aspx.cs">
+      <DependentUpon>Ritiro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="emissione\Ritiro.aspx.designer.cs">
+      <DependentUpon>Ritiro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="recupero\Consegna.aspx.cs">
+      <DependentUpon>Consegna.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recupero\Consegna.aspx.designer.cs">
+      <DependentUpon>Consegna.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\UnisysLibrary\Com.Unisys.Logging\Com.Unisys.Logging.csproj">
+      <Project>{F35A26AE-E79F-4FC2-832A-01F6F4550128}</Project>
+      <Name>Com.Unisys.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UserManager\Com.Unisys.Security\Com.Unisys.Security.csproj">
+      <Project>{7e4e512a-b54b-4dff-9e86-24db492884cd}</Project>
+      <Name>Com.Unisys.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CertiCaching\CertiCaching.csproj">
+      <Project>{87449ABB-523D-4F7A-BE1D-4C1135C278C2}</Project>
+      <Name>CertiCaching</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CertiObjects\CertiObjects.csproj">
+      <Project>{0925BB05-B48D-4FEC-A907-AE21E8BCAF24}</Project>
+      <Name>CertiObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CertiUtils\CertiUtils.csproj">
+      <Project>{00D09C00-D196-427D-8D7D-4BE87288CDC6}</Project>
+      <Name>CertiUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CertiWebAppBusiness\CertiWebAppBusiness.csproj">
+      <Project>{B14FC308-09FE-48BE-A2E6-29604D6749D9}</Project>
+      <Name>CertiWebAppBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataObjects\CdRDataObjects.csproj">
+      <Project>{efc86d29-b462-4207-85c7-21e216392d28}</Project>
+      <Name>CdRDataObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="controls\UCPaging.ascx" />
+    <Content Include="controls\UCRicerca.ascx" />
+    <Content Include="Global.asax" />
+    <Content Include="Login.aspx" />
+    <Content Include="recupero\Manutenzione.htm" />
+    <Content Include="recupero\Consegna.aspx" />
+    <Content Include="policyCache.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Certificati.Master" />
+    <Content Include="build\RomaIcons.eot" />
+    <Content Include="build\RomaIcons.ttf" />
+    <Content Include="build\RomaIcons.woff" />
+    <Content Include="build\vendor\IWT.min.js.map" />
+    <Content Include="build\vendor\jquery.min.js.download" />
+    <Content Include="build\vendor\modernizr.js.download" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="raw\css\ita.eot" />
+    <Content Include="raw\css\ita.ttf" />
+    <Content Include="raw\css\ita.woff" />
+    <Content Include="raw\css\RomaIcons.eot" />
+    <Content Include="raw\css\RomaIcons.ttf" />
+    <Content Include="raw\css\RomaIcons.woff" />
+    <Content Include="raw\urbs\Urbs-Display-Regular.otf" />
+    <Content Include="raw\urbs\UrbsDisplay-Bold.eot" />
+    <Content Include="raw\urbs\UrbsDisplay-Bold.ttf" />
+    <Content Include="raw\urbs\UrbsDisplay-Bold.woff" />
+    <Content Include="raw\urbs\UrbsDisplay-Bold.woff2" />
+    <Content Include="raw\urbs\UrbsDisplay-Regular.eot" />
+    <Content Include="raw\urbs\UrbsDisplay-Regular.ttf" />
+    <Content Include="raw\urbs\UrbsDisplay-Regular.woff" />
+    <Content Include="raw\urbs\UrbsDisplay-Regular.woff2" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

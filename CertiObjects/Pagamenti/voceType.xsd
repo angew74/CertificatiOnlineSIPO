@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:io="http://xml.capgemini.it/cdr/io" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.capgemini.it/cdr/io">
+	<xs:complexType name="voceType">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		
+    </xs:annotation>
+		<xs:sequence>
+				<xs:element name="codiceCNC" type="xs:string"/>
+				<xs:element name="anno" type="xs:int"/>
+				<xs:element name="importo" type="xs:decimal"/>
+				<xs:element minOccurs="0" name="scritturacontabile" type="xs:string"/>
+				<xs:element minOccurs="0" name="numerorata" type="xs:int"/>
+				<xs:element minOccurs="0" name="datascadenza" type="xs:date">
+      </xs:element>
+				<xs:element minOccurs="0" name="codPostel" type="xs:string"/>
+            <xs:element minOccurs="0" name="codSisal" type="xs:string"/>
+            <xs:element minOccurs="0" name="importoVersato" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="codRotazione" type="xs:string"/>
+            <xs:element minOccurs="0" name="tipoPosizione" type="xs:string"/>
+            <xs:element minOccurs="0" name="importoDovutoPrec" type="xs:decimal"/>
+            <xs:element minOccurs="0" name="tipoGruppo" type="xs:string"/>
+            <xs:element minOccurs="0" name="sisareId" type="xs:string"/>
+            <xs:element minOccurs="0" name="progRata" type="xs:string"/>
+            <xs:element minOccurs="0" name="riferimentoVoce" type="xs:string"/>
+            <xs:element minOccurs="0" name="siglaSisareBenef" type="xs:string"/>
+        </xs:sequence>
+		</xs:complexType>
+    <xs:element name="voceType" type="io:voceType">
+  </xs:element>
+</xs:schema>

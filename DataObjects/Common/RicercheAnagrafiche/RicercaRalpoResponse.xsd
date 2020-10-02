@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/RicercaRalpoResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:tc="http://tempuri.org/TipiBase.xsd" targetNamespace="http://tempuri.org/RicercaRalpoResponse" elementFormDefault="unqualified" attributeFormDefault="unqualified" id="RicercaRalpoResponse">
+	<xs:import namespace="http://tempuri.org/TipiBase.xsd" schemaLocation="C:\Users\AdminDSI\RootPrj\CertificatiOnLine\CertiObjects\Common\TipiBase.xsd"/>
+	<xs:element name="RicercaRalpoResponse" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Elenco" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="PersonaElenco" type="tc:BasePersonaInFamigliaAnag" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute name="da"/>
+						<xs:attribute name="a"/>
+						<xs:attribute name="totale"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Messaggi" type="tc:BaseMessaggioAnag" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

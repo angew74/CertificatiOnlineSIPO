@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CertiMD" targetNamespace="http://tempuri.org/CertificatoMD.xsd" elementFormDefault="qualified" xmlns="http://tempuri.org/CertificatoMD.xsd" xmlns:mstns="http://tempuri.org/CertificatoMD.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="CertificatoMD">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Data">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Doc">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="CIU" type="xs:string" />
+										<xs:element name="CodiceFiscale" type="xs:string" />
+										<xs:element name="DataEmissione" type="xs:dateTime" />
+										<xs:element name="Extension" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BlobFile">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Hash" type="xs:hexBinary" />
+										<xs:element name="Formato" type="xs:string" />
+										<xs:element name="Dimensione" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fn="http://www.w3.org/2005/xpath-functions"
+	xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+	<xsl:output version="1.0" method="xml" encoding="UTF-8" indent="no" />
+	<xsl:param name="SV_OutputFormat" select="'PDF'" />
+	<xsl:template match="/">
+		<fo:root>
+			<fo:layout-master-set>
+				<fo:simple-page-master master-name="Nascita-page" page-height="11in" page-width="8.5in" margin-left="0.6in" margin-right="0.6in">
+					<fo:region-body margin-top="0.79in" margin-bottom="0.79in" />
+				</fo:simple-page-master>
+			</fo:layout-master-set>
+			<fo:page-sequence master-reference="Nascita-page" initial-page-number="1" format="1">
+				<fo:flow flow-name="xsl-region-body">
+					<fo:block font-weight="normal" font-size="11px" color="#333333" line-height="11px" font-family="Courier New">
+						<xsl:call-template name="Nascita" />
+					</fo:block>
+				</fo:flow>
+			</fo:page-sequence>
+		</fo:root>
+	</xsl:template>
+	<xsl:template name="Nascita" >
+    <fo:block margin-left="0.8in" margin-right="0.6in" font-size="10px">
+      <fo:block text-align="center">
+        <fo:inline font-size="12px" font-weight="bold">
+          <xsl:value-of select="RispostaCertificato/indice/ufficioEmittente"/>
+        </fo:inline>
+      </fo:block>
+      <fo:block>
+        <fo:leader leader-pattern="space"/>
+      </fo:block>
+      <fo:inline font-weight="bold" font-size="12px">
+        <xsl:value-of select="RispostaCertificato/indice/txtTipo"/>&#160;
+      </fo:inline>
+      <fo:inline font-weight="bold" font-size="12px">
+        <xsl:value-of select="RispostaCertificato/indice/tipo"/>
+      </fo:inline>
+      <fo:block>
+        <fo:leader leader-pattern="space"/>
+      </fo:block>
+      <fo:block>
+        <fo:block />
+        <fo:inline>        <xsl:value-of select="RispostaCertificato/indice/validitaCertificato"/></fo:inline>
+      </fo:block>
+      <fo:block>
+        <fo:leader leader-pattern="space"/>
+        <fo:leader leader-pattern="space"/>
+      </fo:block>
+      <fo:inline font-weight="bold">
+        <xsl:value-of select="RispostaCertificato/indice/ruoloEmittente"/>
+      </fo:inline>
+      <fo:block />
+      <fo:inline>
+        <xsl:value-of select="RispostaCertificato/indice/azione"/>
+      </fo:inline>
+      <fo:block />
+      <fo:inline font-weight="bold">
+        <xsl:value-of select="RispostaCertificato/indice/txtCertifica"/>:
+      </fo:inline>
+    </fo:block>
+    <fo:block>
+      <fo:leader leader-pattern="space"/>
+    </fo:block>
+		<fo:block margin-left="0.8in" margin-right="0.6in" font-size="10px">
+			<fo:inline font-family="Lucida Console">
+				<xsl:value-of select="RispostaCertificato/generalita/cognome"/>
+			</fo:inline>
+			<fo:inline>
+				&#160;<xsl:value-of select="RispostaCertificato/generalita/nome"/>
+			</fo:inline>
+			<fo:block/>
+			<xsl:if test="RispostaCertificato/generalita/codiceFiscale != ''">
+				<fo:inline>
+					<xsl:value-of select="RispostaCertificato/generalita/txtCodiceFiscale"/>&#160;
+				</fo:inline>
+				<fo:inline>
+					<xsl:value-of select="RispostaCertificato/generalita/codiceFiscale"/>
+				</fo:inline>
+			</xsl:if>
+			<fo:block/>
+			<xsl:if test="RispostaCertificato/generalita/dataNascita != ''">
+				<fo:inline>
+					<xsl:value-of select="RispostaCertificato/generalita/txtNascita"/>&#160;
+				</fo:inline>
+				<fo:inline>
+					<xsl:value-of select="RispostaCertificato/generalita/txtDataNascita"/>&#160;
+				</fo:inline>
+				<fo:inline>
+					<xsl:value-of select="RispostaCertificato/generalita/dataNascita"/>&#160;
+				</fo:inline>
+			</xsl:if>
+			<xsl:if test="RispostaCertificato/generalita/luogoNascita/nomeComune != ''">
+				<fo:inline>
+					<xsl:value-of select="RispostaCertificato/generalita/luogoNascita/txtComune"/>&#160;
+				</fo:inline>
+				<fo:inline>
+					<xsl:value-of select="RispostaCertificato/generalita/luogoNascita/nomeComune"/>
+				</fo:inline>
+			</xsl:if>
+			<fo:inline> (</fo:inline>
+			<xsl:if test="RispostaCertificato/generalita/luogoNascita/siglaProvincia != ''">
+				<fo:inline>
+					<xsl:value-of select="RispostaCertificato/generalita/luogoNascita/siglaProvincia"/>
+				</fo:inline>
+			</xsl:if>
+		<xsl:if test="RispostaCertificato/generalita/luogoNascita/nomeStato != '' and RispostaCertificato/generalita/luogoNascita/nomeStato != 'ITALIA'">
+				<fo:inline>
+					<xsl:value-of select="RispostaCertificato/generalita/luogoNascita/nomeStato"/>
+				</fo:inline>
+			</xsl:if>
+			<fo:inline>)</fo:inline>
+			<fo:block/>
+			<fo:inline>
+				<xsl:value-of select="RispostaCertificato/generalita/attoNascita/txtNumero"/>
+			</fo:inline>
+			<fo:inline>
+				&#160;<xsl:value-of select="RispostaCertificato/generalita/attoNascita/numero"/>&#160;
+			</fo:inline>
+			<xsl:if test="RispostaCertificato/generalita/attoNascita/parte != ''">
+				<fo:inline>
+					&#160;<xsl:value-of select="RispostaCertificato/generalita/attoNascita/txtParte"/>&#160;<xsl:value-of select="RispostaCertificato/generalita/attoNascita/parte"/>&#160;
+				</fo:inline>
+			</xsl:if>
+			<xsl:if test="RispostaCertificato/generalita/attoNascita/serie != '' or RispostaCertificato/generalita/attoNascita/esponente != ''">
+				<fo:inline>
+					&#160;<xsl:value-of select="RispostaCertificato/generalita/attoNascita/txtSerie"/>&#160;<xsl:value-of select="RispostaCertificato/generalita/attoNascita/serie"/>
+				</fo:inline>
+			</xsl:if>
+			<xsl:if test="RispostaCertificato/generalita/attoNascita/esponente != ''">
+				<fo:inline>
+					<xsl:value-of select="RispostaCertificato/generalita/attoNascita/esponente"/>
+				</fo:inline>
+			</xsl:if>
+			<xsl:if test="RispostaCertificato/generalita/attoNascita/comuneRegistrazione/nomeComune != ''">
+				<fo:inline>
+					&#160;<xsl:value-of select="RispostaCertificato/generalita/attoNascita/comuneRegistrazione/txtComune"/>
+					&#160;<xsl:value-of select="RispostaCertificato/generalita/attoNascita/comuneRegistrazione/nomeComune"/>
+				</fo:inline>
+				<fo:inline>&#160;(</fo:inline>
+				<xsl:if test="RispostaCertificato/generalita/attoNascita/comuneRegistrazione/siglaProvincia != ''">
+					<fo:inline>
+						<xsl:value-of select="RispostaCertificato/generalita/attoNascita/comuneRegistrazione/siglaProvincia"/>
+					</fo:inline>
+				</xsl:if>
+				<xsl:if test="RispostaCertificato/generalita/attoNascita/comuneRegistrazione/nomeStato != '' and RispostaCertificato/generalita/attoNascita/comuneRegistrazione/siglaProvincia = ''">
+					<fo:inline>
+						<xsl:value-of select="RispostaCertificato/generalita/attoNascita/comuneRegistrazione/nomeStato"/>
+					</fo:inline>
+				</xsl:if>
+				<fo:inline>)</fo:inline>
+			</xsl:if>
+			<fo:block>
+				<fo:leader leader-pattern="space"/>
+			</fo:block>
+		</fo:block>
+	</xsl:template>
+</xsl:stylesheet>
