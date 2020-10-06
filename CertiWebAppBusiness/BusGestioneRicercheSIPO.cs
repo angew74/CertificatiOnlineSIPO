@@ -42,6 +42,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
             if (myArrays.Count == 0)
             {
                 risposta.Messaggi.AddMessaggiRow("1", "2", "Nessun riscontro alla ricerca");
+                return risposta;
             }
             if (myArrays.Count == 1 && myArrays[0].famigliaConvivenza == null)
             {
@@ -106,6 +107,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
             componenteFamiglias = l.ToArray();
             return componenteFamiglias;
         }
+        
 
         public static NCRIRICIND FindByCodiceFiscale(string codFiscale, string cfrichiedente)
         {
@@ -117,7 +119,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
             SIPORequest sipoRequestToken = new SIPORequest(RichiestaToken, "RichiestaToken", AuthRequest, "", cfrichiedente);
             r = sipoRequestToken.CallingRichiestaToken(cfrichiedente);
             string accesstoken = r.access_token;
-            RicercaPosAnag ricercaPosAnag = new RicercaPosAnag();
+            RicercaPosAnag ricercaPosAnag = new RicercaPosAnag();           
             ricercaPosAnag.codiceFiscale = codFiscale;
             ricercaPosAnag.hostname = ConfigurationManager.AppSettings["hostname"];
             ricercaPosAnag.cfUser = ConfigurationManager.AppSettings["cfuser"];
@@ -129,6 +131,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
             if(myArrays.Count == 0)
             {
                 risposta.Messaggi.AddMessaggiRow("2", "2", "Nessun riscontro alla ricerca");
+                return risposta;
             }
             if (myArrays.Count == 1 && myArrays[0].famigliaConvivenza == null)
             {
@@ -142,6 +145,45 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
                    my.cognome, my.nome, my.nascita.dataEvento, my.famigliaConvivenza.codiceFamiglia, "", my.codiceFiscale, null);
             }
             risposta.Elenco.AddElencoRow("1", "1", "1");
+            return risposta;
+        }
+
+        public static NCRIRICIND FindByCodiceIndividuale(string codiceIndividuale, string cfrichiedente)
+        {
+            NCRIRICIND risposta = new NCRIRICIND();
+            ResponseRichiestaToken r = new ResponseRichiestaToken();
+            string utenzadominio = ConfigurationManager.AppSettings["utenzadominiotoken"];
+            string AuthRequest = "BASIC " + SerializationUtils.ToBase64Encode(utenzadominio);
+            string RichiestaToken = ConfigurationManager.AppSettings["ServiceRichiestaToken"] + "username=" + ConfigurationManager.AppSettings["usernamedomain"] + "&password=" + ConfigurationManager.AppSettings["passworddomain"] + "&grant_type=" + ConfigurationManager.AppSettings["grant_type"];
+            SIPORequest sipoRequestToken = new SIPORequest(RichiestaToken, "RichiestaToken", AuthRequest, "", cfrichiedente);
+            r = sipoRequestToken.CallingRichiestaToken(cfrichiedente);
+            string accesstoken = r.access_token;
+            RicercaPosAnag ricercaPosAnag = new RicercaPosAnag();
+            ricercaPosAnag.codiceIndividuale = codiceIndividuale;
+            ricercaPosAnag.hostname = ConfigurationManager.AppSettings["hostname"];
+            ricercaPosAnag.cfUser = ConfigurationManager.AppSettings["cfuser"];
+            string ricerca = JsonConvert.SerializeObject(ricercaPosAnag);
+            string AccessTokenRicerca = "bearer " + accesstoken;
+            string serviceRicerca = ConfigurationManager.AppSettings["ServiceRicercaPosAnag"];
+            SIPORequest sipoRequest = new SIPORequest(serviceRicerca, "RicercaPosAnag", AccessTokenRicerca, ricerca, cfrichiedente);
+            List<MyArray> myArrays = sipoRequest.CallingRicercaPosizione(cfrichiedente);
+            if (myArrays.Count == 0)
+            {
+                risposta.Messaggi.AddMessaggiRow("2", "2", "Nessun riscontro alla ricerca");
+                return risposta;
+            }
+            if (myArrays.Count == 1 && myArrays[0].famigliaConvivenza == null)
+            {
+                risposta.PersonaElenco.AddPersonaElencoRow("", "", myArrays[0].idSoggetto.ToString(), myArrays[0].sesso,
+                   myArrays[0].cognome, myArrays[0].nome, myArrays[0].nascita.dataEvento, "", "", myArrays[0].codiceFiscale, null);
+            }
+            else
+            {                
+                    MyArray my = myArrays[0];
+                    risposta.PersonaElenco.AddPersonaElencoRow("", "", my.idSoggetto.ToString(), my.sesso,
+                       my.cognome, my.nome, my.nascita.dataEvento, my.famigliaConvivenza.codiceFamiglia, "", my.codiceFiscale, null);
+                    risposta.Elenco.AddElencoRow("1", "1", "1");                
+            }           
             return risposta;
         }
     }

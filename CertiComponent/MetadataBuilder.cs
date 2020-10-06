@@ -8,7 +8,7 @@ using Com.Unisys.CdR.Certi.Objects;
 
 
 
-namespace Com.Unisys.CdR.Certi.Component
+namespace CertificatiComponent
 {
     public class MetadataBuilder
     {

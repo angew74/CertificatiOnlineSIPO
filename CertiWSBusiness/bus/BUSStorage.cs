@@ -1,16 +1,11 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using Com.Unisys.CdR.Certi.Objects;
-using Com.Unisys.CdR.Certi.Component;
-using Com.Unisys.CdR.Certi.Utils;
 using Com.Unisys.Logging;
 using log4net;
 using System.Security.Cryptography.X509Certificates;
 using System.Configuration;
-using System.Reflection;
-using System.Globalization;
+using CertificatiComponent;
 
 namespace Com.Unisys.CdR.Certi.WS.Business
 {

@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: ApplicationName("CertiComponent")]
-[assembly: AssemblyTitle("CertiComponent")]
+[assembly: ApplicationName("CertificatiComponent")]
+[assembly: AssemblyTitle("CertificatiComponent")]
 [assembly: AssemblyDescription("GESTORE TRANSAZIONI WEB SERVICES CERTIFICATI")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ROMA CAPITALE")]
-[assembly: AssemblyProduct("CertiComponent")]
+[assembly: AssemblyProduct("CertificatiComponent")]
 [assembly: AssemblyCopyright("Copyright © ROMA CAPITALE 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

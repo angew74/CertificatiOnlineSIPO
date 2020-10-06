@@ -4,7 +4,7 @@ using System.Text;
 using StorageComponent;
 using Com.Unisys.CdR.Certi.Objects;    
 
-namespace Com.Unisys.CdR.Certi.Component
+namespace CertificatiComponent
 {
     /// <summary>
     /// Summary description for CertEngine.

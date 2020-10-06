@@ -130,7 +130,7 @@
       <Name>CertiCaching</Name>
     </ProjectReference>
     <ProjectReference Include="..\CertiComponent\CertiComponent.csproj">
-      <Project>{85C8BC56-3298-4569-B4FC-5EAA4C202794}</Project>
+      <Project>{85c8bc56-3298-4569-b4fc-5eaa4c202794}</Project>
       <Name>CertiComponent</Name>
     </ProjectReference>
     <ProjectReference Include="..\CertiData\CertiData.csproj">

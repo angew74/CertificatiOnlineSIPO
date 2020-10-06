@@ -8,7 +8,7 @@ using DistributedTransaction;
 using StorageComponent;
 //using Com.Unisys.CdR.Certi.DataLayer;  
 
-namespace Com.Unisys.CdR.Certi.Component
+namespace CertificatiComponent
 {
     public class CertificatoTransactionInputData
     {

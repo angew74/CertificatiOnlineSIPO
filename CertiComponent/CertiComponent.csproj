@@ -8,8 +8,8 @@
     <ProjectGuid>{85C8BC56-3298-4569-B4FC-5EAA4C202794}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CertiComponent</RootNamespace>
-    <AssemblyName>CertiComponent</AssemblyName>
+    <RootNamespace>CertificatiComponent</RootNamespace>
+    <AssemblyName>CertificatiComponent</AssemblyName>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
