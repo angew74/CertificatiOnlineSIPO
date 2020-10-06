@@ -1,16 +1,18 @@
-﻿using System.Reflection;
+﻿using System.EnterpriseServices;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
+[assembly: ApplicationName("CertiComponent")]
 [assembly: AssemblyTitle("CertiComponent")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("GESTORE TRANSAZIONI WEB SERVICES CERTIFICATI")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("ROMA CAPITALE")]
 [assembly: AssemblyProduct("CertiComponent")]
-[assembly: AssemblyCopyright("Copyright ©  2009")]
+[assembly: AssemblyCopyright("Copyright © ROMA CAPITALE 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

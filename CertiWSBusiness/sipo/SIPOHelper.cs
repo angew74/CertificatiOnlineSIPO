@@ -36,13 +36,15 @@ namespace Com.Unisys.CdR.Certi.WS.Business.sipo
                     break;
                 case "C0007":
                 case "7":
-                    ids.Add("9");
+                    ids.Add("10");
                     break;
-                case "C0008":
-                case "C0009":
-                case "8":
-                case "9":
+                case "C0008":              
+                case "8":                
                     ids.Add("12");
+                    break;
+                case "C0009":
+                case "9":
+                    ids.Add("15");
                     break;
                 case "10":
                 case "C0010":
@@ -52,12 +54,15 @@ namespace Com.Unisys.CdR.Certi.WS.Business.sipo
                 case "C0011":
                     ids.Add("17");
                     break;
-                case "12":
-                case "13":
-                case "C0012":
-                case "C0013":
+                case "12":               
+                case "C0012":               
                     ids.Add("5");
                     ids.Add("8");
+                    break;
+                case "13":
+                case "C0013":
+                    ids.Add("5");
+                    ids.Add("10");
                     break;
                 case "14":
                 case "C0014":
@@ -85,6 +90,11 @@ namespace Com.Unisys.CdR.Certi.WS.Business.sipo
                     ids.Add("5");
                     ids.Add("8");
                     break;
+                case "20":
+                case "C0020":
+                    ids.Add("22");
+                    break;
+
             }
 
             return ids;

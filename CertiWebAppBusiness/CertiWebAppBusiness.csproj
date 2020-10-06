@@ -140,19 +140,19 @@
       <Name>Com.Unisys.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\CertiCaching\CertiCaching.csproj">
-      <Project>{87449ABB-523D-4F7A-BE1D-4C1135C278C2}</Project>
+      <Project>{87449abb-523d-4f7a-be1d-4c1135c278c2}</Project>
       <Name>CertiCaching</Name>
     </ProjectReference>
     <ProjectReference Include="..\CertiData\CertiData.csproj">
-      <Project>{61170123-A8BD-4DC8-AE9F-C12A9E260925}</Project>
+      <Project>{61170123-a8bd-4dc8-ae9f-c12a9e260925}</Project>
       <Name>CertiData</Name>
     </ProjectReference>
     <ProjectReference Include="..\CertiObjects\CertiObjects.csproj">
-      <Project>{0925BB05-B48D-4FEC-A907-AE21E8BCAF24}</Project>
+      <Project>{0925bb05-b48d-4fec-a907-ae21e8bcaf24}</Project>
       <Name>CertiObjects</Name>
     </ProjectReference>
     <ProjectReference Include="..\CertiUtils\CertiUtils.csproj">
-      <Project>{00D09C00-D196-427D-8D7D-4BE87288CDC6}</Project>
+      <Project>{00d09c00-d196-427d-8d7d-4be87288cdc6}</Project>
       <Name>CertiUtils</Name>
     </ProjectReference>
   </ItemGroup>

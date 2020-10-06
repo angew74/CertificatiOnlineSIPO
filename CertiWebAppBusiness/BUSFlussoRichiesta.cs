@@ -609,145 +609,10 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
         }
 
         #endregion
-
-        /*
-        /// <summary>
-        /// Preparazione form di richiesta pagamento
-        /// </summary>
-        /// <param name="tipoArea"></param>
-        /// <param name="currentContext"></param>
-        /// <param name="url"></param>
-        /// <param name="backPage"></param>
-        /// <param name="idFlusso"></param>
-        /// <param name="CIU"></param>
-        /// <param name="tipoCertificato"></param>
-        /// <param name="dtEmissione"></param>
-        /// <param name="codFisRic"></param>
-        /// <param name="nomeInt"></param>
-        /// <param name="cogInt"></param>
-        /// <param name="codFisInt"></param>
-        /// <param name="inBollo"></param>
-        /// <returns></returns>
-        public string PreparePayment(string tipoArea, System.Web.HttpContext currentContext, string url, string backPage, string idFlusso,
-            string CIU, string tipoCertificato, DateTime dtEmissione, string codFisRic, string nomeInt, string cogInt, string codFisInt, bool inBollo)
-        {
-            string xmlRequest = buildXmlRequestString(CIU, tipoCertificato, dtEmissione, nomeInt, cogInt, codFisInt, inBollo);
-            string form = buildPayForm(url, codFisRic, backPage, tipoArea, xmlRequest);
-            return form;
-        }
-    */
+           
 
 
-/*
-        /// <summary>
-        /// Chiamata al sevizio web per verificare lo stato di pagamento e vengono filtrati i certificati 
-        /// già prodotti solo per il caso di pagina in cui devo visualizzare i certificati già prodotti
-        /// </summary>
-        /// <param name="codiceFiscale"></param>
-        /// <returns></returns>
-        public ProfiloDownload.CertificatiRow[] ControlPaymentRitiro(string codiceFiscale, string clientID, string ip)
-        {
-            ProfiloDownload.CertificatiDataTable certs;
-            BUSListe lst = new BUSListe();
-            XmlNode rp = null;
-            bool wsResp = false;
 
-            try
-            {
-                int tipoRitiro = int.Parse(Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["TipoRitiro"));
-                certs = lst.GetElencoDownload(codiceFiscale, tipoRitiro, int.Parse(clientID));
-                DataRow[] emptyRows = certs.Select("STATUS_ID=" + (int)Status.C_RICHIESTA_PAGAMENTO);
-                if (emptyRows.Length > 0)
-                {
-                    string[] listaCIU = new string[emptyRows.Length];
-                    for (int i = 0; i < emptyRows.Length; i++)
-                    {
-                        listaCIU[i] = (emptyRows[i] as ProfiloDownload.CertificatiRow).CIU;
-                    }
-
-                    ProxyPagamentiWS.Pagamento_Certificati ck = new ProxyPagamentiWS.Pagamento_Certificati();
-                    ck.Url = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["UrlControlloPagamenti");
-                    try
-                    {
-
-                        rp = ck.ListaTransazioni(listaCIU);
-                        wsResp = true;
-                    }
-                    catch (SoapException ex)
-                    {
-                        ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWebAppBusiness) Dettagli: " + ex.Message
-                            + Utility.ExceptionUtils.GetMessageFromSOAPException(ex.Detail.FirstChild.InnerText),
-                            ex.Detail.FirstChild.InnerText,
-                            "Certi.WebApp.Business.BUSFlussoRichiesta",
-                            "ControlPayment",
-                            "Controllo pagamenti - Lista transazioni attive",
-                            "ClientID: " + clientID,
-                            "ActiveObjectCF: " + codiceFiscale,
-                            ex.InnerException);
-                        Com.Unisys.Logging.Errors.ErrorLog error = new Com.Unisys.Logging.Errors.ErrorLog("CSWB", mex);
-                        log.Error(error);
-                        throw mex;
-                    }
-                    finally
-                    {
-                        if (ck != null)
-                            ck.Dispose();
-                    }
-                    if (wsResp)
-                    {
-                        foreach (System.Xml.XmlNode p in rp)
-                        {
-                            string es = p.SelectSingleNode("//esito").InnerText;
-                            string ci = p.SelectSingleNode("//idCertificato").InnerText;
-                            switch (es)
-                            {
-                                case "OK":
-                                    certs.FindByCIU(ci).CODICE_PAGAMENTO = p.SelectSingleNode("//datiTransazione/datiPagamento/idEmissione").InnerText;
-                                    certs.FindByCIU(ci).XML_PAGAMENTO = p.SelectSingleNode("//datiTransazione").OuterXml;
-                                    certs.FindByCIU(ci).STATUS_ID = (int)Status.C_VERIFICA_EMETTIBILITA_OK;
-                                    break;
-                                case "KO":
-                                    certs.FindByCIU(ci).STATUS_ID = (int)Status.C_RICHIESTA_PAGAMENTO_KO;
-                                    break;
-                            }
-
-                        }
-
-                        for (int i = emptyRows.Length - 1; i >= 0; i--)
-                        {
-                            ProfiloDownload.CertificatiRow rr = (ProfiloDownload.CertificatiRow)emptyRows[i];
-                            if (rr.STATUS_ID == (int)Status.C_RICHIESTA_PAGAMENTO)
-                                certs.FindByCIU(rr.CIU).STATUS_ID = (int)Status.C_RICHIESTA_PAGAMENTO_KO;
-                        }
-                        DataLayer.Dao.getDaoFactory(StoreType.ORACLE).DaoImpl.Richiesta.UpdatePagamento(certs);
-                        DataLayer.Dao.getDaoFactory(StoreType.ORACLE).DaoImpl.Dispose();
-
-                    }
-                }
-            }
-            catch (ManagedException mex)
-            {
-                throw mex;
-            }
-            catch (Exception ex)
-            {
-                ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWebAppBusiness) Dettagli: " + ex.Message,
-                            "ERR_022",
-                            "Certi.WebApp.Business.BUSFlussoRichiesta",
-                            "ControlPayment",
-                            "Controllo pagamenti",
-                            "ClientID: " + clientID,
-                            "ActiveObjectCF: " + codiceFiscale,
-
-                             ex.InnerException);
-                Com.Unisys.Logging.Errors.ErrorLog error = new Com.Unisys.Logging.Errors.ErrorLog("CSWB", mex);
-                log.Error(error);
-                throw mex;
-            }
-            return (ProfiloDownload.CertificatiRow[])certs.Select("STATUS_ID <>" + (int)Status.C_RICHIESTA_PAGAMENTO_KO +
-                " and STATUS_ID <> " + (int)Status.C_GENERAZIONE_PDF_OK+ " and STATUS_ID <> "+ (int)Status.C_RITIRATO,
-                "T_DATA_EMISSIONE desc");
-        }*/
 
         /// <summary>
         /// Recupero certificato con il CIU dato
@@ -908,307 +773,51 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
 
         }
 
-        /*
-        public BridgeProxy.datibridgeTYPE CreaDatiBridge(string enteCred,string tipoArea, string idSistemaT, string bckUrl)
-        {
-              BridgeProxy.datibridgeTYPE datiBridge = new BridgeProxy.datibridgeTYPE();
-            datiBridge.entecreditore = enteCred;
-            datiBridge.idsistemasorgente = tipoArea;
-            datiBridge.idsistematarget = idSistemaT;
-            datiBridge.backurl = bckUrl;
-            return datiBridge;
-        }*/
-        /*
-        public BridgeProxy.carrellopayloadTYPE CreaCarrello(int idx, string tipoDebito, Decimal importoTot, string macroStrut, string areaTema, string CIU, DateTime dtEmissione, string codDiritti, string tipoCerti,string tipoGruppo,string tipoBollo, bool inBollo, decimal totaleDebiti, string cognome, string nome , string codFisc)
-        {
 
-            BridgeProxy.carrellopayloadTYPE carrello = new BridgeProxy.carrellopayloadTYPE();
-                carrello.debitidapagare = new BridgeProxy.debitodapagareTYPE[idx];
-
-                for (int i = 0; i < idx; i++) 
-                {
-                    carrello.debitidapagare[i] = CreaDebitoDaPagare(tipoDebito, importoTot, macroStrut, areaTema,inBollo,codFisc,nome,cognome);
-                    carrello.debitidapagare[i].coordinatedebito.altridati = CreaAltriDati(CIU,dtEmissione,codDiritti,tipoCerti,tipoGruppo,tipoBollo,inBollo);
-                }
-                
-                return carrello;
-
-        }
-        
-        private BridgeProxy.debitodapagareTYPE CreaDebitoDaPagare(string tipoDebito, Decimal importoTot, string macroStrut, string areaTema, bool idxden, string codFisc, string nome, string cognome)
-        {
-            BridgeProxy.debitodapagareTYPE debitoDaPagare = new Com.Unisys.CdR.Certi.WebApp.Business.BridgeProxy.debitodapagareTYPE();
-            debitoDaPagare.coordinatedebito = new BridgeProxy.coorddebitoTYPE();
-            debitoDaPagare.coordinatedebito.tipodebito = tipoDebito;
-            debitoDaPagare.coordinatedebito.importototale = importoTot;
-            debitoDaPagare.coordinatedebito.importototaleSpecified = true;
-            debitoDaPagare.coordinatedebito.macrostrutturad = macroStrut;
-            debitoDaPagare.coordinatedebito.areatematica = areaTema;
-            debitoDaPagare.coordinatedebito.contribuente = CreaContribuente(idxden,codFisc,nome,cognome);
-           
-            return debitoDaPagare;
-        }
-        
-        public BridgeProxy.contribuenteTYPE CreaContribuente(bool  idxden, string codFisc, string nome, string cognome)
-        {
-
-            int idx = 0;
-            if (idxden)
-            {
-                idx = 3;
-            }
-            else
-                idx = 2;
-
-                BridgeProxy.contribuenteTYPE contribuente = new BridgeProxy.contribuenteTYPE();
-                contribuente.tipo = BridgeProxy.naturagiuridicaTYPE.F;
-                contribuente.codicefiscale = codFisc;
-                contribuente.altridati = new BridgeProxy.namevaluepairTYPE[idx];
-                contribuente.altridati[0] = new BridgeProxy.namevaluepairTYPE();
-                contribuente.altridati[0].nome = "UC_NOME";
-                contribuente.altridati[0].valore = new string[1];
-                contribuente.altridati[0].valore[0] = nome;
-                contribuente.altridati[1] = new BridgeProxy.namevaluepairTYPE();
-                contribuente.altridati[1].nome = "UC_COGNOME";
-                contribuente.altridati[1].valore = new string[1];
-                contribuente.altridati[1].valore[0] = cognome;
-                if (idxden)
-                {
-                    contribuente.altridati[2] = new BridgeProxy.namevaluepairTYPE();
-                    contribuente.altridati[2].nome = "UC_DEN";
-                }
-                return contribuente;
-        }
-
-        private BridgeProxy.namevaluepairTYPE[] CreaAltriDati(string CIU, DateTime dtEmissione,string codDiritti,string tipoCerti,string tipoGruppo,string tipoBollo, bool inBollo) {
-            BridgeProxy.namevaluepairTYPE[] altridati;
-            if (inBollo)
-            {
-                altridati = new BridgeProxy.namevaluepairTYPE[6];
-                altridati[0] = new BridgeProxy.namevaluepairTYPE();
-                altridati[0].nome = "COD_CERTIFICATO";
-                altridati[0].valore = new string[1];
-                altridati[0].valore[0] = CIU;
-                altridati[1] = new BridgeProxy.namevaluepairTYPE();
-                altridati[1].nome = "DATA_EMISSIONE";
-                DateTime[] dt = new DateTime[1];
-                dt[0] = dtEmissione;
-                altridati[1].valore = dt.Cast<object>().ToArray();
-                altridati[2] = new BridgeProxy.namevaluepairTYPE();
-                altridati[2].nome = "COD_DIRITTI";
-                altridati[2].valore = new string[1];
-                altridati[2].valore[0] = codDiritti;
-                altridati[3] = new BridgeProxy.namevaluepairTYPE();
-                altridati[3].nome = "TIPO_GRUPPO";
-                altridati[3].valore = new string[1];
-                altridati[3].valore[0] = tipoGruppo;
-                altridati[4] = new BridgeProxy.namevaluepairTYPE();
-                altridati[4].nome = "TIPO_BOLLO_APPLICATO";
-                altridati[4].valore = new string[1];
-                altridati[4].valore[0] =tipoBollo;
-                altridati[5] = new BridgeProxy.namevaluepairTYPE();
-                altridati[5].nome = "AD_NOME_CERTIFICATO";
-                altridati[5].valore = new string[1];
-                altridati[5].valore[0] = tipoCerti;
-            }
-            else
-            {
-                altridati = new BridgeProxy.namevaluepairTYPE[4];
-                altridati[0] = new BridgeProxy.namevaluepairTYPE();
-                altridati[0].nome = "COD_CERTIFICATO";
-                altridati[0].valore = new string[1];
-                altridati[0].valore[0] = CIU;
-                altridati[1] = new BridgeProxy.namevaluepairTYPE();
-                altridati[1].nome = "DATA_EMISSIONE";
-                DateTime[] dt = new DateTime[1];
-                dt[0] = dtEmissione;
-                altridati[1].valore = dt.Cast<object>().ToArray();
-                altridati[2] = new BridgeProxy.namevaluepairTYPE();
-                altridati[2].nome = "COD_DIRITTI";
-                altridati[2].valore = new string[1];
-                altridati[2].valore[0] = codDiritti;
-                altridati[3] = new BridgeProxy.namevaluepairTYPE();
-                altridati[3].nome = "AD_NOME_CERTIFICATO";
-                altridati[3].valore = new string[1];
-                altridati[3].valore[0] = tipoCerti;
-            }
-            return altridati;
-         }
-
-        //aggiunta alessio 19/02/2014
-        public bool PreparaPagamento(string tipoArea, System.Web.HttpContext currentContext, string url, string backPage, string idFlusso,
-            string CIU, string tipoCertificato, DateTime dtEmissione, string codFisRic, string nomeInt, string cogInt, string codFisInt, bool inBollo, out string mess)
-               
-        {
-
-            string tipoDebito = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["tipoDebito");
-            decimal importoTot;
-            decimal totaleDebiti;
-            string macroStrut = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["macroStruttura");
-            string areaT;
-            string codDiritti;
-            string tipoGruppo = string.Empty;
-            string tipoBollo=string.Empty;
-
-
-                BridgeProxy.FedFisWEBBridge fed = new BridgeProxy.FedFisWEBBridge();
-                fed.Url = url;
-                BridgeProxy.requestpreparabridgeTYPE req = new BridgeProxy.requestpreparabridgeTYPE();
-                req.timestamp = DateTime.Now;
-                BridgeProxy.datibridgeTYPE datiBridge = CreaDatiBridge(Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["enteCreditore"), tipoArea, Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["SistemaTarget"), backPage);
-                datiBridge.utente = new BridgeProxy.contribuenteTYPE();
-                datiBridge.utente.tipo = BridgeProxy.naturagiuridicaTYPE.F;
-                datiBridge.utente.codicefiscale = codFisRic;
-                datiBridge.payload = new BridgeProxy.datibridgeTYPEPayload();
-
-                if (inBollo)
-                {
-                    importoTot = Convert.ToDecimal(Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["importoTotaleB"), CultureInfo.InvariantCulture);
-                    areaT = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["areaTematicaBollo");
-                    codDiritti = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["CodiceDirittiBollo");
-                    tipoGruppo = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["tipoGruppo");
-                    tipoBollo = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["CodiceBollo");
-                    totaleDebiti=Convert.ToDecimal(Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["totaleDebitiB"), CultureInfo.InvariantCulture);
-
-                }
-                else
-                {
-                    importoTot = Convert.ToDecimal(Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["importoTotaleD"), CultureInfo.InvariantCulture);
-                    areaT = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["areaTematicaDiritti");
-                    codDiritti = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["CodiceDirittiSemplice");
-                    totaleDebiti = Convert.ToDecimal(Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["totaleDebitiD"), CultureInfo.InvariantCulture);
-
-                }
-
-                //!!!!!VERIFICARE!!!!! passo come parametro nome, cogn e codice fiscale del richiedente.
-                BridgeProxy.carrellopayloadTYPE carrello =CreaCarrello(1,tipoDebito,importoTot,macroStrut,areaT,CIU,dtEmissione,codDiritti,tipoCertificato,tipoGruppo,tipoBollo,inBollo,totaleDebiti,cogInt,nomeInt,codFisInt);
-
-                carrello.totaledebiti = totaleDebiti;
-                datiBridge.payload.Item = carrello;
-            
-            req.datibridge = datiBridge;
-            log.Debug("Sto chiamando prepare bridge_" + req.datibridge.utente.codicefiscale);
-            if (!(string.IsNullOrEmpty(CIU)))
-            { log.Debug("Ecco il ciu" + CIU); }    
-            BridgeProxy.responsepreparabridgeTYPE resp = fed.preparaBridge(req);
-            log.Debug("Ha risposto prepare bridge_" + req.datibridge.utente.codicefiscale);
-            if (resp.esito)
-            {
-                log.Debug("ho il ticket_" + req.datibridge.utente);
-                mess = resp.ticket;
-            }
-            else
-                mess = resp.messaggio;
-            return resp.esito;
-        }*/
-
-        //nuovo metodo di controllo dei pagamenti per il nuovo servizio Pago
-        /*
-        public ProfiloDownload.CertificatiRow[] ControllaPagamento(string codiceFiscale, string clientID, string ip)
+        /// <summary>
+        /// Chiamata al sevizio web per verificare lo stato di pagamento e vengono filtrati i certificati 
+        /// già prodotti solo per il caso di pagina in cui devo visualizzare i certificati già prodotti
+        /// </summary>
+        /// <param name="codiceFiscale"></param>
+        /// <returns></returns>
+        public ProfiloDownload.CertificatiRow[] ControlPaymentRitiro(string codiceFiscale, string clientID, string ip)
         {
             ProfiloDownload.CertificatiDataTable certs;
             BUSListe lst = new BUSListe();
-
             try
             {
-                int tipoRitiro = int.Parse(Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["TipoRitiro"));
-
+                int tipoRitiro = int.Parse(ConfigurationManager.AppSettings["TipoRitiro"]);
                 certs = lst.GetElencoDownload(codiceFiscale, tipoRitiro, int.Parse(clientID));
                 DataRow[] emptyRows = certs.Select("STATUS_ID=" + (int)Status.C_RICHIESTA_PAGAMENTO);
                 if (emptyRows.Length > 0)
-                {
-                    string[] listaCIU = new string[emptyRows.Length];
-                    for (int i = 0; i < emptyRows.Length; i++)
+                {                   
+                    try
                     {
-                        listaCIU[i] = (emptyRows[i] as ProfiloDownload.CertificatiRow).CIU;
+                        for (int i = emptyRows.Length - 1; i >= 0; i--)
+                        {
+                            ProfiloDownload.CertificatiRow rr = (ProfiloDownload.CertificatiRow)emptyRows[i];
+                            if (rr.STATUS_ID == (int)Status.C_RICHIESTA_PAGAMENTO)
+                                certs.FindByCIU(rr.CIU).STATUS_ID = (int)Status.C_RICHIESTA_PAGAMENTO_KO;
+                        }
+                        DataLayer.Dao.getDaoFactory(StoreType.ORACLE).DaoImpl.Richiesta.UpdatePagamento(certs);
+                        DataLayer.Dao.getDaoFactory(StoreType.ORACLE).DaoImpl.Dispose();                       
+                       
                     }
-                    //modificare  qui
-                    MWxSAProxy.FedFisMWxSA fedFis = new MWxSAProxy.FedFisMWxSA();
-                    fedFis.Url = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["UrlControlloPagamenti");
-                    MWxSAProxy.requestnotificapagamentiTYPE notificaPaga = new MWxSAProxy.requestnotificapagamentiTYPE();
-                    MWxSAProxy.notificarichiestaTYPE notificaRic = new MWxSAProxy.notificarichiestaTYPE();
-                    MWxSAProxy.responsenotificapagamentiTYPE respPago = new MWxSAProxy.responsenotificapagamentiTYPE();
-                    notificaPaga.timestamp = DateTime.Now;
-                    notificaPaga.enti = new MWxSAProxy.notificherichiesteenteTYPE[1];
-                    notificaPaga.enti[0] = new MWxSAProxy.notificherichiesteenteTYPE();
-                    notificaPaga.enti[0].entecreditore = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["enteCreditore");
-                    notificaPaga.enti[0].notificherichieste = new MWxSAProxy.notificarichiestaTYPE[emptyRows.Length];
-                    for (int i = 0; i < emptyRows.Length; i++) {
-                        notificaPaga.enti[0].notificherichieste[i] = new MWxSAProxy.notificarichiestaTYPE();
-                        notificaPaga.enti[0].notificherichieste[i].idsistemaoggettopagamento = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["idsistemaoggettopagamento");
-                        notificaPaga.enti[0].notificherichieste[i].idlocaleoggettopagamento = listaCIU[i];
-                    }
-
-                    log.Debug("prima di controllo pagamenti");
-                    log.Debug(fedFis.Url);
-                    respPago = fedFis.chiediPagamenti(notificaPaga);
-                    log.Debug("dopo controllo pagamenti");
-                    if (respPago.esito)
+                    catch (SoapException ex)
                     {
-
-                        MWxSAProxy.notificheenteTYPE[] arrayEnti = respPago.enti;
-                        if (arrayEnti != null)
-                        {
-                            MWxSAProxy.notificaTYPE[] notifiche = arrayEnti[0].notifiche;
-
-                            foreach (MWxSAProxy.notificaTYPE notifica in notifiche)
-                            {
-                                string ci = notifica.debitipagati[0].idoggettopagamento.idlocaleoggettopagamento;
-                                certs.FindByCIU(ci).CODICE_PAGAMENTO = notifica.datipagamento.idricevutapagamento;
-                                System.Xml.Serialization.XmlSerializer ser = new System.Xml.Serialization.XmlSerializer(typeof(MWxSAProxy.notificaTYPE));
-                                System.IO.Stream str = new System.IO.MemoryStream();
-                                XmlTextWriter wr = new XmlTextWriter(str, new System.Text.UTF8Encoding(false));
-                                ser.Serialize(wr, notifica);
-                                str.Seek(0, System.IO.SeekOrigin.Begin);
-                                byte[] buffer = new byte[str.Length];
-                                str.Read(buffer, 0, buffer.Length);
-                                string respNotifica = new UTF8Encoding(false).GetString(buffer);
-                                certs.FindByCIU(ci).XML_PAGAMENTO = respNotifica;
-                                certs.FindByCIU(ci).STATUS_ID = (int)Status.C_VERIFICA_EMETTIBILITA_OK;
-                            }
-                        }
-
-                        string aggiornaPago = Com.Unisys.CdR.Certi.Utils.ConfigurationManager.AppSettings["aggiornaPago");
-
-                        switch (aggiornaPago)
-                        {
-                            case "none":
-
-                                for (int i = emptyRows.Length - 1; i >= 0; i--)
-                                {
-                                    ProfiloDownload.CertificatiRow rr = (ProfiloDownload.CertificatiRow)emptyRows[i];
-                                    if (rr.STATUS_ID == (int)Status.C_RICHIESTA_PAGAMENTO)
-
-                                        certs.FindByCIU(rr.CIU).STATUS_ID = (int)Status.C_RICHIESTA_PAGAMENTO_KO;
-                                }
-                                Com.Unisys.CdR.Certi.DataLayer.Dao.getDaoFactory(StoreType.ORACLE).DaoImpl.Richiesta.UpdatePagamento(certs);
-                                Com.Unisys.CdR.Certi.DataLayer.Dao.getDaoFactory(StoreType.ORACLE).DaoImpl.Dispose();
-
-                                break;
-                            case "all":
-
-                                break;
-
-                            default:
-
-                                for (int i = emptyRows.Length - 1; i >= 0; i--)
-                                {
-                                    ProfiloDownload.CertificatiRow rr = (ProfiloDownload.CertificatiRow)emptyRows[i];
-                                    TimeSpan diffH;
-                                    diffH = DateTime.Now.Subtract(rr.T_DATA_EMISSIONE);
-
-                                    //&&  diffH == convert.toint16(aggiornaPago)
-                                    if (rr.STATUS_ID == (int)Status.C_RICHIESTA_PAGAMENTO && diffH.TotalMinutes >= Convert.ToDouble(aggiornaPago))
-
-                                        certs.FindByCIU(rr.CIU).STATUS_ID = (int)Status.C_RICHIESTA_PAGAMENTO_KO;
-                                }
-                                Com.Unisys.CdR.Certi.DataLayer.Dao.getDaoFactory(StoreType.ORACLE).DaoImpl.Richiesta.UpdatePagamento(certs);
-                                Com.Unisys.CdR.Certi.DataLayer.Dao.getDaoFactory(StoreType.ORACLE).DaoImpl.Dispose();
-                                break;
-
-                        }
-
-                    }
+                        ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWebAppBusiness) Dettagli: " + ex.Message
+                            + Utility.ExceptionUtils.GetMessageFromSOAPException(ex.Detail.FirstChild.InnerText),
+                            ex.Detail.FirstChild.InnerText,
+                            "Certi.WebApp.Business.BUSFlussoRichiesta",
+                            "ControlPayment",
+                            "Controllo pagamenti - Lista transazioni attive",
+                            "ClientID: " + clientID,
+                            "ActiveObjectCF: " + codiceFiscale,
+                            ex.InnerException);
+                        Com.Unisys.Logging.Errors.ErrorLog error = new Com.Unisys.Logging.Errors.ErrorLog("CSWB", mex);
+                        log.Error(error);
+                        throw mex;
+                    }                                       
                 }
             }
             catch (ManagedException mex)
@@ -1217,22 +826,24 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
             }
             catch (Exception ex)
             {
-                ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWebAppBusiness) Dettagli:  " + ex.Message,
-                            "ERR_222",
+                ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWebAppBusiness) Dettagli: " + ex.Message,
+                            "ERR_022",
                             "Certi.WebApp.Business.BUSFlussoRichiesta",
                             "ControlPayment",
                             "Controllo pagamenti",
                             "ClientID: " + clientID,
                             "ActiveObjectCF: " + codiceFiscale,
-                            ex.InnerException);
+
+                             ex.InnerException);
                 Com.Unisys.Logging.Errors.ErrorLog error = new Com.Unisys.Logging.Errors.ErrorLog("CSWB", mex);
                 log.Error(error);
                 throw mex;
             }
-            return (ProfiloDownload.CertificatiRow[])certs.Select("STATUS_ID <>" + (int)Status.C_RICHIESTA_PAGAMENTO_KO,
+            return (ProfiloDownload.CertificatiRow[])certs.Select("STATUS_ID <>" + (int)Status.C_RICHIESTA_PAGAMENTO_KO +
+                " and STATUS_ID <> " + (int)Status.C_GENERAZIONE_PDF_OK + " and STATUS_ID <> " + (int)Status.C_RITIRATO,
                 "T_DATA_EMISSIONE desc");
         }
-        */
+
         
 
 

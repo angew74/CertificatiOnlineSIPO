@@ -9,6 +9,8 @@ using Com.Unisys.Logging;
 using log4net;
 using System.Security.Cryptography.X509Certificates;
 using System.Configuration;
+using System.Reflection;
+using System.Globalization;
 
 namespace Com.Unisys.CdR.Certi.WS.Business
 {
@@ -305,9 +307,9 @@ namespace Com.Unisys.CdR.Certi.WS.Business
             CertificatoComponentRoot component = null; ;
 
             try
-            {
-                component = new CertificatoComponentRoot();
-                ret = component.Store(packet, index, listConns, CertificateName);
+            {              
+                 component = new CertificatoComponentRoot();            
+                 ret = component.Store(packet, index, listConns, CertificateName);
             }
             catch (Exception ex)
             {

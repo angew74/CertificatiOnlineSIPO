@@ -150,7 +150,7 @@
       <Name>CertiObjects</Name>
     </ProjectReference>
     <ProjectReference Include="..\CertiUtils\CertiUtils.csproj">
-      <Project>{00D09C00-D196-427D-8D7D-4BE87288CDC6}</Project>
+      <Project>{00d09c00-d196-427d-8d7d-4be87288cdc6}</Project>
       <Name>CertiUtils</Name>
     </ProjectReference>
   </ItemGroup>

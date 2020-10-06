@@ -139,12 +139,6 @@
     <Compile Include="Common\ProfiloUtente.cs">
       <DependentUpon>ProfiloUtente.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Common\VERIRIC.cs">
-      <DependentUpon>VeriRic.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Common\VeriRicResponse.cs">
-      <DependentUpon>VeriRicResponse.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Pagamenti\ResponseJson.cs" />
     <Compile Include="Pagamenti\crediti.cs">
       <DependentUpon>crediti.xsd</DependentUpon>
@@ -227,8 +221,6 @@
       </SubType>
     </None>
     <None Include="Common\TipiComuni.xsd" />
-    <None Include="Common\VeriRic.xsd" />
-    <None Include="Common\VeriRicResponse.xsd" />
     <None Include="Pagamenti\anagraficaType.xsd">
       <SubType>Designer</SubType>
     </None>
