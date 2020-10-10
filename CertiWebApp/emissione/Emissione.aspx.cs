@@ -775,7 +775,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
             else if (idTipoUso.Value == "3")
             {
                 fase.Value = "5";
-                Response.Redirect("Ritiro.aspx");
+                Response.Redirect("~/Emissione/Ritiro.aspx");
 
             }
             else

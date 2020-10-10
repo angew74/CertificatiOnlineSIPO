@@ -85,255 +85,173 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
         {
             if (Page.IsPostBack == false)
             {
-                PanelCodFisc.Visible = true;
-                PanelDatiAnag.Visible = true;
-                SearchCodFisc.Checked = false;
-                SearchDatiAnag.Checked = true;
                 gridDett.DataSource = null;
                 gridDett.DataBind();
                 PnlRisultati.Visible = false;
-                Conferma.Focus();
+                ConfermaCodFiscale.Focus();
                 RangeAnno.MaximumValue = DateTime.Now.Year.ToString();
             }
         }
 
         private void DisableAll()
-        {
-          
-            CodFisc.Enabled = false;
-            Cognome.Enabled = false;
-            Nome.Enabled = false;
-            GGData.Enabled = false;
-            MMData.Enabled = false;
-            AAData.Enabled = false;
-            Sex.Enabled = false;
-            RangeAnno.Enabled = false;
-            RangeGiorno.Enabled = false;
-            RangeMese.Enabled = false;
-            //Validators           
-            CFValidator.Enabled = false;
-            CFRegExpVal.Enabled = false;
-            CognomeValidator.Enabled = false;
-            NomeValidator.Enabled = false;
-            CognomeRegExpVal.Enabled = false;
-            NomeRegExpVal.Enabled = false;
-            AnnoRegExpVal.Enabled = false;
-            GiornoRegExpVal.Enabled = false;
-            MeseRegExpVal.Enabled = false;
-            AADataValidator.Enabled = false;
-            MMDataValidator.Enabled = false;
-            GGDataValidator.Enabled = false;
+        {         
             CodFisc.Text = "";
             Cognome.Text = "";
             Nome.Text = "";
             GGData.Text = "";
             AAData.Text = "";
             MMData.Text = "";
-            SearchDatiAnag.Checked = false;
-            SearchCodFisc.Checked = false;
             gridDett.DataSource = null;
             gridDett.DataBind();
             PnlRisultati.Visible = false;
 
         }
-        protected void SearchCodFisc_CheckedChanged(System.Object sender, System.EventArgs e)
-        {
-            DisableAll();
-            SearchCodFisc.Checked = true;
-            CodFisc.Enabled = true;
-            CFValidator.Enabled = true;
-            CFRegExpVal.Enabled = true;
-            Conferma.Enabled = true;
-        }
 
-        protected void SearchDatiAnag_CheckedChanged(System.Object sender, System.EventArgs e)
+
+
+        protected void ConfermaDatiAnagrafici_Click(Object sender, EventArgs e)
         {
-            DisableAll();
-            SearchDatiAnag.Checked = true;
-            Cognome.Enabled = true;
-            Nome.Enabled = true;
-            GGData.Enabled = true;
-            MMData.Enabled = true;
-            AAData.Enabled = true;
-            Sex.Enabled = true;
-            CognomeRegExpVal.Enabled = true;
-            NomeRegExpVal.Enabled = true;
-            NomeValidator.Enabled = true;
-            AnnoRegExpVal.Enabled = true;
-            MeseRegExpVal.Enabled = true;
-            RangeAnno.Enabled = true;
-            RangeGiorno.Enabled = true;
-            RangeMese.Enabled = true;
-            GiornoRegExpVal.Enabled = true;
-            CognomeValidator.Enabled = true;
-            NomeValidator.Enabled = false;
-            AADataValidator.Enabled = true;
-            GGDataValidator.Enabled = true;
-            MMDataValidator.Enabled = true;
-            RangeAnno.MaximumValue = DateTime.Now.Year.ToString();
-            Conferma.Enabled = true;
-            //RegisterOnSubmitStatement("checkData1", "return(checkData1(document.forms[0].GGData,document.forms[0].MMData,document.forms[0].AAData));")
-        }
-        protected void Conferma_Click(System.Object sender, System.EventArgs e)
-        {
-            NCRIRICIND ret = null;
-            string cf = null;
-            string ci = string.Empty;
-            string surname = null;
-            string name = null;
+            string surname = string.Empty;
             string gg = string.Empty;
             string mm = string.Empty;
             string aa = string.Empty;
-            string sesso = null;
-            string[] parametri = new string[10];
-            if (SearchCodFisc.Checked == true)
+            string name = string.Empty;
+            string sesso = string.Empty;
+            NCRIRICIND ret = null;
+            try
             {
-                try
+                surname = Cognome.Text;
+                name = Nome.Text;
+                if (!string.IsNullOrEmpty(GGData.Text))
+                    gg = GGData.Text;
+                if (!string.IsNullOrEmpty(MMData.Text))
+                    mm = MMData.Text;
+                if (!string.IsNullOrEmpty(AAData.Text))
+                    aa = AAData.Text;
+                if (Sex.SelectedIndex == 0)
+                    sesso = "M";
+                else
+                    sesso = "F";
+                ret = BusGestioneRicercheSIPO.FindByDatiAnagrafici(name, surname,
+                                                                 aa, mm, gg,
+                                                                 sesso, "");
+                messaggi = ret.Messaggi;
+                // Save the type of search
+                NCRIRICIND.PersonaElencoDataTable tb = new NCRIRICIND.PersonaElencoDataTable();
+                if (messaggi.Rows.Count > 0)
                 {
-                    cf = CodFisc.Text.ToUpper().Trim();
-                    // N.R. 09/2020
-                   //  ret = BusGestioneRicerche.FindByCodiceFiscale(cf, "0", "5", "Nessuno", string.Empty, string.Empty,string.Empty);
-                    ret = BusGestioneRicercheSIPO.FindByCodiceFiscale(cf,"");
-                    messaggi = ret.Messaggi;
-                    // Save the type of search
-
-                    if (messaggi.Rows.Count > 0)
+                    ListaMessaggi lm = new ListaMessaggi(messaggi);
+                    if (lm.getMessage("000276", out msg))
                     {
-                        ListaMessaggi lm = new ListaMessaggi(messaggi);
-                        if (lm.getMessage("000276", out msg))
-                        {
-                            (this.Page as BasePage).info.AddMessage(msg[0].ToString(), LivelloMessaggio.ERROR);
-                            // evento
-                            if (NoData != null) 
-                                NoData();
-                        }
-                        else
-                            (this.Page as BasePage).info.AddMessage(messaggi, LivelloMessaggio.ERROR);
-                        gridDett.Visible = false;
+                        (this.Page as BasePage).info.AddMessage("Nessun ritrovamento", LivelloMessaggio.ERROR);
+                        // evento
+                        if (NoData != null)
+                            NoData();
                     }
                     else
+                        (this.Page as BasePage).info.AddMessage(messaggi, LivelloMessaggio.ERROR);
+                    gridDett.Visible = false;
+                    PnlRisultati.Visible = false;
+                }
+                else
+                {
+                    NCRIRICIND.PersonaElencoRow[] rows = (NCRIRICIND.PersonaElencoRow[])ret.PersonaElenco.Select("DataDiNascitaPersona <> '00000000' ", "");
+                    foreach (NCRIRICIND.PersonaElencoRow row in rows)
                     {
-                        // salvo ultima ricerca
-                        gridDettDataBind(ret);
-                        if (ClickRicerca != null)
-                            ClickRicerca(sender, e);
+                        tb.ImportRow(row);
                     }
-                }
-                catch (ManagedException me)
-                {
-                    ((BasePage)this.Page).info.AddMessage(me.Message, LivelloMessaggio.ERROR);
-                }
-                catch (System.Exception ex)
-                {
-                      _log.Error(ex.Message);
-                    ((BasePage)this.Page).info.AddMessage(ex.ToString(), LivelloMessaggio.ERROR);
-                }
+                    NCRIRICIND newret = new NCRIRICIND();
+                    newret.PersonaElenco.Merge(tb);
+                    newret.Elenco.Merge(ret.Elenco);
+                    gridDettDataBind(newret);
+                    if (ClickRicerca != null)
+                        ClickRicerca(sender, e);
 
+                    // eventi per ricerche specifiche
 
+                }
             }
-            else if (SearchDatiAnag.Checked == true)
+            catch (ManagedException me)
             {
+                ((BasePage)this.Page).info.AddMessage(me.Message, LivelloMessaggio.ERROR);
+            }
+            catch (System.Exception ex)
+            {
+                _log.Error(ex.ToString());
+                ((BasePage)this.Page).info.AddMessage(ex.ToString(), LivelloMessaggio.ERROR);
+            }
+        }
 
-                try
+        protected void ConfermaCodFiscale_Click(System.Object sender, System.EventArgs e)
+        {
+            NCRIRICIND ret = null;
+            string cf = null;
+            try
+            {
+                cf = CodFisc.Text.ToUpper().Trim();
+                // N.R. 09/2020
+                //  ret = BusGestioneRicerche.FindByCodiceFiscale(cf, "0", "5", "Nessuno", string.Empty, string.Empty,string.Empty);
+                ret = BusGestioneRicercheSIPO.FindByCodiceFiscale(cf, "");
+                messaggi = ret.Messaggi;
+                // Save the type of search
+
+                if (messaggi.Rows.Count > 0)
                 {
-                    surname = Cognome.Text;
-                    name = Nome.Text;
-                    if (!string.IsNullOrEmpty(GGData.Text))
-                        gg = GGData.Text;
-                    if (!string.IsNullOrEmpty(MMData.Text))
-                        mm = MMData.Text;
-                    if (!string.IsNullOrEmpty(AAData.Text))
-                        aa = AAData.Text;
-                    if (Sex.SelectedIndex == 0)
-                        sesso = "M";
-                    else
-                        sesso = "F";
-                    // N.R. 09/2020
-                   // ret = BusGestioneRicerche.FindByDatiAnagrafici(name, surname,
-                     //                                                   aa, mm, gg,
-                       //                                                 sesso, "0", "5", "Nessuno", string.Empty, string.Empty,string.Empty);
-                    ret = BusGestioneRicercheSIPO.FindByDatiAnagrafici(name, surname,
-                                                                     aa, mm, gg,
-                                                                     sesso,"");
-                    messaggi = ret.Messaggi;
-                    // Save the type of search
-                    NCRIRICIND.PersonaElencoDataTable tb = new NCRIRICIND.PersonaElencoDataTable();
-                    if (messaggi.Rows.Count > 0)
+                    ListaMessaggi lm = new ListaMessaggi(messaggi);
+                    if (lm.getMessage("000276", out msg))
                     {
-                        ListaMessaggi lm = new ListaMessaggi(messaggi);
-                        if (lm.getMessage("000276", out msg))
-                        {
-                            (this.Page as BasePage).info.AddMessage("Nessun ritrovamento", LivelloMessaggio.ERROR);
-                            // evento
-                            if (NoData != null)
-                                NoData();
-                        }
-                        else
-                            (this.Page as BasePage).info.AddMessage(messaggi, LivelloMessaggio.ERROR);
-                        gridDett.Visible = false;
-                        PnlRisultati.Visible = false;
+                        (this.Page as BasePage).info.AddMessage(msg[0].ToString(), LivelloMessaggio.ERROR);
+                        // evento
+                        if (NoData != null)
+                            NoData();
                     }
                     else
-                    {
-                        NCRIRICIND.PersonaElencoRow[] rows = (NCRIRICIND.PersonaElencoRow[])ret.PersonaElenco.Select("DataDiNascitaPersona <> '00000000' ","");
-                        foreach (NCRIRICIND.PersonaElencoRow row in rows)
-                        {
-                            tb.ImportRow(row);
-                        }
-                        NCRIRICIND newret = new NCRIRICIND();
-                        newret.PersonaElenco.Merge(tb);
-                        newret.Elenco.Merge(ret.Elenco);
-                        gridDettDataBind(newret);
-                        if (ClickRicerca != null)
-                            ClickRicerca(sender, e);
-
-                        // eventi per ricerche specifiche
-
-                    }
+                        (this.Page as BasePage).info.AddMessage(messaggi, LivelloMessaggio.ERROR);
+                    gridDett.Visible = false;
                 }
-                catch (ManagedException me)
+                else
                 {
-                    ((BasePage)this.Page).info.AddMessage(me.Message, LivelloMessaggio.ERROR);
+                    // salvo ultima ricerca
+                    gridDettDataBind(ret);
+                    if (ClickRicerca != null)
+                        ClickRicerca(sender, e);
                 }
-                catch (System.Exception ex)
-                {
-                    _log.Error(ex.ToString());
-                    ((BasePage)this.Page).info.AddMessage(ex.ToString(), LivelloMessaggio.ERROR);
-                }
+            }
+            catch (ManagedException me)
+            {
+                ((BasePage)this.Page).info.AddMessage(me.Message, LivelloMessaggio.ERROR);
+            }
+            catch (System.Exception ex)
+            {
+                _log.Error(ex.Message);
+                ((BasePage)this.Page).info.AddMessage(ex.ToString(), LivelloMessaggio.ERROR);
+            }
 
-            }         
 
         }
 
-        protected void Annulla_Click(System.Object sender, System.EventArgs e)
+        protected void AnnullaCodFiscale_Click(System.Object sender, System.EventArgs e)
         {
             DisableAll();
-            SearchDatiAnag.Checked = true;
-            Cognome.Enabled = true;
             Cognome.Text = string.Empty;
             Nome.Text = string.Empty;
             GGData.Text = string.Empty;
             MMData.Text = string.Empty;
             AAData.Text = string.Empty;
-            Nome.Enabled = true;
-            GGData.Enabled = true;
-            MMData.Enabled = true;
-            AAData.Enabled = true;
-            Sex.Enabled = true;
-            RangeAnno.Enabled = true;
-            RangeGiorno.Enabled = true;
-            RangeMese.Enabled = true;
-            CognomeRegExpVal.Enabled = true;
-            NomeRegExpVal.Enabled = true;
-            AnnoRegExpVal.Enabled = true;
-            MeseRegExpVal.Enabled = true;
-            GiornoRegExpVal.Enabled = true;
-            CognomeValidator.Enabled = true;
-            NomeValidator.Enabled = true;
-            AADataValidator.Enabled = true;
-            GGDataValidator.Enabled = true;
-            MMDataValidator.Enabled = true;
-            Conferma.Enabled = true;
+            CodFisc.Text = string.Empty;
+        }
+
+        protected void AnnullaDatiAnagrafici_Click(System.Object sender, System.EventArgs e)
+        {
+            DisableAll();            
+            Cognome.Text = string.Empty;
+            Nome.Text = string.Empty;
+            GGData.Text = string.Empty;
+            MMData.Text = string.Empty;
+            AAData.Text = string.Empty;        
+            CodFisc.Text = string.Empty;
+
+
         }
         protected void OnPagerIndexChanged(string sPaginaRichiesta)
         {
@@ -347,102 +265,56 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
             string aa = string.Empty;
             string sesso = null;
             ProfiloUtente richiedente = SessionManager<ProfiloUtente>.get(SessionKeys.RICHIEDENTE_CERTIFICATI);
-            if (SearchCodFisc.Checked == true)
+            try
             {
-                try
-                {
-                   
-                    cf = CodFisc.Text.ToUpper().Trim();
-                    ret = BusGestioneRicercheSIPO.FindByCodiceFiscale(cf,richiedente.CodiceFiscale);
-                    messaggi = ret.Messaggi;
-                    // Save the type of search
+                surname = Cognome.Text;
+                name = Nome.Text;
+                if (!string.IsNullOrEmpty(GGData.Text))
+                    gg = GGData.Text;
+                if (!string.IsNullOrEmpty(MMData.Text))
+                    mm = MMData.Text;
+                if (!string.IsNullOrEmpty(AAData.Text))
+                    aa = AAData.Text;
+                if (Sex.SelectedIndex == 0)
+                    sesso = "M";
+                else
+                    sesso = "F";
+                ret = BusGestioneRicercheSIPO.FindByDatiAnagrafici(name, surname,
+                                                                    aa, mm, gg,
+                                                                    sesso, richiedente.CodiceFiscale);
+                messaggi = ret.Messaggi;
+                // Save the type of search
 
-                    if (messaggi.Rows.Count > 0)
+                if (messaggi.Rows.Count > 0)
+                {
+                    ListaMessaggi lm = new ListaMessaggi(messaggi);
+                    if (lm.getMessage("000276", out msg))
                     {
-                        ListaMessaggi lm = new ListaMessaggi(messaggi);
-                        if (lm.getMessage("000276", out msg))
-                        {
-                            (this.Page as BasePage).info.AddMessage(msg[0].ToString(), LivelloMessaggio.ERROR);
-                            // evento
-                            if (NoData != null)
-                                NoData();
-                        }
-                        else
-                            (this.Page as BasePage).info.AddMessage(messaggi, LivelloMessaggio.ERROR);
-                        gridDett.Visible = false;
+                        (this.Page as BasePage).info.AddMessage(msg[0].ToString(), LivelloMessaggio.ERROR);
+                        // evento
+                        if (NoData != null)
+                            NoData();
                     }
                     else
-                    {
-                        // salvo ultima ricerca
-                        gridDettDataBind(ret);
-                     
-                    }
+                        (this.Page as BasePage).info.AddMessage(messaggi, LivelloMessaggio.ERROR);
+                    gridDett.Visible = false;
                 }
-                catch (ManagedException me)
+                else
                 {
-                    ((BasePage)this.Page).info.AddMessage(me.Message, LivelloMessaggio.ERROR);
-                }
-                catch (System.Exception ex)
-                {                   
-                    ((BasePage)this.Page).info.AddMessage(ex.ToString(), LivelloMessaggio.ERROR);
-                }
+                    // salvo ultima ricerca
+                    gridDettDataBind(ret);
+                    // eventi per ricerche specifiche
 
-
+                }
             }
-            else if (SearchDatiAnag.Checked == true)
+            catch (ManagedException me)
             {
-
-                try
-                {
-                    surname = Cognome.Text;
-                    name = Nome.Text;
-                    if (!string.IsNullOrEmpty(GGData.Text))
-                        gg = GGData.Text;
-                    if (!string.IsNullOrEmpty(MMData.Text))
-                        mm = MMData.Text;
-                    if (!string.IsNullOrEmpty(AAData.Text))
-                        aa = AAData.Text;
-                    if (Sex.SelectedIndex == 0)
-                        sesso = "M";
-                    else
-                        sesso = "F";
-                    ret = BusGestioneRicercheSIPO.FindByDatiAnagrafici(name, surname,
-                                                                        aa, mm, gg,
-                                                                        sesso,richiedente.CodiceFiscale);
-                    messaggi = ret.Messaggi;
-                    // Save the type of search
-
-                    if (messaggi.Rows.Count > 0)
-                    {
-                        ListaMessaggi lm = new ListaMessaggi(messaggi);
-                        if (lm.getMessage("000276", out msg))
-                        {
-                            (this.Page as BasePage).info.AddMessage(msg[0].ToString(), LivelloMessaggio.ERROR);
-                            // evento
-                            if (NoData != null)
-                                NoData();
-                        }
-                        else
-                            (this.Page as BasePage).info.AddMessage(messaggi, LivelloMessaggio.ERROR);
-                        gridDett.Visible = false;
-                    }
-                    else
-                    {
-                        // salvo ultima ricerca
-                        gridDettDataBind(ret);
-                        // eventi per ricerche specifiche
-
-                    }
-                }
-                catch (ManagedException me)
-                {
-                    ((BasePage)this.Page).info.AddMessage(me.Message, LivelloMessaggio.ERROR);
-                }
-                catch (System.Exception ex)
-                {
-                   _log.Error(ex.Message);
-                    ((BasePage)this.Page).info.AddMessage(ex.ToString(), LivelloMessaggio.ERROR);
-                }
+                ((BasePage)this.Page).info.AddMessage(me.Message, LivelloMessaggio.ERROR);
+            }
+            catch (System.Exception ex)
+            {
+                _log.Error(ex.Message);
+                ((BasePage)this.Page).info.AddMessage(ex.ToString(), LivelloMessaggio.ERROR);
             }
 
         }

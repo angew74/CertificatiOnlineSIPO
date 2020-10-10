@@ -15,24 +15,6 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
     {
 
         /// <summary>
-        /// Controllo PanelCodFisc.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelCodFisc;
-
-        /// <summary>
-        /// Controllo SearchCodFisc.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton SearchCodFisc;
-
-        /// <summary>
         /// Controllo CodFisc.
         /// </summary>
         /// <remarks>
@@ -60,22 +42,22 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
         protected global::System.Web.UI.WebControls.RegularExpressionValidator CFRegExpVal;
 
         /// <summary>
-        /// Controllo PanelDatiAnag.
+        /// Controllo Annulla.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelDatiAnag;
+        protected global::System.Web.UI.WebControls.Button Annulla;
 
         /// <summary>
-        /// Controllo SearchDatiAnag.
+        /// Controllo ConfermaCodFiscale.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton SearchDatiAnag;
+        protected global::System.Web.UI.WebControls.Button ConfermaCodFiscale;
 
         /// <summary>
         /// Controllo Cognome.
@@ -249,31 +231,22 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
         protected global::System.Web.UI.WebControls.RegularExpressionValidator AnnoRegExpVal;
 
         /// <summary>
-        /// Controllo PanelButton.
+        /// Controllo AnnullaDatiAnagrafici.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelButton;
+        protected global::System.Web.UI.WebControls.Button AnnullaDatiAnagrafici;
 
         /// <summary>
-        /// Controllo Annulla.
+        /// Controllo ConfermaDatiAnagrafici.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Annulla;
-
-        /// <summary>
-        /// Controllo Conferma.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Conferma;
+        protected global::System.Web.UI.WebControls.Button ConfermaDatiAnagrafici;
 
         /// <summary>
         /// Controllo PnlRisultati.

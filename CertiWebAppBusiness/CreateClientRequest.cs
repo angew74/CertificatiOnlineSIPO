@@ -199,6 +199,10 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
                             content = null;
                         }
                     }
+                    else if(success == false && !string.IsNullOrEmpty(message))
+                    {
+                        content = null;
+                    }
                     else
                     {
                         ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWebAppBusiness) Dettagli:  " + message,
@@ -215,7 +219,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
                     }
 
                 }
-                if (success == false)
+                if (success == false && string.IsNullOrEmpty(message))
                 {
                     ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWebAppBusiness) Dettagli:  " + message,
                           "ERR_457",

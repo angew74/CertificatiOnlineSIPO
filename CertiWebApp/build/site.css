@@ -17,7 +17,7 @@ for details on configuring this project to bundle and minify static web assets. 
     background-color: transparent;
     text-decoration: none;
     border: none;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .linkritiro {
@@ -30,13 +30,13 @@ for details on configuring this project to bundle and minify static web assets. 
         cursor: not-allowed;
     }
 
-    .linkritiro:hover:enabled  {
-        background-color: #8e001c; 
+    .linkritiro:hover:enabled {
+        background-color: #8e001c;
         color: #FFB300 !important;
     }
 
 .u-layout-prose-ritiro {
-   width:100% !important;
+    width: 100% !important;
 }
 
 .hiddenText label {
@@ -93,4 +93,52 @@ label {
         width: 100%;
         margin-top: 0;
     }
+}
+
+.Browser-tab.is-active a {
+    border-bottom-color: #8E001C;
+    font-weight: bolder;
+}
+
+.tab {
+    overflow: hidden;
+    color: #8E001C;
+}
+
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+
+button.tablinks:hover {
+    background-color: #FF9A00;
+}
+
+button.tablinks {
+    color: #8E001C;
+}
+
+    button.tablinks.is-active {
+        font-weight: bolder;
+        text-decoration: underline;
+    }
+
+
+
+
+.tab button.active {
+    border-bottom-color: #8E001C;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
 }

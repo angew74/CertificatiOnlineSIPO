@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Certificati.master.cs"  Inherits="Com.Unisys.CdR.Certi.WebApp.Certificati" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Certificati.master.cs" Inherits="Com.Unisys.CdR.Certi.WebApp.Certificati" %>
 
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -17,33 +17,33 @@
 <meta content="true" name="MSSmartTagsPreventParsing" />
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 <html>
-<head runat="server">   
-    <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/build/RomaIcons.css") %>">  
+<head runat="server">
+    <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/build/RomaIcons.css") %>">
     <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/build/site.css") %>">
     <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/raw/css/itaicons.css") %>">
-    <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/raw/css/font-awesome.min.css") %>"> 
-    <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/build/build.css") %>"> 
-    <link media="screen"  rel="stylesheet"  href="<%# Page.ResolveClientUrl("~/build/build.min.css") %>">  
+    <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/raw/css/font-awesome.min.css") %>">
+    <link rel="stylesheet" href="<%# Page.ResolveClientUrl("~/build/build.css") %>">
+    <link media="screen" rel="stylesheet" href="<%# Page.ResolveClientUrl("~/build/build.min.css") %>">
     <link rel="shortcut icon" type="image/png"
         href="http://www.comune.roma.it/web-resources/static/images/favicon.png">
-     <script type="text/javascript" 
+    <script type="text/javascript"
         src="<%# Page.ResolveClientUrl("~/build/vendor/jquery.min.js") %>"></script>
-      <script type="text/javascript" 
+    <script type="text/javascript"
         src="<%# Page.ResolveClientUrl("~/build/vendor/modernizr.js") %>"></script>
-      <script type="text/javascript" 
+    <script type="text/javascript"
         src="<%# Page.ResolveClientUrl("~/build/vendor/respond.min.js") %>"></script>
-      <script type="text/javascript" 
+    <script type="text/javascript"
         src="<%# Page.ResolveClientUrl("~/build/vendor/rem.min.js") %>"></script>
-      <script type="text/javascript" 
+    <script type="text/javascript"
         src="<%# Page.ResolveClientUrl("~/build/vendor/polyfill.min.js") %>"></script>
-      <script type="text/javascript" 
+    <script type="text/javascript"
         src="<%# Page.ResolveClientUrl("~/build/vendor/slice.js") %>"></script>
-      <script type="text/javascript" 
+    <script type="text/javascript"
         src="<%# Page.ResolveClientUrl("~/build/vendor/yepnope.js") %>"></script>
-      <script type="text/javascript" 
+    <script type="text/javascript"
         src="<%# Page.ResolveClientUrl("~/build/vendor/selectivizr.js") %>"></script>
-      <script type="text/javascript" 
-        src="<%# Page.ResolveClientUrl("~/build/vendor/IWT.min.js") %>"></script>  
+    <script type="text/javascript"
+        src="<%# Page.ResolveClientUrl("~/build/vendor/IWT.min.js") %>"></script>
     <title>Roma Capitale | Certificati OnLine</title>
 </head>
 <body
@@ -77,19 +77,19 @@
             <nav class="Megamenu Megamenu--roma">
                 <ul class="Megamenu-list">
                     <li class="Megamenu-item">
-                     <a  href="<%= Page.ResolveClientUrl("~/emissione/emissione.aspx") %>">Richiesta certificati                                                                                   
+                        <a href="<%= Page.ResolveClientUrl("~/emissione/emissione.aspx") %>">Richiesta certificati                                                                                   
                         </a>
                     </li>
                     <li class="Megamenu-item">
-                    <a  href="<%= Page.ResolveClientUrl("~/emissione/Ritiro.aspx") %>">Recupero Certificati
+                        <a href="<%= Page.ResolveClientUrl("~/emissione/Ritiro.aspx") %>">Recupero Certificati
                         </a>
                     </li>
-                      <li class="Megamenu-item">
-                    <a  href="www.comune.roma.it">HomePage Roma Capitale
+                    <li class="Megamenu-item">
+                        <a href="www.comune.roma.it">HomePage Roma Capitale
                         </a>
                     </li>
-                    <li class="Megamenu-item Megamenu-yellow-item">       
-                        <a id="Lbl_CodFis" runat="server" class="item-area-riservata"></a>                                       
+                    <li class="Megamenu-item Megamenu-yellow-item">
+                        <a id="Lbl_CodFis" runat="server" class="item-area-riservata"></a>
                     </li>
                 </ul>
             </nav>
@@ -112,22 +112,22 @@
                 <span class="menutitle"></span>
             </div>
             <nav>
-                <ul class="Linklist Linklist--padded Treeview Treeview--default u-text-r-xs">   
+                <ul class="Linklist Linklist--padded Treeview Treeview--default u-text-r-xs">
                     <ul>
                         <li class="level1">
                             <a href="<%= Page.ResolveClientUrl("~/emissione/emissione.aspx") %>">Richiesta certificati 
                                 <span class=" u-inline u-floatRight"></span></a>
                         </li>
                         <li class="level1">
-                            <a  href="<%= Page.ResolveClientUrl("~/emissione/Ritiro.aspx") %>">Recupero certificati 
+                            <a href="<%= Page.ResolveClientUrl("~/emissione/Ritiro.aspx") %>">Recupero certificati 
                                 <span class=" u-inline u-floatRight"></span></a>
                         </li>
                         <li class="level1">
-                            <a  href="www.comune.roma.it">HomePage Roma Capitale 
+                            <a href="www.comune.roma.it">HomePage Roma Capitale 
                                 <span class=" u-inline u-floatRight"></span></a>
                         </li>
-                        </ul>
-                    </ul>                
+                    </ul>
+                </ul>
             </nav>
         </div>
     </section>
@@ -138,13 +138,14 @@
             <div class="iscontentcentrale">
                 <form id="form1" runat="server">
                     <asp:Panel ID="pnlContainerMsg" runat="server" class="contentgruppo"
-                        Visible="false">                       
-                         <h4 class="u-text-h4"><asp:Literal ID="litErrore" runat="server"></asp:Literal></h4>                        
-                            <asp:Panel ID="pnlMessaggi" runat="server" class="u-layout-prose u-color-grey-90 u-text-p u-padding-r-all u" style="margin-left:30%">                             
-                                    <asp:Literal ID="litMsgErrore" runat="server"></asp:Literal>                             
-                            </asp:Panel>                       
+                        Visible="false">
+                        <h4 class="u-text-h4">
+                            <asp:Literal ID="litErrore" runat="server"></asp:Literal></h4>
+                        <asp:Panel ID="pnlMessaggi" runat="server" class="u-layout-prose u-color-grey-90 u-text-p u-padding-r-all u" Style="margin-left: 30%">
+                            <asp:Literal ID="litMsgErrore" runat="server"></asp:Literal>
+                        </asp:Panel>
                     </asp:Panel>
-                    <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+                    <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">                      
                     </asp:ContentPlaceHolder>
                 </form>
             </div>
@@ -204,7 +205,7 @@
             };
             Megamenu.init();
         </script>
-        <div class="u-cf">           
+        <div class="u-cf">
             <img class="Footer-logo" src="<%# Page.ResolveClientUrl("~raw/header/logo_roma.png") %>" alt="">
             <p class="Footer-siteName">
                 Roma Capitale                                                                              

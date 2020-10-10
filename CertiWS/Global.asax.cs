@@ -12,12 +12,13 @@ using Com.Unisys.CdR.Certi.WS.Business;
 using Com.Unisys.CdR.Certi.Objects.Common;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
+using Com.Unisys.Logging.Errors;
 
 namespace Com.Unisys.CdR.Certi.WS
 {
     public class Global : System.Web.HttpApplication
     {
-
+        private static readonly ILog log = LogManager.GetLogger("Global");
         protected void Application_Start(object sender, EventArgs e)
         {
             log4net.Config.XmlConfigurator.Configure();
@@ -41,6 +42,26 @@ namespace Com.Unisys.CdR.Certi.WS
         {
 
         }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+            ErrorLogInfo error = new ErrorLogInfo();
+            if (ex != null)
+            {
+                error.freeTextDetails = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    error.freeTextDetails += ex.InnerException.Message;
+                }
+            }
+            error.logCode = "ERR999";
+            error.loggingAppCode = "CWA";
+            error.loggingTime = System.DateTime.Now;
+            error.uniqueLogID = System.DateTime.Now.Ticks.ToString();
+            log.Error(error);
+        }
+
 
         public bool RemoteCertificateValidationCallback(Object sender,X509Certificate certificate,X509Chain chain,SslPolicyErrors sslPolicyErrors)
         {

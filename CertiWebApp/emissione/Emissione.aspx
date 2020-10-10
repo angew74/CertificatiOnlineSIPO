@@ -34,7 +34,7 @@
                     <div class="Form-field Grid-cell u-textCenter">
                         <asp:Button ID="btnIntestatario" runat="server" Text="Avanti" class="Button Button--default" OnClick="btnIntestatario_Click" />
                     </div>
-                    <asp:Panel ID="pnlRicerca" runat="server" Visible="false" Style="margin-left:-270px">
+                    <asp:Panel ID="pnlRicerca" runat="server" Visible="false" Style="margin-left:-10%">
                                 <uc1:UCRicerca ID="UCRicerca1" runat="server" flagric="ZEROSEI" bottonevisualizza="true" OnSelectIndividuo="OnSelectIndividuo" />
                             </asp:Panel>
                 </asp:Panel>
