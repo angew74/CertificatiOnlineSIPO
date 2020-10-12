@@ -77,7 +77,7 @@
     <Reference Include="Unisys.CdR.CustomProfile">
       <HintPath>..\..\..\..\..\UnisysComponents\PABase\Unisys.CdR.CustomProfile.dll</HintPath>
     </Reference>
-    <Reference Include="Unisys.CdR.SOAPUtilities">
+    <Reference Include="Unisys.CdR.SOAPUtilities, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ac338a9b89966a58, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\UnisysComponents\PABase\Unisys.CdR.SOAPUtilities.dll</HintPath>
     </Reference>
     <Reference Include="Unisys.CdR.Tracer">

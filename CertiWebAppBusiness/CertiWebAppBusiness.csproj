@@ -101,7 +101,8 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unisys.CdR.SOAPUtilities">
+    <Reference Include="Unisys.CdR.SOAPUtilities, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ac338a9b89966a58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\UnisysComponents\PABase\Unisys.CdR.SOAPUtilities.dll</HintPath>
     </Reference>
   </ItemGroup>
