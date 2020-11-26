@@ -25,24 +25,37 @@
                     <p>
                         Selezionare la persona per la quale si sta richiedendo la certificazione
                     </p>
-                    <div class="Grid Grid--fit Grid--withGutter u-padding-all-l">
-                        <div class="Grid-cell">
-                            <asp:RadioButtonList ID="rblIntestatario" CssClass="Table js-TableResponsive tablesaw tablesaw-stack" data-tablesaw-mode="stack" runat="server" DataTextField="NomeIndiv"
-                                DataValueField="CodiceFiscale" />                            
-                        </div>
-                    </div>
+                    <table class="Table Table--compact js-TableResponsive tablesaw tablesaw-swipe" data-tablesaw-mode="swipe">
+                        <tr>
+                            <td></td>
+                            <td>
+                                <div class="Grid Grid--fit Grid--withGutter u-padding-all-l">
+                                    <div class="Grid-cell">
+                                        <asp:RadioButtonList ID="rblIntestatario"
+                                            CssClass="Table js-TableResponsive tablesaw tablesaw-stack"
+                                            data-tablesaw-mode="stack" runat="server"
+                                            DataTextField="NomeIndiv"
+                                            Font-Size="Larger"
+                                            Font-Bold="true"
+                                            DataValueField="CodiceFiscale">
+                                        </asp:RadioButtonList>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                     <div class="Form-field Grid-cell u-textCenter">
                         <asp:Button ID="btnIntestatario" runat="server" Text="Avanti" class="Button Button--default" OnClick="btnIntestatario_Click" />
                     </div>
-                    <asp:Panel ID="pnlRicerca" runat="server" Visible="false" Style="margin-left:-10%">
-                                <uc1:UCRicerca ID="UCRicerca1" runat="server" flagric="ZEROSEI" bottonevisualizza="true" OnSelectIndividuo="OnSelectIndividuo" />
-                            </asp:Panel>
+                    <asp:Panel ID="pnlRicerca" runat="server" Visible="false" Style="margin-left: -10%">
+                        <uc1:UCRicerca ID="UCRicerca1" runat="server" flagric="ZEROSEI" bottonevisualizza="true" OnSelectIndividuo="OnSelectIndividuo" />
+                    </asp:Panel>
                 </asp:Panel>
                 <asp:Panel ID="pnlIntestatarioRo" CssClass="Grid Grid--withGutter u-padding-all-l " runat="server" Visible="false">
                     <div class="Grid-cell">
                         <b>
                             <asp:Label ID="lblNomeIntestatario" runat="server" /><asp:Label ID="lblCognomeIntestatario" runat="server" />
-                            <asp:Label ID="lblCodiceFiscaleIntestatario" runat="server"  /></b>
+                            <asp:Label ID="lblCodiceFiscaleIntestatario" runat="server" /></b>
                     </div>
                 </asp:Panel>
             </li>
@@ -70,7 +83,7 @@
                                             AutoPostBack="true" OnCheckedChanged="rbCert_CheckedChanged" />
                                     </td>
                                     <td valign="top" style="min-width: 69%">
-                                        <asp:Label ID="certNome" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Nome") %>' />
+                                        <asp:Label ID="certNome" runat="server" Font-Bold="true" Text='<%# DataBinder.Eval(Container.DataItem, "Nome") %>' />
                                     </td>
                                     <td valign="top" style="max-width: 15%;">
                                         <asp:CheckBox ID="chbSemp" runat="server" AutoPostBack="true" OnCheckedChanged="chbSemp_CheckedChanged" />
@@ -105,14 +118,20 @@
                             <tr>
                                 <th scope="col" colspan="2">Motivo per esenzione dal bollo</th>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <asp:RadioButtonList ID="rblMotivazioni" CssClass="testoSmall" runat="server" DataTextField="Descrizione"
-                                        DataValueField="ID" />
+                        </thead>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <asp:RadioButtonList ID="rblMotivazioni"
+                                    CssClass="Table js-TableResponsive tablesaw tablesaw-stack"
+                                    data-tablesaw-mode="stack"
+                                    Font-Size="Large"
+                                    Font-Bold="true"
+                                    runat="server" DataTextField="Descrizione"
+                                    DataValueField="ID" />
 
-                                </td>
-                            </tr>
+                            </td>
+                        </tr>
                     </table>
                     <div class="Form-field Grid-cell" style="margin-top: 10px">
                         <asp:Button ID="btnMotivoOff" runat="server" Text="Indietro" class="Button Button--default" OnClick="btnMotivoOff_Click" />

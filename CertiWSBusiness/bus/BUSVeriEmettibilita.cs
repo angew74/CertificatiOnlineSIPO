@@ -62,13 +62,16 @@ namespace Com.Unisys.CdR.Certi.WS.Business
             List<ComponenteFamigliaType> l = new List<ComponenteFamigliaType>();
             for (int i = 0; i < myArrays.Count; i++)
             {
-                ComponenteFamigliaType componenteFamigliaType = new ComponenteFamigliaType();
-                componenteFamigliaType.codiceFiscale = myArrays[i].codiceFiscale;
-                componenteFamigliaType.codiceIndividuale = myArrays[i].idSoggetto.ToString();
-                componenteFamigliaType.nome = myArrays[i].nome;
-                componenteFamigliaType.cognome = myArrays[i].cognome;
-                componenteFamigliaType.rapportoParentela = myArrays[i].confCodiceLegameFamigliaConv.descrizione;
-                l.Add(componenteFamigliaType);
+                if (myArrays[i].famigliaConvivenza != null)
+                {
+                    ComponenteFamigliaType componenteFamigliaType = new ComponenteFamigliaType();
+                    componenteFamigliaType.codiceFiscale = myArrays[i].codiceFiscale;
+                    componenteFamigliaType.codiceIndividuale = myArrays[i].idSoggetto.ToString();
+                    componenteFamigliaType.nome = myArrays[i].nome;
+                    componenteFamigliaType.cognome = myArrays[i].cognome;
+                    componenteFamigliaType.rapportoParentela = myArrays[i].confCodiceLegameFamigliaConv.descrizione;
+                    l.Add(componenteFamigliaType);
+                }
             }
             componenteFamiglias = l.ToArray();
             return componenteFamiglias;

@@ -15,6 +15,15 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
     {
 
         /// <summary>
+        /// Controllo actualTab.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField actualTab;
+
+        /// <summary>
         /// Controllo CodFisc.
         /// </summary>
         /// <remarks>

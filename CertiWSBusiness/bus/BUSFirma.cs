@@ -21,6 +21,7 @@ using System.Net.Security;
 using System.Web.Services.Protocols;
 using Com.Unisys.CdR.Certi.WS.Business.bus;
 using System.CodeDom;
+using Org.BouncyCastle.Utilities.Encoders;
 
 namespace Com.Unisys.CdR.Certi.WS.Business
 {
@@ -241,6 +242,121 @@ namespace Com.Unisys.CdR.Certi.WS.Business
                     null);
                         log.Error(mex);
                         throw mex;
+                    }
+                }
+                else
+                {
+                    ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWSBusiness) Apposizione Timbro dettagli: Certificato non trovato",
+                    "ERR_01B",
+                    "Certi.WS.Business.BUSManager.SetFirmaWS ",
+                    " Dettagli: Certificato autenticazione non caricato " + ConfigurationManager.AppSettings["certNameTimbro"],
+                    null);
+                    log.Error(mex);
+                    throw mex;
+                }
+                log.Debug("dopo di timbro");
+            }
+            catch (ManagedException ex)
+            {
+
+                ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWSBusiness) Apposizione Timbro dettagli: " + ex.Message,
+                    "ERR_011",
+                    "Certi.WS.Business.BUSManager.SetFirmaWS ",
+                    " Dettagli: " + ex.Message,
+                    ex.InnerException);
+                log.Error(mex);
+                throw mex;
+            }
+            catch (SoapException ex)
+            {
+                ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWSBusiness) Apposizione Timbro dettagli: " + ex.Message,
+                    "ERR_01B",
+                    "Certi.WS.Business.BUSManager.SetFirmaWS ",
+                    " Dettagli: " + ex.Message,
+                    ex.InnerException);
+                log.Error(mex);
+                throw mex;
+            }
+            catch (Exception ex)
+            {
+                ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWSBusiness) Apposizione Timbro dettagli: " + ex.Message,
+                     "ERR_01B",
+                     "Certi.WS.Business.BUSManager.SetFirmaWS ",
+                     " Dettagli: " + ex.Message,
+                     ex.InnerException);
+                log.Error(mex);
+                throw mex;
+            }
+
+            return pdfByteFirma;
+        }
+
+        public byte[] SetFirmaDouFendSipo(byte[] pdf)
+        {
+            DouFend proxyTimbro = new DouFend();
+            string url = ConfigurationManager.AppSettings["UrlTimbroWS"];
+            byte[] pdfByteFirma = new byte[0];
+            try
+            {
+
+                log.Debug("prima di timbro");
+                log.Debug(ConfigurationManager.AppSettings["UrlTimbroWS"]);
+                proxyTimbro.Url = url;
+                X509Certificate certRequest = new X509Certificate();
+                // X509Certificate certRequest = new X509Certificate(bytes, pass, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+                certRequest = SelectCertificate(ConfigurationManager.AppSettings["certNameTimbro"]);
+                if (certRequest != null)
+                {
+                    proxyTimbro.ClientCertificates.Add(certRequest);
+                    log.Debug("ho caricato il certificato numero certificati :" + certRequest.Subject + " " + certRequest.GetName());
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                    log.Debug("creato request: " + url);   
+                    int idc = int.Parse(ConfigurationManager.AppSettings["idcertificatodou"]);
+                    if (ConfigurationManager.AppSettings["useproxy"] == "1")
+                    {
+                        proxyTimbro.Proxy = new WebProxy(ConfigurationManager.AppSettings["ipproxy"], int.Parse(ConfigurationManager.AppSettings["portproxy"]));
+                        log.Debug("dentro use proxy");
+                    }
+                    InputParameters param = new InputParameters();
+                    param.idService =idc.ToString();
+                    Logo logo = new Logo();
+                    logo.paramX = "20";
+                    logo.paramY = "645";                    
+                    string _b64 = Convert.ToBase64String(File.ReadAllBytes(ConfigurationManager.AppSettings["imageTimbro"]));
+                    logo.image = _b64;
+                    param.logo = logo; 
+                    string base64StringPDF = Convert.ToBase64String(pdf);
+                    param.file = base64StringPDF;
+                    Signature signature = new Signature();
+                    signature.signType = "AUTOMATIC";
+                    param.signature = signature;
+                    //using (FileStream fileStream = new FileStream(@"C:\Users\Nick\Documents\CertificatiOnLINE\CertificatiSIPO\NuovoTimbro\fileprova.pdf", FileMode.OpenOrCreate))
+                    //{
+                    //    fileStream.Write(pdf, 0, pdf.Length);
+                    //}
+                    var responseDouFend =  proxyTimbro.markAndSignPdf(param);
+                    //using (FileStream fileStream = new FileStream(@"C:\Users\Nick\Documents\CertificatiOnLINE\CertificatiSIPO\NuovoTimbro\fileprova1.pdf", FileMode.OpenOrCreate))
+                    //{
+                    //    byte[] pdfByte = Convert.FromBase64String(param.file);
+                    //    fileStream.Write(pdfByte, 0, pdfByte.Length);
+                    //}
+                    // DOUResponse response = proxyTimbro.createAndUploadWithParam(pdf, idc, null, param, metadata, "", "", "");
+                    log.Debug("ho chiamato: ");                   
+                    int? status = responseDouFend.status;
+                    var s = responseDouFend.reason;
+                    if (status != 0)
+                    {
+                        ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWSBusiness) Apposizione Timbro dettagli: " + s,
+                    "ERR_011",
+                    "Certi.WS.Business.BUSManager.SetFirmaWS ",
+                    " Dettagli: " + s,
+                    null);
+                        log.Error(mex);
+                        throw mex;
+                    }
+                    else
+                    {
+                        pdfByteFirma = Convert.FromBase64String(responseDouFend.fileB64content);
                     }
                 }
                 else

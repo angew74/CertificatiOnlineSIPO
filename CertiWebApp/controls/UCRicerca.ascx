@@ -3,7 +3,8 @@
 <!-- CODICE FISCALE -->
         <div class="tab">
             <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'CodiceFiscale');return false;">Codice Fiscale</button>
-            <button class="tablinks" onclick="openTab(event, 'DatiAnagrafici');return false;">Dati Anagrafici</button>
+            <button class="tablinks" id="datiAnagraficiButton" onclick="openTab(event, 'DatiAnagrafici');return false;">Dati Anagrafici</button>
+            <asp:HiddenField ID="actualTab" runat="server" />
         </div>
         <div id="CodiceFiscale"  class="tabcontent u-background-grey-10">
             <div class="row">
@@ -201,9 +202,21 @@
         </asp:Panel> 
 
 <script>
-    document.getElementById("defaultOpen").click();
-    function openTab(evt, cityName) {
+    var actual = document.getElementById("<%=actualTab.ClientID%>").value;
+    if (actual == '') {
+        document.getElementById("defaultOpen").click();
+    }
+    else {
+        document.getElementById(actual).click();
+    }
+    function openTab(evt, TAB) {
         var i, tabcontent, tablinks;
+        if (TAB == 'DatiAnagrafici') {
+            document.getElementById("<%=actualTab.ClientID%>").value = 'datiAnagraficiButton';
+        }
+        else {
+            document.getElementById("<%=actualTab.ClientID%>").value = 'defaultOpen';
+        }
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
@@ -212,7 +225,7 @@
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-        document.getElementById(cityName).style.display = "block";
+        document.getElementById(TAB).style.display = "block";
          evt.currentTarget.className += " active";
     }
 </script>

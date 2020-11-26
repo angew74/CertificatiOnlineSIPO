@@ -29,19 +29,9 @@
     <script type="text/javascript"
         src="<%# Page.ResolveClientUrl("~/build/vendor/jquery.min.js") %>"></script>
     <script type="text/javascript"
-        src="<%# Page.ResolveClientUrl("~/build/vendor/modernizr.js") %>"></script>
+        src="<%# Page.ResolveClientUrl("~/build/vendor/modernizr.js") %>"></script>       
     <script type="text/javascript"
-        src="<%# Page.ResolveClientUrl("~/build/vendor/respond.min.js") %>"></script>
-    <script type="text/javascript"
-        src="<%# Page.ResolveClientUrl("~/build/vendor/rem.min.js") %>"></script>
-    <script type="text/javascript"
-        src="<%# Page.ResolveClientUrl("~/build/vendor/polyfill.min.js") %>"></script>
-    <script type="text/javascript"
-        src="<%# Page.ResolveClientUrl("~/build/vendor/slice.js") %>"></script>
-    <script type="text/javascript"
-        src="<%# Page.ResolveClientUrl("~/build/vendor/yepnope.js") %>"></script>
-    <script type="text/javascript"
-        src="<%# Page.ResolveClientUrl("~/build/vendor/selectivizr.js") %>"></script>
+        src="<%# Page.ResolveClientUrl("~/build/vendor/yepnope.js") %>"></script>  
     <script type="text/javascript"
         src="<%# Page.ResolveClientUrl("~/build/vendor/IWT.min.js") %>"></script>
     <title>Roma Capitale | Certificati OnLine</title>

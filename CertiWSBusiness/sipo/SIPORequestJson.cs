@@ -85,7 +85,7 @@ namespace Com.Unisys.CdR.Certi.WS.Business.sipo
                 Stream webStream = webResponse.GetResponseStream();
                 StreamReader responseReader = new StreamReader(webStream);
                 string response = responseReader.ReadToEnd();
-                r = JsonConvert.DeserializeObject<ResponseRecuperaCertificato>(response);
+                r = JsonConvert.DeserializeObject<ResponseRecuperaCertificato>(response);                
                 if (r == null)
                 {
                     ManagedException mex = new ManagedException("Errore nel metodo di business (CertiWebAppBusiness) Dettagli:  " + message,

@@ -1032,7 +1032,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
             else
             {
                 richiedente.Nome = Com.Unisys.CdR.Certi.WebApp.Business.Utility.Utils.ConvertToUTF8("=?UTF-8?B?TklDT0zDkg==?=");
-                richiedente.CodiceIndividuale = Com.Unisys.CdR.Certi.WebApp.Business.Utility.Utils.ConvertToUTF8("RBRNCL74P16H501C");
+                richiedente.CodiceIndividuale = "";
                 richiedente.Cognome = Com.Unisys.CdR.Certi.WebApp.Business.Utility.Utils.ConvertToUTF8("COGNOME");
                 richiedente.CodiceFiscale = "RBRNCL74P16H501C";
                 richiedente.Sesso = "F";
@@ -1112,6 +1112,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
                 // {
                 //   richiedente.CodiceIndividuale = richiedentedati.PersonaElenco.Rows[0]["CodiceIndiv"].ToString();
                 // N.R. 09/2020 DA TESTARE
+                richiedente.CodiceIndividuale = persona.CodiceIndiv;
                 famiglia = flu.GetComponenteFamiglias(richiedente.CodiceFiscale);
                 // famiglia = flu.CallRicercaComponenti(ConfigurationManager.AppSettings["ClientID"), richiedente.CodiceFiscale,
                 //    richiedente.IndirizzoIP);

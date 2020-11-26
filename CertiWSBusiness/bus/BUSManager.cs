@@ -891,7 +891,8 @@ namespace Com.Unisys.CdR.Certi.WS.Business
                     if (ConfigurationManager.AppSettings["GetTimbro"] == "1")
                     {
                         bf = new BUSFirma();
-                        r.T_DOCUMENTO = bf.SetFirmaDOUSipo(r.T_DOCUMENTO);
+                        //  r.T_DOCUMENTO = bf.SetFirmaDOUSipo(r.T_DOCUMENTO);
+                        r.T_DOCUMENTO = bf.SetFirmaDouFendSipo(r.T_DOCUMENTO);
                     }
 
                     bs = new BUSStorage(r.CIU, rs.CodiceFiscaleIntestatario, r.DATA_EMISSIONE,
@@ -1144,8 +1145,9 @@ namespace Com.Unisys.CdR.Certi.WS.Business
                     bp.MakePdf(credenziali.idFlusso,r,rowRichiesta, cert);              
                     if (ConfigurationManager.AppSettings["GetTimbro"] == "1")
                     {
-                        bf = new BUSFirma();                       
-                        r.T_DOCUMENTO = bf.SetFirmaDOUSipo(r.T_DOCUMENTO);
+                        bf = new BUSFirma();
+                        //  r.T_DOCUMENTO = bf.SetFirmaDOUSipo(r.T_DOCUMENTO);
+                        r.T_DOCUMENTO = bf.SetFirmaDouFendSipo(r.T_DOCUMENTO);
                     }
 
                     bs = new BUSStorage(r.CIU, rs.CodiceFiscaleIntestatario, r.DATA_EMISSIONE,

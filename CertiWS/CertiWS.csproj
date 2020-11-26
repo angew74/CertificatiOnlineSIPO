@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CertiService.asmx" />
+    <Content Include="config\IMG\logoPDF.png" />
     <Content Include="config\XML\LISTA_DECODIFICA_MESSAGGI.xml" />
     <Content Include="config\XML\LISTA_ERRORI_SOAP.xml" />
     <Content Include="Global.asax" />

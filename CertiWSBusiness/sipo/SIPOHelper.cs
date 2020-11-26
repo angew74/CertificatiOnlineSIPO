@@ -108,11 +108,38 @@ namespace Com.Unisys.CdR.Certi.WS.Business.sipo
                 case "30":
                     id = "2";
                     break;
+                case "31":
+                    id = "3";
+                    break;
+                case "32":
+                    id = "1";
+                    break;
+                case "33":
+                    id = "5";
+                    break;
+                case "34":
+                    id = "8";
+                    break;
+                case "35":
+                    id = "9";
+                    break;
+                case "36":
+                    id = "99";
+                    break;
                 case "14":
                     id = "6";
                     break;
                 case "24":
                     id = "7";
+                    break;
+                case "29":
+                    id = "99";
+                    break;
+                case "4":
+                    id = "99";
+                    break;
+                case "13":
+                    id = "99";
                     break;
             }
 
