@@ -321,7 +321,8 @@ namespace Com.Unisys.CdR.Certi.WS.Business
                     param.idService =idc.ToString();
                     Logo logo = new Logo();
                     logo.paramX = "20";
-                    logo.paramY = "645";                    
+                    logo.paramY = "700";
+                    logo.imagePosition = "R";
                     string _b64 = Convert.ToBase64String(File.ReadAllBytes(ConfigurationManager.AppSettings["imageTimbro"]));
                     logo.image = _b64;
                     param.logo = logo; 
