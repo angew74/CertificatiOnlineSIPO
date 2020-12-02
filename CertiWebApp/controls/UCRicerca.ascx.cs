@@ -265,6 +265,8 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
             string aa = string.Empty;
             string sesso = null;
             ProfiloUtente richiedente = SessionManager<ProfiloUtente>.get(SessionKeys.RICHIEDENTE_CERTIFICATI);
+            if(richiedente == null)
+            { Response.Redirect("Emissione.aspx"); }
             try
             {
                 surname = Cognome.Text;

@@ -331,17 +331,17 @@ namespace Com.Unisys.CdR.Certi.WS.Business
                     Signature signature = new Signature();
                     signature.signType = "AUTOMATIC";
                     param.signature = signature;
-                    //using (FileStream fileStream = new FileStream(@"C:\Users\Nick\Documents\CertificatiOnLINE\CertificatiSIPO\NuovoTimbro\fileprova.pdf", FileMode.OpenOrCreate))
-                    //{
-                    //    fileStream.Write(pdf, 0, pdf.Length);
-                    //}
+                    using (FileStream fileStream = new FileStream(@"C:\Users\Nick\Documents\CertificatiOnLINE\CertificatiSIPO\NuovoTimbro\fileprova.pdf", FileMode.OpenOrCreate))
+                    {
+                        fileStream.Write(pdf, 0, pdf.Length);
+                    }
                     var responseDouFend =  proxyTimbro.markAndSignPdf(param);
-                    //using (FileStream fileStream = new FileStream(@"C:\Users\Nick\Documents\CertificatiOnLINE\CertificatiSIPO\NuovoTimbro\fileprova1.pdf", FileMode.OpenOrCreate))
-                    //{
-                    //    byte[] pdfByte = Convert.FromBase64String(param.file);
-                    //    fileStream.Write(pdfByte, 0, pdfByte.Length);
-                    //}
-                    // DOUResponse response = proxyTimbro.createAndUploadWithParam(pdf, idc, null, param, metadata, "", "", "");
+                    using (FileStream fileStream = new FileStream(@"C:\Users\Nick\Documents\CertificatiOnLINE\CertificatiSIPO\NuovoTimbro\fileprova1.pdf", FileMode.OpenOrCreate))
+                    {
+                        byte[] pdfByte = Convert.FromBase64String(param.file);
+                        fileStream.Write(pdfByte, 0, pdfByte.Length);
+                    }
+                    //  DOUResponse response = proxyTimbro.createAndUploadWithParam(pdf, idc, null, param, metadata, "", "", "");
                     log.Debug("ho chiamato: ");                   
                     int? status = responseDouFend.status;
                     var s = responseDouFend.reason;

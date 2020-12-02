@@ -106,6 +106,11 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
             else
             {
                 richiedente = SessionManager<ProfiloUtente>.get(SessionKeys.RICHIEDENTE_CERTIFICATI);
+                if(richiedente == null)
+                { 
+                    LoadNewRichiedente();
+                    SessionManager<ProfiloUtente>.set(SessionKeys.RICHIEDENTE_CERTIFICATI, richiedente);
+                }
                 switch (!(string.IsNullOrEmpty(richiedente.CodiceIndividuale)))
                 {
                     case true:
