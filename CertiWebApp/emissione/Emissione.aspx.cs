@@ -44,7 +44,11 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
             if (!IsPostBack)
             {
                 fase.Value = "0";
+                log.Debug("partito");
                 string cf1 = Request.ServerVariables["HTTP_IV_USER"];
+                string cf2 = Request.ServerVariables["iv-user"];
+                log.Debug("sto verificando iv_user " + cf2);
+                log.Debug("sto verificando http_iv_user " + cf1);
                 Com.Unisys.Security.Provider.MyPrincipal upro = null;
                 if (bool.Parse(ConfigurationManager.AppSettings["TEST"]))
                 {
@@ -105,6 +109,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
             }
             else
             {
+                log.Debug("sono in postback");
                 richiedente = SessionManager<ProfiloUtente>.get(SessionKeys.RICHIEDENTE_CERTIFICATI);
                 if(richiedente == null)
                 { 
@@ -136,11 +141,16 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
             if (persona.CodiceFiscale != string.Empty)
             {
                 cfIntestatario.Value = persona.CodiceFiscale;
+                log.Debug(" ON SELECT "  + persona.CodiceFiscale);
             }
             else
             {
                 cfIntestatario.Value = persona.CodiceIndiv;
+                log.Debug(" ON SELECT " + persona.CodiceIndiv);
             }
+            log.Debug("persona cognome " + persona.CognomePersona);
+            log.Debug("persona nome " + persona.NomePersona);
+            log.Debug("persona codice fiscale " + persona.CodiceFiscale);
             cognomeIntestatario.Value = persona.CognomePersona;
             nomeIntestatario.Value = persona.NomePersona;
             LoadIntestatarioAvvo(persona);
@@ -166,6 +176,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
                     // N.R. 09/2020 NON DOVREBBE ESSERE TOCCATO
                     idRic = flu.ExecuteInizializza(ConfigurationManager.AppSettings["ClientID"], richiedente.CodiceFiscale,
                        persona.CodiceIndiv, richiedente.IndirizzoIP);
+                    log.Debug("id richiesta " + idRic);
 
                 }
                 else
@@ -173,12 +184,13 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
                     // N.R. 09/2020 NON DOVREBBE ESSERE TOCCATO
                     idRic = flu.ExecuteInizializza(ConfigurationManager.AppSettings["ClientID"], richiedente.CodiceFiscale,
                        persona.CodiceFiscale, richiedente.IndirizzoIP);
+                    log.Debug("id richiesta " + idRic);
 
                 }
                 if (!String.IsNullOrEmpty(idRic))
                 {
                     idRichiesta.Value = idRic;
-
+                    log.Debug("PERSONA " + persona.NomePersona);
                     lblNomeIntestatario.Text = persona.NomePersona + " ";
                     lblCognomeIntestatario.Text = persona.CognomePersona;
                     lblCodiceFiscaleIntestatario.Text = " (" + persona.CodiceFiscale + ")";
@@ -780,7 +792,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
             else if (idTipoUso.Value == "3")
             {
                 fase.Value = "5";
-                Response.Redirect("~/Emissione/Ritiro.aspx");
+                Response.Redirect("http://www.comune.roma.it/certificati/emissione/ritiro.aspx");
 
             }
             else
@@ -992,7 +1004,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
                     richiedente.Nome = Com.Unisys.CdR.Certi.WebApp.Business.Utility.Utils.ConvertToUTF8(Request.ServerVariables["HTTP_IV_NOME"]);
                     richiedente.CodiceIndividuale = Request.ServerVariables["HTTP_IV_USER"];
                     richiedente.Cognome = Com.Unisys.CdR.Certi.WebApp.Business.Utility.Utils.ConvertToUTF8(Request.ServerVariables["HTTP_IV_COGNOME"]);
-                    log.Debug(" cognome " + Request.ServerVariables["IV_COGNOME"]);
+                    log.Debug(" cognome " + Request.ServerVariables["HTTP_IV_COGNOME"]);                  
                     richiedente.Sesso = Request.ServerVariables["HTTP_IV_SEX"];
                     richiedente.ComuneNascita = Com.Unisys.CdR.Certi.WebApp.Business.Utility.Utils.ConvertToUTF8(Request.ServerVariables["HTTP_IV_NASCITA_COMUNE"]);
                     log.Debug("carico il comune di nascita utente " + Request.ServerVariables["HTTP_IV_NASCITA_COMUNE"]);
@@ -1103,6 +1115,10 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
                 rblIntestatario.DataSource = dw;
                 rblIntestatario.DataBind();
             }
+            else
+            {
+                richiedente.CodiceIndividuale ="";
+            }
         }
 
         private bool LoadListaFamiglia(NCRIRICIND.PersonaElencoRow persona)
@@ -1110,23 +1126,9 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
             Certi.WebApp.Business.ProxyWS.ComponenteFamigliaType[] famiglia = null; ;
             flu = new BUSFlussoRichiesta();
             try
-            {
-                // controllo se è residente altrimenti è inutile andare a cercare la famiglia 
-                // richiedentedati = BusGestioneRicerche.FindByCodiceFiscale(richiedente.CodiceFiscale, "0", "5", "RESIDENTE", "", "");
-                // if (richiedentedati != null && richiedentedati.PersonaElenco.Rows.Count > 0)
-                // {
-                //   richiedente.CodiceIndividuale = richiedentedati.PersonaElenco.Rows[0]["CodiceIndiv"].ToString();
-                // N.R. 09/2020 DA TESTARE
+            {              
                 richiedente.CodiceIndividuale = persona.CodiceIndiv;
-                famiglia = flu.GetComponenteFamiglias(richiedente.CodiceFiscale);
-                // famiglia = flu.CallRicercaComponenti(ConfigurationManager.AppSettings["ClientID"), richiedente.CodiceFiscale,
-                //    richiedente.IndirizzoIP);
-                // N.R. FINE 
-                // }
-                //  else
-                //  {
-                //    return false;
-                //  }
+                famiglia = flu.GetComponenteFamiglias(richiedente.CodiceFiscale);               
 
             }
             catch (ManagedException)
@@ -1152,10 +1154,14 @@ namespace Com.Unisys.CdR.Certi.WebApp.emissione
             {
                 if (codiceind == familiare.codiceIndividuale)
                 {
+                    log.Debug("ok codiceind " + codiceind + " familiare " + familiare.codiceIndividuale);
                     return true;
                 }
-            }
-
+                else
+                {
+                    log.Debug("ko codiceind " + codiceind + " familiare " + familiare.codiceIndividuale);
+                }
+            }          
             return false;
 
         }

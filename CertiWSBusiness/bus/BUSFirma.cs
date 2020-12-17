@@ -22,6 +22,7 @@ using System.Web.Services.Protocols;
 using Com.Unisys.CdR.Certi.WS.Business.bus;
 using System.CodeDom;
 using Org.BouncyCastle.Utilities.Encoders;
+using Com.Unisys.CdR.Certi.WS.Business.sipo;
 
 namespace Com.Unisys.CdR.Certi.WS.Business
 {
@@ -325,23 +326,23 @@ namespace Com.Unisys.CdR.Certi.WS.Business
                     logo.imagePosition = "R";
                     string _b64 = Convert.ToBase64String(File.ReadAllBytes(ConfigurationManager.AppSettings["imageTimbro"]));
                     logo.image = _b64;
-                    param.logo = logo; 
-                    string base64StringPDF = Convert.ToBase64String(pdf);
+                    param.logo = logo;
+                    byte[] pdfTransformation = SIPOHelper.MergePDFs(pdf);
+                    string base64StringPDF = Convert.ToBase64String(pdfTransformation);
                     param.file = base64StringPDF;
                     Signature signature = new Signature();
                     signature.signType = "AUTOMATIC";
                     param.signature = signature;
-                    using (FileStream fileStream = new FileStream(@"C:\Users\Nick\Documents\CertificatiOnLINE\CertificatiSIPO\NuovoTimbro\fileprova.pdf", FileMode.OpenOrCreate))
+                    using (FileStream fileStream = new FileStream(@"C:\Components\fileprova.pdf", FileMode.OpenOrCreate))
                     {
                         fileStream.Write(pdf, 0, pdf.Length);
                     }
                     var responseDouFend =  proxyTimbro.markAndSignPdf(param);
-                    using (FileStream fileStream = new FileStream(@"C:\Users\Nick\Documents\CertificatiOnLINE\CertificatiSIPO\NuovoTimbro\fileprova1.pdf", FileMode.OpenOrCreate))
+                    using (FileStream fileStream = new FileStream(@"C:\Components\fileprova1.pdf", FileMode.OpenOrCreate))
                     {
                         byte[] pdfByte = Convert.FromBase64String(param.file);
                         fileStream.Write(pdfByte, 0, pdfByte.Length);
                     }
-                    //  DOUResponse response = proxyTimbro.createAndUploadWithParam(pdf, idc, null, param, metadata, "", "", "");
                     log.Debug("ho chiamato: ");                   
                     int? status = responseDouFend.status;
                     var s = responseDouFend.reason;

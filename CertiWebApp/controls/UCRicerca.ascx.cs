@@ -153,7 +153,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
                     gridDett.Visible = false;
                     PnlRisultati.Visible = false;
                 }
-                else
+                else if (ret.Elenco != null && ret.PersonaElenco.Rows.Count > 0)
                 {
                     NCRIRICIND.PersonaElencoRow[] rows = (NCRIRICIND.PersonaElencoRow[])ret.PersonaElenco.Select("DataDiNascitaPersona <> '00000000' ", "");
                     foreach (NCRIRICIND.PersonaElencoRow row in rows)
@@ -163,12 +163,12 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
                     NCRIRICIND newret = new NCRIRICIND();
                     newret.PersonaElenco.Merge(tb);
                     newret.Elenco.Merge(ret.Elenco);
-                    gridDettDataBind(newret);
-                    if (ClickRicerca != null)
-                        ClickRicerca(sender, e);
+                    gridDettDataBind(newret);                 
 
-                    // eventi per ricerche specifiche
-
+                }
+                else
+                {
+                    _log.Debug("RISPOSTA VUOTA");
                 }
             }
             catch (ManagedException me)
@@ -189,14 +189,12 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
             try
             {
                 cf = CodFisc.Text.ToUpper().Trim();
-                // N.R. 09/2020
-                //  ret = BusGestioneRicerche.FindByCodiceFiscale(cf, "0", "5", "Nessuno", string.Empty, string.Empty,string.Empty);
+                // N.R. 09/2020             
                 ret = BusGestioneRicercheSIPO.FindByCodiceFiscale(cf, "");
-                messaggi = ret.Messaggi;
-                // Save the type of search
-
+                messaggi = ret.Messaggi;     
                 if (messaggi.Rows.Count > 0)
                 {
+                    _log.Debug("MESSAGGI MAGGIORE DI ZERO");
                     ListaMessaggi lm = new ListaMessaggi(messaggi);
                     if (lm.getMessage("000276", out msg))
                     {
@@ -209,12 +207,15 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
                         (this.Page as BasePage).info.AddMessage(messaggi, LivelloMessaggio.ERROR);
                     gridDett.Visible = false;
                 }
+                else if(ret.PersonaElenco != null && ret.PersonaElenco.Rows.Count > 0)
+                {
+                    gridDettDataBind(ret);
+                    _log.Debug("BIND GRID DETT");
+                }
                 else
                 {
-                    // salvo ultima ricerca
-                    gridDettDataBind(ret);
-                    if (ClickRicerca != null)
-                        ClickRicerca(sender, e);
+                    _log.Debug("RISPOSTA VUOTA");
+
                 }
             }
             catch (ManagedException me)
@@ -266,7 +267,9 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
             string sesso = null;
             ProfiloUtente richiedente = SessionManager<ProfiloUtente>.get(SessionKeys.RICHIEDENTE_CERTIFICATI);
             if(richiedente == null)
-            { Response.Redirect("Emissione.aspx"); }
+            {
+                _log.Debug(" RICHIEDENTE NULLO ");
+                Response.Redirect("Emissione.aspx"); }
             try
             {
                 surname = Cognome.Text;
@@ -383,6 +386,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
             gridDett.DataBind();
             if (gridDett.Rows.Count > 0)
             {
+                _log.Debug("righe maggiori di zero");
                 gridDett.Visible = true;
                 PnlRisultati.Visible = true;
                 gridDett.BottomPagerRow.Visible = false;
@@ -391,6 +395,7 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
             }
             else
             {
+                _log.Debug("nessun elemento trovato");
                 ((BasePage)this.Page).info.AddMessage("Nessun elemento trovato!", LivelloMessaggio.INFO);
             }
             gridDett.Columns[(int)col.BottoneVisualizza].Visible = true;
@@ -451,16 +456,15 @@ namespace Com.Unisys.CdR.Certi.WebApp.controls
         /// <param name="modifica"></param>
         void OnSelectIndividuo(int riga, bool modifica)
         {
-            NCRIRICIND.PersonaElencoRow pRow = BusGestioneRicerche.PersonaElenco(string.Empty,
-                                                                                                               string.Empty,
-                                                                                                               getCellControlValue(riga, (int)col.CodiceIndividuale),
-                                                                                                               getCellValue(riga, (int)col.SessoPersona),
-                                                                                                               getCellValue(riga, (int)col.CognomePersona),
-                                                                                                               getCellValue(riga, (int)col.NomePersona),
-                                                                                                               getCellControlValue(riga, (int)col.DataDiNascitaPersona),
-                                                                                                               "",
-                                                                                                               getCellValue(riga, (int)col.Descrizione),
-                                                                                                               getCellValue(riga, (int)col.CodiceFiscale)).PersonaElenco[0];
+            NCRIRICIND.PersonaElencoRow pRow = BusGestioneRicerche.PersonaElenco(string.Empty, string.Empty,
+                                                                                                                getCellControlValue(riga, (int)col.CodiceIndividuale),
+                                                                                                                getCellValue(riga, (int)col.SessoPersona),
+                                                                                                                getCellValue(riga, (int)col.CognomePersona),
+                                                                                                                getCellValue(riga, (int)col.NomePersona),
+                                                                                                                getCellControlValue(riga, (int)col.DataDiNascitaPersona),
+                                                                                                                "",
+                                                                                                                getCellValue(riga, (int)col.Descrizione),
+                                                                                                                getCellValue(riga, (int)col.CodiceFiscale)).PersonaElenco[0];
             SelectIndividuo(pRow, modifica);
         }
 

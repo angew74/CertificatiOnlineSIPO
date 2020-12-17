@@ -55,6 +55,7 @@ namespace Com.Unisys.CdR.Certi.WS.Business
                 string AccessTokenRicerca = "bearer " + accesstoken;              
                 SIPORequestJson sipoRequest = new SIPORequestJson(ConfigurationManager.AppSettings["ServiceRicercaPosAnag"], "RicercaPosAnag", AccessTokenRicerca, ricerca, codiceFiscale);
                 List<MyArray> myArrays = sipoRequest.CallingRicercaPosizione(codiceFiscale);
+                log.Debug("sono uscito ");
                 if (myArrays.Count == 0)
                 {
                     Com.Unisys.Logging.Errors.ErrorLog error = new Com.Unisys.Logging.Errors.ErrorLog();
@@ -67,6 +68,7 @@ namespace Com.Unisys.CdR.Certi.WS.Business
                 }
                 else
                 {
+                    log.Debug("sto per leggere il codice");
                     cod = myArrays[0].idSoggetto.ToString();
                 }
 

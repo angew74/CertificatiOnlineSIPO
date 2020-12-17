@@ -228,7 +228,7 @@
             </div>
        <div class="divCertiWarning">
             Il timbro digitale riportato sul documento può essere verificato con il programma gratuito disponibile 
-            <a href="http://www.comune.roma.it/servizi/AreaDownload/"><b>qui</b></a>
+            <a href="http://www.comune.roma.it/AreaDownload/"><b>qui</b></a>
             </div>
        <div class="divCertiWarning">
             <b>Attenzione:</b> per motivi di sicurezza il tuo indirizzo di connessione (IP) verrà registrato e mantenuto a norma di legge.

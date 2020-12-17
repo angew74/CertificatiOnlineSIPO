@@ -1,5 +1,8 @@
-﻿using System;
+﻿using iText.Kernel.Pdf;
+using iText.Kernel.Utils;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -7,10 +10,28 @@ namespace Com.Unisys.CdR.Certi.WS.Business.sipo
 {
     public class SIPOHelper
     {
+        public static byte[] MergePDFs(byte[] lPdfByteContent)
+        {
+            using (MemoryStream oMemoryStream = new MemoryStream())
+            {
+                using (PdfWriter oWriter = new PdfWriter(oMemoryStream))
+                {
+                    oWriter.SetSmartMode(true);
+
+                    using (PdfDocument oMergedPdf = new PdfDocument(oWriter))
+                    {
+                        PdfMerger oMerger = new PdfMerger(oMergedPdf, false, false);
+                        PdfDocument oPdfAux = new PdfDocument(new PdfReader(new MemoryStream(lPdfByteContent)));
+                        oMerger.SetCloseSourceDocuments(true).Merge(oPdfAux, 1, oPdfAux.GetNumberOfPages());
+                    }
+                }
+                return oMemoryStream.ToArray();
+            }
+        }
         internal static List<string> GetCertificatoSIPO(string idcertificato)
         {
             List<string> ids = new List<string>();
-            switch(idcertificato)
+            switch (idcertificato)
             {
                 case "1":
                 case "C0001":
@@ -38,8 +59,8 @@ namespace Com.Unisys.CdR.Certi.WS.Business.sipo
                 case "7":
                     ids.Add("10");
                     break;
-                case "C0008":              
-                case "8":                
+                case "C0008":
+                case "8":
                     ids.Add("12");
                     break;
                 case "C0009":
@@ -54,8 +75,8 @@ namespace Com.Unisys.CdR.Certi.WS.Business.sipo
                 case "C0011":
                     ids.Add("17");
                     break;
-                case "12":               
-                case "C0012":               
+                case "12":
+                case "C0012":
                     ids.Add("5");
                     ids.Add("8");
                     break;
@@ -133,13 +154,16 @@ namespace Com.Unisys.CdR.Certi.WS.Business.sipo
                     id = "7";
                     break;
                 case "29":
-                    id = "99";
+                    id = "3";
                     break;
                 case "4":
-                    id = "99";
+                    id = "4";
                     break;
                 case "13":
                     id = "99";
+                    break;
+                case "10":
+                    id = "10";
                     break;
             }
 

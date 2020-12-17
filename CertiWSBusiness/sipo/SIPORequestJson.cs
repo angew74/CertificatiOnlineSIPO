@@ -45,17 +45,17 @@ namespace Com.Unisys.CdR.Certi.WS.Business.sipo
                 request.Headers.Add("Authorization", authorization);
                 request.PreAuthenticate = true;
                 string ticks = System.DateTime.Now.Ticks.ToString();
-                StringBuilder body = new StringBuilder();
+                StringBuilder body = new StringBuilder();               
                 if (!string.IsNullOrEmpty(data))
-                {
+                {                   
                     body.Append(data);
                     byte[] byteArray = Encoding.UTF8.GetBytes(body.ToString());
+                    log.Debug(body);
                     request.ContentLength = byteArray.Length;
                     Stream dataStream = request.GetRequestStream();
                     dataStream.Write(byteArray, 0, byteArray.Length);
                     dataStream.Close();
-                }
-             
+                }               
                
             }
             catch (Exception ex)
@@ -129,10 +129,19 @@ namespace Com.Unisys.CdR.Certi.WS.Business.sipo
             {
                 WebResponse webResponse = request.GetResponse();
                 HttpStatusCode code = ((HttpWebResponse)webResponse).StatusCode;
+                if (code != HttpStatusCode.OK)
+                {
+                    log.Debug("kppp");
+                }
                 Stream webStream = webResponse.GetResponseStream();
                 StreamReader responseReader = new StreamReader(webStream);
+                log.Debug("request");
+                log.Debug(request);
                 string response = responseReader.ReadToEnd();
-                myArrays = JsonConvert.DeserializeObject<List<MyArray>>(response);                
+                log.Debug("response");
+                log.Debug(response);
+                myArrays = JsonConvert.DeserializeObject<List<MyArray>>(response);
+                log.Debug("ho serializzato");
 
             }
             catch (Exception ex)

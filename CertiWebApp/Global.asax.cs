@@ -15,8 +15,9 @@ namespace Com.Unisys.CdR.Certi.WebApp
         private static readonly ILog log = LogManager.GetLogger("Global");
         protected void Application_Start(object sender, EventArgs e)
         {
-            log4net.Config.XmlConfigurator.Configure();           
-            BUSListe lst = new BUSListe(); 
+            log4net.Config.XmlConfigurator.Configure();
+            log.Debug("APPLICATION START");
+            BUSListe lst = new BUSListe();
             CacheManager<ProfiloCertificato.CertificatoDataTable>.set(
                CacheKeys.CERTIFICATI_ATTIVI, lst.getCertificatiAttiviList());
             CacheManager<ProfiloCertificato.CertificatoDataTable>.set(
@@ -25,7 +26,7 @@ namespace Com.Unisys.CdR.Certi.WebApp
                 CacheKeys.MOTIVAZIONI_ATTIVI, lst.getMotivazioniList());
             CacheManager<ProfiloClient.ClientsDataTable>.set(
                 CacheKeys.CLIENTS, lst.getClientsList());
-            
+
         }
 
         protected void Application_End(object sender, EventArgs e)
@@ -35,18 +36,26 @@ namespace Com.Unisys.CdR.Certi.WebApp
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
+            log.Debug("SONO IN AUTHENTICATE REQUEST");
             //se il sistema è in manutenzione l'utente viene ridiretto alla pagina informativa e solo gli accountabilitati allamanutenzione potranno operare
-            bool manu = bool.Parse(ConfigurationManager.AppSettings["MANUTENZIONE"]);
-            if (manu) 
-            {
+            bool manu = bool.Parse(ConfigurationManager.AppSettings["MANUTENZIONE"]);          
+            log.Debug(Request.ServerVariables["HTTP_IV_USER"]);
+            log.Debug("ho passato manutenzione");
+            if (manu)
+            {               
                 string accounts = ConfigurationManager.AppSettings["MANUTENZIONE_ALLOWED_ACCOUNTS"];
+                log.Debug("sto leggendo gli account");
                 string[] names = accounts.Split(',');
                 bool auth = false;
+                //  if (Request.ServerVariables["HTTP_IV_USER"] != null)
+                // if (Request.ServerVariables["iv-user"] != null)
+                log.Debug("ho letto gli account");
                 if (Request.ServerVariables["HTTP_IV_USER"] != null)
                 {
+                    log.Debug("ho letto server variable");
                     foreach (string cf in names)
                     {
-                        if (cf.ToUpper().Equals(Request.ServerVariables["HTTP_IV_USER"].ToUpper()))     
+                        if (cf.ToUpper().Equals(Request.ServerVariables["HTTP_IV_USER"].ToUpper()))
                             auth = true;
                     }
                 }
@@ -55,19 +64,19 @@ namespace Com.Unisys.CdR.Certi.WebApp
             }
 
             //se sono in test simulo gli headers del portale
-            if (bool.Parse(ConfigurationManager.AppSettings["TEST"])) 
-            { 
-                   //Request.ServerVariables["HTTP_IV_USER"]=ConfigurationManager.AppSettings["TEST_ACCOUNT");
-                   //Request.ServerVariables["HTTP_IV_REMOTE_ADDRESS"] = "10.10.10.10";
+            if (bool.Parse(ConfigurationManager.AppSettings["TEST"]))
+            {
+                //Request.ServerVariables["HTTP_IV_USER"]=ConfigurationManager.AppSettings["TEST_ACCOUNT");
+                //Request.ServerVariables["HTTP_IV_REMOTE_ADDRESS"] = "10.10.10.10";
             }
-            if (Request.ServerVariables["HTTP_IV_USER"] != null)
+            if (Request.ServerVariables["iv-user"] != null)
             {
                 log.Debug("intercettato utente " + Request.ServerVariables["HTTP_IV_USER"]);
-               // Response.Redirect("/servizi/certificati/emissione/Emissione.aspx");
+                // Response.Redirect("/servizi/certificati/emissione/Emissione.aspx");
             }
             else
             {
-               
+
             }
         }
 
@@ -86,18 +95,18 @@ namespace Com.Unisys.CdR.Certi.WebApp
             error.logCode = "ERR999";
             error.loggingAppCode = "CWA";
             error.loggingTime = System.DateTime.Now;
-            error.uniqueLogID = System.DateTime.Now.Ticks.ToString();          
+            error.uniqueLogID = System.DateTime.Now.Ticks.ToString();
             log.Error(error);
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void Application_EndRequest(object sender, EventArgs e)
         {
-           
+
         }
     }
 }

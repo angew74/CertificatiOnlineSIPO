@@ -2,6 +2,7 @@
 using Com.Unisys.CdR.Certi.Objects.SIPO;
 using Com.Unisys.CdR.Certi.WebApp.Business.ProxyWS;
 using Com.Unisys.CdR.Certi.WebApp.Business.Utility;
+using log4net;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,9 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
     public class BusGestioneRicercheSIPO
     {
 
-       
+        private static readonly ILog log = LogManager.GetLogger("BusGestioneRicercheSIPO");
+
+
         public static NCRIRICIND FindByDatiAnagrafici(string Nome, string Cognome,
             string AnnoNascita, string MeseNascita, string GiornoNascita, string Sesso, string cfrichiedente)
         {
@@ -94,17 +97,25 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
             SIPORequest sipoRequest = new SIPORequest(serviceRicerca, "RicercaPosAnag", AccessTokenRicerca, ricerca, codFiscale);
             List<MyArray> myArrays = sipoRequest.CallingRicercaPosizione(codFiscale);
             List<ComponenteFamigliaType> l = new List<ComponenteFamigliaType>();
-            for (int i = 0; i < myArrays.Count; i++)
+            if (myArrays != null)
             {
-                ComponenteFamigliaType componenteFamigliaType = new ComponenteFamigliaType();
-                componenteFamigliaType.codiceFiscale = myArrays[i].codiceFiscale;
-                componenteFamigliaType.codiceIndividuale = myArrays[i].idSoggetto.ToString();
-                componenteFamigliaType.nome = myArrays[i].nome;
-                componenteFamigliaType.cognome = myArrays[i].cognome;
-                componenteFamigliaType.rapportoParentela = myArrays[i].confCodiceLegameFamigliaConv.descrizione;
-                l.Add(componenteFamigliaType);
+                log.Debug("ho letto la risposta");
+                for (int i = 0; i < myArrays.Count; i++)
+                {
+                    log.Debug("sto lavorando la risposta");
+                    ComponenteFamigliaType componenteFamigliaType = new ComponenteFamigliaType();
+                    componenteFamigliaType.codiceFiscale = myArrays[i] != null ? myArrays[i].codiceFiscale : "";
+                    componenteFamigliaType.codiceIndividuale = myArrays[i] != null ? myArrays[i].idSoggetto.ToString() : "";
+                    componenteFamigliaType.nome = myArrays[i] != null ? myArrays[i].nome : "";
+                    componenteFamigliaType.cognome = myArrays[i] != null? myArrays[i].cognome : "";
+                    componenteFamigliaType.rapportoParentela = myArrays[i] != null && myArrays[i].confCodiceLegameFamigliaConv != null ? myArrays[i].confCodiceLegameFamigliaConv.descrizione : "" ;
+                    l.Add(componenteFamigliaType);
+                }
             }
-            componenteFamiglias = l.ToArray();
+            if (l.Count > 0)
+            {
+                componenteFamiglias = l.ToArray();
+            }
             return componenteFamiglias;
         }
         

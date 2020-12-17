@@ -130,6 +130,8 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
             string message = "Errore nel collegamento con ANPR per la ricerca della persona";
             try
             {
+                log.Debug("richiesta ");
+                log.Debug(request);
                 WebResponse webResponse = request.GetResponse();
                 HttpStatusCode code = ((HttpWebResponse)webResponse).StatusCode;
                 if(code != HttpStatusCode.OK)
@@ -148,7 +150,13 @@ namespace Com.Unisys.CdR.Certi.WebApp.Business
                 }
                 Stream webStream = webResponse.GetResponseStream();
                 StreamReader responseReader = new StreamReader(webStream);
-                string response = responseReader.ReadToEnd();              
+                string response = responseReader.ReadToEnd();    
+                if(string.IsNullOrEmpty(response))
+                {
+                    log.Debug("è null");
+                    return myArrays;
+                }
+                log.Debug(response);
                 myArrays = JsonConvert.DeserializeObject<List<MyArray>>(response);  
             }
             catch (Exception ex)

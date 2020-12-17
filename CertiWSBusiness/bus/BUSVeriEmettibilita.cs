@@ -11,6 +11,7 @@ using Com.Unisys.CdR.Certi.WS.Business.sipo;
 using Com.Unisys.CdR.Certi.Objects.SIPO;
 using Newtonsoft.Json;
 using Com.Unisys.CdR.Certi.WS.Business.bus;
+using System.IO;
 
 namespace Com.Unisys.CdR.Certi.WS.Business
 {
@@ -59,21 +60,32 @@ namespace Com.Unisys.CdR.Certi.WS.Business
             string serviceRicerca = ConfigurationManager.AppSettings["ServiceRicercaPosAnag"];
             SIPORequestJson sipoRequest = new SIPORequestJson(serviceRicerca, "RicercaPosAnag", AccessTokenRicerca, ricerca, codFiscale);
             List<MyArray> myArrays = sipoRequest.CallingRicercaPosizione(codFiscale);
-            List<ComponenteFamigliaType> l = new List<ComponenteFamigliaType>();
-            for (int i = 0; i < myArrays.Count; i++)
+            _log.Debug("sono uscito da ricerca posizione ");
+            List<ComponenteFamigliaType> l = new List<ComponenteFamigliaType>();         
+            if (myArrays != null && myArrays[0].confStatusSoggetto != null && myArrays[0].confStatusSoggetto.idStatusSoggetto == 0)
             {
-                if (myArrays[i].famigliaConvivenza != null)
+                _log.Debug("myarray non nulla");
+                for (int i = 0; i < myArrays.Count; i++)
                 {
-                    ComponenteFamigliaType componenteFamigliaType = new ComponenteFamigliaType();
-                    componenteFamigliaType.codiceFiscale = myArrays[i].codiceFiscale;
-                    componenteFamigliaType.codiceIndividuale = myArrays[i].idSoggetto.ToString();
-                    componenteFamigliaType.nome = myArrays[i].nome;
-                    componenteFamigliaType.cognome = myArrays[i].cognome;
-                    componenteFamigliaType.rapportoParentela = myArrays[i].confCodiceLegameFamigliaConv.descrizione;
-                    l.Add(componenteFamigliaType);
+                    _log.Debug("dentro ciclo for");
+                    if (myArrays[i].famigliaConvivenza != null)
+                    {
+                        _log.Debug("famiglia diverso da null");
+                        ComponenteFamigliaType componenteFamigliaType = new ComponenteFamigliaType();
+                        componenteFamigliaType.codiceFiscale = myArrays != null ? myArrays[i].codiceFiscale : "";
+                        componenteFamigliaType.codiceIndividuale =myArrays != null ? myArrays[i].idSoggetto.ToString() : "";
+                        componenteFamigliaType.nome = myArrays != null ?  myArrays[i].nome : "";
+                        componenteFamigliaType.cognome = myArrays != null ? myArrays[i].cognome : "";
+                        componenteFamigliaType.rapportoParentela = myArrays != null && myArrays[i].confCodiceLegameFamigliaConv != null ? myArrays[i].confCodiceLegameFamigliaConv.descrizione : "";
+                        _log.Debug("aggiungo persona " + i);
+                        l.Add(componenteFamigliaType);
+                    }
                 }
             }
-            componenteFamiglias = l.ToArray();
+            if (l.Count > 0)
+            {
+                componenteFamiglias = l.ToArray();
+            }
             return componenteFamiglias;
         }
 
@@ -98,7 +110,7 @@ namespace Com.Unisys.CdR.Certi.WS.Business
             if (certificatoId == "1" || certificatoId == "2" || certificatoId == "3")
             { recuperaCertificato.flgAnagSC = "S"; }
             else { recuperaCertificato.flgAnagSC = "A"; }
-            recuperaCertificato.flgAnteprima = "S";
+            recuperaCertificato.flgAnteprima = "N";
             if(tipoUsoId == "2")
             { recuperaCertificato.flgSempliceBollata = "B"; }
             else { recuperaCertificato.flgSempliceBollata = "S"; }
@@ -108,11 +120,15 @@ namespace Com.Unisys.CdR.Certi.WS.Business
             recuperaCertificato.hostname = ConfigurationManager.AppSettings["hostname"];
             recuperaCertificato.cfUser = ConfigurationManager.AppSettings["cfuser"];
             string ricerca = JsonConvert.SerializeObject(recuperaCertificato);
+            File.WriteAllText(@"c:\components\jsonrequest.txt", ricerca);          
             string AccessTokenRicerca = "bearer " + accesstoken;          
             string serviceRicerca = ConfigurationManager.AppSettings["ServiceRecuperaCertificato"];
             SIPORequestJson sipoRequest = new SIPORequestJson(serviceRicerca, "RecuperaCertificato", AccessTokenRicerca, ricerca, idIntestatario);
             var response = sipoRequest.CallingRecuperaCertificato(idIntestatario);
             verifica.IsEmettibile = response.esito;
+            _log.Debug(response.esito);
+            if (response.esito == false)
+            { _log.Debug(transactionRequestType.codiceFiscaleIntestatario + "_" + response.risposta); }
             verifica.Certificato = response.certificato;
             verifica.Risposta = response.risposta;
             verifica.CIU = response.idCertificatoAggiunto;
