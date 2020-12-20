@@ -210,6 +210,7 @@
     <Content Include="formatter\xml_vuoto.xml" />
     <Content Include="lib\itextsharp.dll" />
     <Content Include="lib\Newtonsoft.Json.dll" />
+    <Content Include="storicoanagrafico.txt" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
