@@ -1,0 +1,146 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+.pagination {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+
+.linkritiro {
+    color: #8e001c !important;
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.linkritiro {
+    transition-duration: 0.4s;
+}
+
+
+    .linkritiro:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .linkritiro:hover:enabled {
+        background-color: #8e001c;
+        color: #FFB300 !important;
+    }
+
+.u-layout-prose-ritiro {
+    width: 100% !important;
+}
+
+.hiddenText label {
+    display: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+
+
+.container {
+    border-radius: 5px;
+    border-color: #8e001c;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+.Browser-tab.is-active a {
+    border-bottom-color: #8E001C;
+    font-weight: bolder;
+}
+
+.tab {
+    overflow: hidden;
+    color: #8E001C;
+}
+
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+
+button.tablinks:hover {
+    background-color: #FF9A00;
+}
+
+button.tablinks {
+    color: #8E001C;
+}
+
+    button.tablinks.is-active {
+        font-weight: bolder;
+        text-decoration: underline;
+    }
+
+
+
+
+.tab button.active {
+    border-bottom-color: #8E001C;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+}
+
+.

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ListaDecodificaMessaggi>
+	<Errore>
+		<cod>000000</cod>
+		<liv>02</liv>
+		<tipow>0</tipow>
+		<desc>Certificato emettibile</desc>
+	</Errore>
+	<Errore>
+		<cod>000001</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>P.P. n.46710/04 P.M. - 31508/04 GIP</desc>
+	</Errore>
+	<Errore>
+		<cod>000002</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>ACCERTAMENTO PER IRREPERIBILITA'</desc>
+	</Errore>
+	<Errore>
+		<cod>000003</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>CHIAMATA AL CERTIFICATO ERRATA</desc>
+	</Errore>
+	<Errore>
+		<cod>000004</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>ANNOTAZIONI NON MEMORIZZATE</desc>
+	</Errore>
+	<Errore>
+		<cod>000005</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>FLAG CERTIFICAZIONE SBAGLIATO IN BANCA DATI NON CODIFICATO</desc>
+	</Errore>
+	<Errore>
+		<cod>000006</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>ANNO ATTO NON PRESENTE</desc>
+	</Errore>
+	<Errore>
+		<cod>000007</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>ATTO NON PRESENTE</desc>
+	</Errore>
+	<Errore>
+		<cod>000008</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>ATTO NON DI ROMA E CITTADINO NON RESIDENTE</desc>
+	</Errore>
+	<Errore>
+		<cod>000009</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>CERTIFICAZIONE NON CONSENTITA DAL FLAG STATO CIVILE</desc>
+	</Errore>
+	<Errore>
+		<cod>000010</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>MANCA INDICAZIONE DEI COMUNI ATTO</desc>
+	</Errore>
+	<Errore>
+		<cod>000011</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>ATTO CON VALORI ERRATI</desc>
+	</Errore>
+	<Errore>
+		<cod>000012</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>MANCA INDICAZIONE COMUNE EVENTO</desc>
+	</Errore>
+	<Errore>
+		<cod>000013</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>COMUNE ATTO NON ITALIANO</desc>
+	</Errore>
+	<Errore>
+		<cod>000014</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>P.P. n.46710/04 P.M. - 31508/04 GIP (coniuge)</desc>
+	</Errore>
+	<Errore>
+		<cod>000015</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>ACCERTAMENTO PER IRREPERIBILITA' (coniuge)</desc>
+	</Errore>
+	<Errore>
+		<cod>000016</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>NUMERO MATRIMONI CORRENTI A 0</desc>
+	</Errore>
+	<Errore>
+		<cod>000017</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>PERSONA NON SPOSATA O NON VEDOVA</desc>
+	</Errore>
+	<Errore>
+		<cod>000018</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>INDIVIDUO NON PRESENTE IN BASE DATI</desc>
+	</Errore>
+	<Errore>
+		<cod>000019</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>XML FORMALMENTE ERRATO</desc>
+	</Errore>
+	<Errore>
+		<cod>000020</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>CERTIFICAZIONE NON CONSENTITA DAL FLAG (coniuge)</desc>
+	</Errore>
+	<Errore>
+		<cod>000021</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>NUMERO MATRIMONI CORRENTI A 0 (coniuge)</desc>
+	</Errore>
+	<Errore>
+		<cod>000022</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>VARIAZIONE DATI DEL CITTADINO IN ANAGRAFE</desc>
+	</Errore>
+	<Errore>
+		<cod>000023</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>ERRORE MAPPER INSERIMENTO IN BASE DATI</desc>
+	</Errore>
+	<Errore>
+		<cod>000024</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>CONTABILIZZAZIONE EFFETTUATA</desc>
+	</Errore>
+	<Errore>
+		<cod>000025</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>CONIUGE INESISTENTE IN BANCA DATI</desc>
+	</Errore>
+	<Errore>
+		<cod>000026</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>INDIVIDUO DEVE ESSERE VIVO E RESIDENTE</desc>
+	</Errore>
+	<Errore>
+		<cod>000027</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>CERTIFICAZIONE NON CONSENTITA DAL FLAG ANAGRAFE</desc>
+	</Errore>
+	<Errore>
+		<cod>000028</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>CERTIFICAZIONE NON CONSENTITA PER PRATICA EMIGRAZIONE</desc>
+	</Errore>
+	<Errore>
+		<cod>000029</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>INDIVIDUO MAI RESIDENTE 6MILIONI</desc>
+	</Errore>
+	<Errore>
+		<cod>000030</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>RESIDENTE IN VIA IGNORASI</desc>
+	</Errore>
+	<Errore>
+		<cod>000031</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>CITTADINO NON ITALIANO</desc>
+	</Errore>
+	<Errore>
+		<cod>000032</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>PER GLI A.I.R.E ESEGUIRE STLE E NON STL</desc>
+	</Errore>
+	<Errore>
+		<cod>000033</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>INDIVIDUO CONIUGATO</desc>
+	</Errore>
+	<Errore>
+		<cod>000034</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>STATO CIVILE NON DOCUMENTATO</desc>
+	</Errore>
+	<Errore>
+		<cod>000035</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>INDIVIDUO NON ELETTORE</desc>
+	</Errore>
+	<Errore>
+		<cod>000036</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>SESSO POPOLAZIONE DIVERSO DA SESSO ELETTORALE</desc>
+	</Errore>
+	<Errore>
+		<cod>000037</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>ELETTORE CANCELLATO</desc>
+	</Errore>
+	<Errore>
+		<cod>000038</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>INDIVIDUO SENZA TESSERA ELETTORALE</desc>
+	</Errore>
+	<Errore>
+		<cod>000039</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>INDIVIDUO NON AIRE E/O MORTO</desc>
+	</Errore>
+	<Errore>
+		<cod>000040</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>ARCHIVIO DISALLINEATO AIRE SENZA POPOL.AIRANA</desc>
+	</Errore>
+	<Errore>
+		<cod>000041</cod>
+		<liv>00</liv>
+		<tipow>0</tipow>
+		<desc>MANCA CODICE FAMIGLIA</desc>
+	</Errore>
+</ListaDecodificaMessaggi>

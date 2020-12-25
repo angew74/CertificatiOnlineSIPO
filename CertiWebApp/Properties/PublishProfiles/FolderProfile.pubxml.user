@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Apps\Certificati</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/CdRDataObjects.dll">
+      <publishTime>11/29/2020 20:30:31</publishTime>
+    </File>
+    <File Include="bin/CdRDataObjects.pdb">
+      <publishTime>11/29/2020 20:30:31</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Caching.dll">
+      <publishTime>12/02/2020 14:59:48</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Caching.pdb">
+      <publishTime>12/02/2020 14:59:48</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.DataLayer.dll">
+      <publishTime>12/02/2020 14:59:50</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.DataLayer.pdb">
+      <publishTime>12/02/2020 14:59:50</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Objects.dll">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Objects.pdb">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Utils.dll">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Utils.pdb">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WebApp.Business.dll">
+      <publishTime>12/02/2020 14:59:52</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WebApp.Business.dll.config">
+      <publishTime>08/09/2020 10:04:36</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WebApp.Business.pdb">
+      <publishTime>12/02/2020 14:59:52</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WebApp.dll">
+      <publishTime>12/02/2020 14:59:52</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WebApp.pdb">
+      <publishTime>12/02/2020 14:59:52</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.Data.UnisysStub.dll">
+      <publishTime>12/02/2020 14:59:48</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.Data.UnisysStub.pdb">
+      <publishTime>12/02/2020 14:59:48</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.Logging.dll">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.Logging.pdb">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.Security.dll">
+      <publishTime>11/29/2020 20:30:34</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.Security.pdb">
+      <publishTime>11/29/2020 20:30:34</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>05/14/2020 09:13:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Services2.dll">
+      <publishTime>02/22/2005 09:45:24</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>06/01/2011 21:24:40</publishTime>
+    </File>
+    <File Include="bin/Oracle.DataAccess.dll">
+      <publishTime>05/24/2017 11:56:36</publishTime>
+    </File>
+    <File Include="bin/Unisys.CdR.CustomProfile.dll">
+      <publishTime>05/21/2020 20:37:11</publishTime>
+    </File>
+    <File Include="bin/Unisys.CdR.SOAPUtilities.dll">
+      <publishTime>05/21/2020 20:36:31</publishTime>
+    </File>
+    <File Include="bin/Unisys.CdR.Tracer.dll">
+      <publishTime>05/21/2020 20:17:47</publishTime>
+    </File>
+    <File Include="build/build.css">
+      <publishTime>02/10/2020 08:08:15</publishTime>
+    </File>
+    <File Include="build/build.min.css">
+      <publishTime>01/10/2020 11:39:17</publishTime>
+    </File>
+    <File Include="build/RomaIcons.css">
+      <publishTime>01/10/2020 11:39:17</publishTime>
+    </File>
+    <File Include="build/RomaIcons.eot">
+      <publishTime>01/10/2020 11:39:17</publishTime>
+    </File>
+    <File Include="build/RomaIcons.svg">
+      <publishTime>01/10/2020 11:39:17</publishTime>
+    </File>
+    <File Include="build/RomaIcons.ttf">
+      <publishTime>01/10/2020 11:39:17</publishTime>
+    </File>
+    <File Include="build/RomaIcons.woff">
+      <publishTime>01/10/2020 11:39:17</publishTime>
+    </File>
+    <File Include="build/site.css">
+      <publishTime>11/26/2020 17:35:19</publishTime>
+    </File>
+    <File Include="build/vendor/iconfinder.png">
+      <publishTime>02/10/2020 12:19:38</publishTime>
+    </File>
+    <File Include="build/vendor/IWT.min.js">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="build/vendor/IWT.min.js.map">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="build/vendor/jquery.min.js">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="build/vendor/jquery.min.js.download">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="build/vendor/modernizr.js">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="build/vendor/modernizr.js.download">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="build/vendor/polyfill.min.js">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="build/vendor/rem.min.js">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="build/vendor/respond.min.js">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="build/vendor/selectivizr.js">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="build/vendor/slice.js">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="build/vendor/yepnope.js">
+      <publishTime>01/10/2020 11:39:52</publishTime>
+    </File>
+    <File Include="Certificati.Master">
+      <publishTime>11/20/2020 11:32:11</publishTime>
+    </File>
+    <File Include="controls/UCPaging.ascx">
+      <publishTime>05/14/2020 09:09:01</publishTime>
+    </File>
+    <File Include="controls/UCRicerca.ascx">
+      <publishTime>11/25/2020 10:56:37</publishTime>
+    </File>
+    <File Include="emissione/Emissione.aspx">
+      <publishTime>11/26/2020 17:49:08</publishTime>
+    </File>
+    <File Include="emissione/Ritiro.aspx">
+      <publishTime>02/10/2020 12:41:22</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/14/2020 09:09:01</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>05/14/2020 09:09:01</publishTime>
+    </File>
+    <File Include="policyCache.config">
+      <publishTime>06/11/2020 17:49:21</publishTime>
+    </File>
+    <File Include="raw/css/font-awesome.min.css">
+      <publishTime>01/10/2020 11:41:25</publishTime>
+    </File>
+    <File Include="raw/css/ita.eot">
+      <publishTime>01/10/2020 11:41:25</publishTime>
+    </File>
+    <File Include="raw/css/ita.ttf">
+      <publishTime>01/10/2020 11:41:25</publishTime>
+    </File>
+    <File Include="raw/css/ita.woff">
+      <publishTime>01/10/2020 11:41:25</publishTime>
+    </File>
+    <File Include="raw/css/itaicons.css">
+      <publishTime>01/10/2020 11:41:25</publishTime>
+    </File>
+    <File Include="raw/css/multi_step_progress_bar.css">
+      <publishTime>01/10/2020 15:42:22</publishTime>
+    </File>
+    <File Include="raw/css/RomaIcons.css">
+      <publishTime>01/10/2020 11:41:25</publishTime>
+    </File>
+    <File Include="raw/css/RomaIcons.eot">
+      <publishTime>01/10/2020 11:41:25</publishTime>
+    </File>
+    <File Include="raw/css/RomaIcons.svg">
+      <publishTime>01/10/2020 11:41:25</publishTime>
+    </File>
+    <File Include="raw/css/RomaIcons.ttf">
+      <publishTime>01/10/2020 11:41:25</publishTime>
+    </File>
+    <File Include="raw/css/RomaIcons.woff">
+      <publishTime>01/10/2020 11:41:25</publishTime>
+    </File>
+    <File Include="raw/header/logo_roma.png">
+      <publishTime>01/10/2020 11:41:39</publishTime>
+    </File>
+    <File Include="raw/header/logo_roma_nopad.png">
+      <publishTime>01/10/2020 11:41:39</publishTime>
+    </File>
+    <File Include="raw/header/logo_roma_rosso_nopad.png">
+      <publishTime>01/10/2020 11:41:39</publishTime>
+    </File>
+    <File Include="raw/urbs/Urbs-Display-Regular.otf">
+      <publishTime>01/10/2020 11:41:49</publishTime>
+    </File>
+    <File Include="raw/urbs/UrbsDisplay-Bold.eot">
+      <publishTime>01/10/2020 11:41:49</publishTime>
+    </File>
+    <File Include="raw/urbs/UrbsDisplay-Bold.svg">
+      <publishTime>01/10/2020 11:41:49</publishTime>
+    </File>
+    <File Include="raw/urbs/UrbsDisplay-Bold.ttf">
+      <publishTime>01/10/2020 11:41:49</publishTime>
+    </File>
+    <File Include="raw/urbs/UrbsDisplay-Bold.woff">
+      <publishTime>01/10/2020 11:41:49</publishTime>
+    </File>
+    <File Include="raw/urbs/UrbsDisplay-Bold.woff2">
+      <publishTime>01/10/2020 11:41:49</publishTime>
+    </File>
+    <File Include="raw/urbs/UrbsDisplay-Regular.eot">
+      <publishTime>01/10/2020 11:41:49</publishTime>
+    </File>
+    <File Include="raw/urbs/UrbsDisplay-Regular.svg">
+      <publishTime>01/10/2020 11:41:49</publishTime>
+    </File>
+    <File Include="raw/urbs/UrbsDisplay-Regular.ttf">
+      <publishTime>01/10/2020 11:41:49</publishTime>
+    </File>
+    <File Include="raw/urbs/UrbsDisplay-Regular.woff">
+      <publishTime>01/10/2020 11:41:49</publishTime>
+    </File>
+    <File Include="raw/urbs/UrbsDisplay-Regular.woff2">
+      <publishTime>01/10/2020 11:41:49</publishTime>
+    </File>
+    <File Include="recupero/Consegna.aspx">
+      <publishTime>05/14/2020 09:09:02</publishTime>
+    </File>
+    <File Include="recupero/Errore.html">
+      <publishTime>02/10/2020 13:30:05</publishTime>
+    </File>
+    <File Include="recupero/Manutenzione.htm">
+      <publishTime>02/10/2020 13:29:39</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/02/2020 11:21:50</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

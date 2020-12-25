@@ -1,0 +1,8 @@
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\DataObjects\bin\x64\Debug\CdRDataObjects.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\DataObjects\bin\x64\Debug\CdRDataObjects.pdb
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\DataObjects\bin\x64\Debug\Oracle.DataAccess.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\DataObjects\obj\x64\Debug\CdRDataObjects.csprojAssemblyReference.cache
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\DataObjects\obj\x64\Debug\CdRDataObjects.csproj.CoreCompileInputs.cache
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\DataObjects\obj\x64\Debug\CdRDataObjects.csproj.CopyComplete
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\DataObjects\obj\x64\Debug\CdRDataObjects.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\DataObjects\obj\x64\Debug\CdRDataObjects.pdb

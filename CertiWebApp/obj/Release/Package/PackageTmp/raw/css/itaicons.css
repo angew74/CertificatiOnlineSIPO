@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "ita";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./ita.eot");
+  src: url("./ita.eot#iefix") format("embedded-opentype"),
+	   url("./ita.ttf") format("truetype"),
+	   url("./ita.woff") format("woff"),
+	   url("./ita.svg#ita") format("svg");
+}

@@ -1,0 +1,10 @@
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWebTest\bin\CertiWebTest.dll.config
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWebTest\bin\CertiWebTest.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWebTest\bin\CertiWebTest.pdb
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWebTest\bin\ApacheFop.Net.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWebTest\bin\itextsharp.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWebTest\obj\Debug\CertiWebTest.csprojAssemblyReference.cache
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWebTest\obj\Debug\CertiWebTest.csproj.CoreCompileInputs.cache
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWebTest\obj\Debug\CertiWebTest.csproj.CopyComplete
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWebTest\obj\Debug\CertiWebTest.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWebTest\obj\Debug\CertiWebTest.pdb

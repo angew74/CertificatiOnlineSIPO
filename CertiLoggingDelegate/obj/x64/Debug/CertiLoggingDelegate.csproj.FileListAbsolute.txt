@@ -1,0 +1,11 @@
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiLoggingDelegate\bin\x64\Debug\Com.Unisys.CdR.Certi.LoggingDelegate.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiLoggingDelegate\bin\x64\Debug\Com.Unisys.CdR.Certi.LoggingDelegate.pdb
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiLoggingDelegate\bin\x64\Debug\Com.Unisys.Logging.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiLoggingDelegate\bin\x64\Debug\log4net.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiLoggingDelegate\bin\x64\Debug\Oracle.DataAccess.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiLoggingDelegate\bin\x64\Debug\Com.Unisys.Logging.pdb
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiLoggingDelegate\obj\x64\Debug\CertiLoggingDelegate.csprojAssemblyReference.cache
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiLoggingDelegate\obj\x64\Debug\CertiLoggingDelegate.csproj.CoreCompileInputs.cache
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiLoggingDelegate\obj\x64\Debug\CertiLoggingDelegate.csproj.CopyComplete
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiLoggingDelegate\obj\x64\Debug\Com.Unisys.CdR.Certi.LoggingDelegate.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiLoggingDelegate\obj\x64\Debug\Com.Unisys.CdR.Certi.LoggingDelegate.pdb

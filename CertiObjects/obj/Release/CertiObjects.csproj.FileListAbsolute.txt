@@ -1,0 +1,8 @@
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiObjects\bin\Release\Com.Unisys.CdR.Certi.Objects.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiObjects\bin\Release\Com.Unisys.CdR.Certi.Objects.pdb
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiObjects\bin\Release\Newtonsoft.Json.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiObjects\obj\Release\CertiObjects.csprojAssemblyReference.cache
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiObjects\obj\Release\CertiObjects.csproj.CoreCompileInputs.cache
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiObjects\obj\Release\CertiObjects.csproj.CopyComplete
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiObjects\obj\Release\Com.Unisys.CdR.Certi.Objects.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiObjects\obj\Release\Com.Unisys.CdR.Certi.Objects.pdb

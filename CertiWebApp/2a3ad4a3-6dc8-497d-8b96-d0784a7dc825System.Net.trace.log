@@ -1,0 +1,11 @@
+System.Net Information: 0 : [6472] Tipo di installazione del sistema operativo corrente: 'Client'.
+    ProcessId=10028
+    DateTime=2020-11-26T14:55:28.1355417Z
+System.Net Error: 0 : [9812] Eccezione in AppDomain#5818487::UnhandledExceptionHandler - ObjRef non valido fornito a 'Unmarshal'..
+   in System.Runtime.Remoting.RemotingServices.InternalUnmarshal(ObjRef objectRef, Object proxy, Boolean fRefine)
+   in System.Runtime.Remoting.ObjRef.GetRealObjectHelper()
+   in System.Runtime.Remoting.ObjRef.GetRealObject(StreamingContext context)
+   in System.Web.Hosting.ApplicationManager.HostingEnvironmentShutdownComplete(String appId, IApplicationHost appHost)
+   in System.Web.Hosting.HostingEnvironment.OnAppDomainUnload(Object unusedObject, EventArgs unusedEventArgs)
+    ProcessId=10028
+    DateTime=2020-11-26T14:56:30.6246445Z

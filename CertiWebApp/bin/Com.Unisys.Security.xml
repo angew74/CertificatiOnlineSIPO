@@ -1,0 +1,845 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Com.Unisys.Security</name>
+    </assembly>
+    <members>
+        <member name="T:Com.Unisys.Security.Provider.AdminRoleMembership">
+            <summary>
+            Classe che estende la classe AppRoleMemberShip di gestione dei ruoli applicativi di appartenenza dell'utente.
+            Essa espone i metodi e le proprietà per la gestione dell'appartenenza ai ruoli applicativi.
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.AdminRoleMembership.#ctor(System.Int32,System.Int32,System.String,System.String,System.Boolean,System.Data.DataTable,System.Data.DataTable)">
+            <summary>
+            Costruttore della classe estesa in cui sono passati in input i dati del gruppo 
+            </summary>
+            <param name="id">identificativo univoco del gruppo</param>
+            <param name="appID">identificativo univoco dell'applicazione</param>
+            <param name="name">nome del gruppo</param>
+            <param name="parentcode">parentcode del gruppo</param>
+            <param name="suspended">flag che indica se il gruppo è sospeso oppure no</param>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.AdminRoleMembership.Targets">
+            <summary>
+            Lista dei gruppi su cui l'utente ha dei ruoli amministrativi
+            </summary>
+        </member>
+        <member name="T:Com.Unisys.Security.Provider.AdminRoleMembership.Target">
+            <summary>
+            Classe specializzata che estende l'interfaccia IGroupIdentity,
+            in cui sono esposte le proprietà del gruppo.
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.AdminRoleMembership.Target.#ctor(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Costruttore della classe in cui sono passati i valori delle proprietà pubbliche 
+            esposti dalla stessa.
+            </summary>
+            <param name="id">identificativo univoco del gruppo</param>
+            <param name="appID">identificativo univoco dell'applicazione di cui fa parte il gruppo</param>
+            <param name="name">nome del gruppo</param>
+            <param name="parentcode">parentcode del gruppo</param>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.AdminRoleMembership.Target.Id">
+            <summary>
+            Identificativo univoco del ruolo amministrativo
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.AdminRoleMembership.Target.AppId">
+            <summary>
+            Identificativo univoco dell'applicazione all'interno della quale si trova il gruppo
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.AdminRoleMembership.Target.Name">
+            <summary>
+            Nome del gruppo
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.AdminRoleMembership.Target.Parentcode">
+            <summary>
+            Parentcode del gruppo
+            </summary>
+        </member>
+        <member name="T:Com.Unisys.Security.Provider.AppRoleMemberShip">
+            <summary>
+            Classe che implementa quella base per la gestione dell'identità dei gruppi applicativi di appartenenza dell'utente. 
+            Essa espone i metodi e le proprietà per la gestione dell'appartenenza ai ruoli applicativi.
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.AppRoleMemberShip.#ctor(System.Int32,System.Int32,System.String,System.String,System.Boolean,System.Data.DataTable,System.Data.DataTable)">
+            <summary>
+            Costruttore che crea l'oggetto di gestione
+            </summary>
+            <param name="id">id ruolo applicativo </param>
+            <param name="appID">id applicazione</param>
+            <param name="name">nome ruolo applicativo</param>
+            <param name="parentcode">parentcode del ruolo applicativo</param>
+            <param name="suspended">flag che indica la sospensione dell'utente dal ruolo</param>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.AppRoleMemberShip.isInRole(System.String)">
+            <summary>
+            Proprietà pubblica che indica se l'utente appartiene al ruolo applicativo indicato
+            </summary>
+            <param name="role">nome ruolo applicativo</param>
+            <returns><c>bool</c> booleano che indica se c'è l'appartenenza al ruolo applicativo oppure no</returns>
+        </member>
+        <member name="T:Com.Unisys.Security.Provider.GroupMemeberShip">
+            <summary>
+            Classe che implementa quella base per la gestione dell'identità dei gruppi, di appartenenza di un utente.
+            Essa espone i metodi e le proprietà per la gestione dell'appartenenza ai ruoli applicativi.
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.GroupMemeberShip.subNetworks">
+            <summary>
+            Lista delle sottoreti di accesso del gruppo
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.GroupMemeberShip.timeTable">
+            <summary>
+            Fascia oraria di lavoro
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.GroupMemeberShip.WorkingDays">
+            <summary>
+            Giorni Settimanali di lavoro
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.GroupMemeberShip.permessi">
+            <summary>
+            Lista di diritti attribuiti al gruppo
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.GroupMemeberShip.matchRight(System.String,System.String)">
+            <summary>
+            Proprietà pubblica che indica se il gruppo ha diritto di utilizzare il servizio 
+            indicato sulla sotterete indica.
+            </summary>
+            <param name="right"></param>
+            <param name="IP"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Com.Unisys.Security.Provider.GroupMemeberShip.Permission">
+            <summary>
+            Classe che espone i servizi assegnati al gruppo con i livelli e la tipologia del servizio
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.GroupMemeberShip.Permission.nome">
+            <summary>
+            Nome del servizio
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.GroupMemeberShip.Permission.level">
+            <summary>
+            Livello del servizio
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.GroupMemeberShip.Permission.enforcement">
+            <summary>
+            Tipologia del servizio 0 = possibile, 1=assegnato, 2 = negato
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.GroupMemeberShip.Permission.id">
+            <summary>
+            Identificativo del servizio sulla banca dati
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.GroupMemeberShip.#ctor(System.Int32,System.Int32,System.String,System.String,System.Boolean,System.Data.DataTable,System.Data.DataTable)">
+            <summary>
+            Costruttore cui sono passati i valori delle proprietà pubblica della classe e che costituiscono
+            i dati dell'identità del gruppo.
+            </summary>
+            <param name="id">Identificativo univoco del gruppo</param>
+            <param name="appID">Identificativo univoco dell'applicazione cui il gruppo appartiene</param>
+            <param name="name">Nome del gruppo</param>
+            <param name="parentcode">Parentcode del gruppo</param>
+            <param name="suspended">Flag che indica se il gruppo è sospeso</param>
+            <param name="dt">Tabella con la finestra temporale di lavoro del gruppo</param>
+            <param name="dt">Tabella con i diritti di lavoro del gruppo</param>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.GroupMemeberShip.Id">
+            <summary>
+            Identificativo univoco del gruppo
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.GroupMemeberShip.AppId">
+            <summary>
+            Identificativo univoco dell'applicazione
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.GroupMemeberShip.Name">
+            <summary>
+            Nome del gruppo
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.GroupMemeberShip.Parentcode">
+            <summary>
+            Parentcode del gruppo
+            </summary>
+        </member>
+        <member name="T:Com.Unisys.Security.Provider.IGroupIdentity">
+            <summary>
+            Interfaccia per la gestione dell'identità del gruppo
+            </summary>
+        </member>
+        <member name="T:Com.Unisys.Security.Provider.MyIdentity">
+            <summary>
+            Classe con l'identità dell'utente che estende la classe con l'identità generica dell'utente
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyIdentity.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Metodo che costruisce l'identità l'identità dell'utente, estende 
+            il costruttore della classe base che eredita.  Questo costruttore   
+            effettua la verifica della  bonta delle credenziali passate per la creazione,
+            ossia verifica la password passata in input nel costruttore con quella già presente 
+            nella proprietà pubblica della classe, ed acquisita in precedenza.
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyIdentity.#ctor(System.String)">
+            <summary>
+            Metodo che costruisce l'identità l'identità dell'utente, estende 
+            il costruttore della classe base che eredita.  Questo costruttore però non 
+            effettua la verifica della  bonta delle credenziali passate per la creazione.
+            </summary>
+            <param name="username">Username dell'utente di cui costrutire l'identità</param>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyIdentity.IsAuthenticated">
+            <summary>
+            Proprietà pubblica che indica se l'utente 
+            è autenticato oppure no 
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyIdentity.Ticket">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.authenticated">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.identityCreationDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.password">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.ticket">
+            <summary>
+            Ticket di autenticazione dell'utente
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.UserID">
+            <summary>
+            Identificativo univo dell'utente
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.suspended">
+            <summary>
+            Flag sospensione
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.Nome">
+            <summary>
+            Nome utente
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.Cognome">
+            <summary>
+            Cognome utente
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.IsLocked">
+            <summary>
+            Booleano che indica se l'utente è bloccato o no (true=bloccato, false=non bloccato)
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.LastLogon">
+            <summary>
+            Data ultimo logon
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.LastLogoff">
+            <summary>
+            Data ultimo logoff
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.LastChangePassword">
+            <summary>
+            Data ultimo cambio password
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.PWNeverExpires">
+            <summary>
+            Proprietà che indica se la password dell'utente 
+            scade oppure no (falso = scade, true = non scade)
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.telefono">
+            <summary>
+            Telefono utente
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.eMail">
+            <summary>
+            Email utente
+            </summary>
+        </member>
+        <member name="F:Com.Unisys.Security.Provider.MyIdentity.descrizione">
+            <summary>
+            descrizione accessoria dell'utente
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyIdentity.IdentityCreationDate">
+            <summary>
+            proprietà pubblica che restituisce la data di creazione  dell'utente
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyIdentity.checkIdentity(System.String,System.String)">
+            <summary>
+            Metodo di utilità che effettua la verifica dell'identità dell'utente. In base ai due 
+            parametri passati in input username e password, verifica che essi uguali a quelli del profilo utente
+            già autenticato sull'applicazione.
+            </summary>
+            <param name="username">UserName da verificare</param>
+            <param name="password">Password dell'utente da verifca (criptata) </param>
+            <returns></returns>
+        </member>
+        <member name="T:Com.Unisys.Security.Provider.MyPrincipal">
+            <summary>
+            Classe che implementa l'interfaccia IPrincipal di microsoft
+            con l'aggiunta di proprietà e metodo personalizzati per lo UserManager 
+            e le altre applicazioni gestite dallo stesso e che utilizzano il profilo utente
+            gestito dallo UM.
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.Identity">
+            <summary>
+            Proprietà pubblica che espone i dati dell'identità del principal 
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.System#Security#Principal#IPrincipal#Identity">
+            <summary>
+            Interfaccia identity
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.IsPasswordExpired">
+            <summary>
+            Proprietà che indica se la password spira oppure no 
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.IsSuspended">
+            <summary>
+            Proprietà pubblica che indica se l'utente è sospeso oppure no 
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.#ctor(Com.Unisys.Security.Provider.MyIdentity,System.Collections.Generic.IList{Com.Unisys.Security.Provider.AdminRoleMembership},System.String)">
+            <summary>
+            Metodo che costruisce il principal dell'utente a partire dai dati passati in input nella firma 
+            del metodo  
+            </summary>
+            <param name="user">identità dell'utente per la costruzione del principal</param>
+            <param name="gruppi">Lista dei gruppi di cui l'utente è amministratore</param>
+            <param name="connIP">stringa con l'indirizzo ip di connessione dell'utente</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.#ctor(Com.Unisys.Security.Provider.MyIdentity,System.Collections.Generic.IList{Com.Unisys.Security.Provider.AdminRoleMembership},System.Collections.Generic.IList{Com.Unisys.Security.Provider.AppRoleMemberShip},System.Collections.Generic.IList{Com.Unisys.Security.Provider.GroupMemeberShip})">
+            <summary>
+            Metodo che costruisce il principal dell'utente a partire dai dati passati in input nella firma 
+            del metodo 
+            </summary>
+            <param name="user">identità dell'utente per la costruzione del principal</param>
+            <param name="gruppi">Lista dei gruppi di cui l'utente è amministratore</param>
+            <param name="gruppi">Lista dei gruppi cui l'utente appartiene e che sono determinati in banca dati come RBAC (ruoli applicativi)</param>
+            <param name="gruppomembri">Lista dei gruppi di cui l'utente è membro</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.System#Security#Principal#IPrincipal#IsInRole(System.String)">
+            <summary>
+            Metodo per la verifica dell'appartenenza dell'utente, di cui si 
+            è in precedenza costrutita l'identità, al ruolo amministrativo passato in input
+            </summary>
+            <param name="AdminRole">Ruolo amministrativo di cui verificare l'appartenenza</param>
+            <returns><c>bool</c> booleano che indica se l'utente appartiene al ruolo applicativo oppure no</returns>
+            Per chiamare con Ruolo amministrativo e target role passare +#RuoloAmministrativo#TargetRole
+            Per chiamare con più ruoli amministrativi passare +#RuoloAmministrativo@RuoloAmministrativo
+            Per chiamare con Diritto e Livello passare =#Diritto#Livello
+            Per chiamare con Diritto, Livello e Gruppo di appartenenza passare =#Diritto#Livello#GruppoAppartenenza
+            Per chiamare con Ruolo RBAC passare -#RBACROLE
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.IsInRole(System.String)">
+            <summary>
+            Metodo pubblico per la verifica dell'appartenenza dell'utente, di cui si 
+            è in precedenza costrutita l'identità, al ruolo amministrativo passato in input
+            </summary>
+            <param name="AdminRole">Ruolo amministrativo di cui verificare l'appartenenza</param>
+            <returns><c>bool</c> booleano che indica se l'utente appartiene al ruolo applicativo oppure no</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.IsInAppRole(System.String,System.Int32)">
+            <summary>
+            Metodo pubblico che indica se l'utente ha il ruolo applicativo richiesto nell'applicazione 
+            considerata
+            </summary>
+            <param name="AppRole">Ruolo Applicativo testato</param>
+            <param name="appz">identificativo dell'applicazione da verificare</param>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.IsInRole(System.String,System.String)">
+            <summary>
+            Metodo pubblico che indica se l'utente ha il ruolo amministrativo 
+            sul gruppo passato in input nella firma
+            </summary>
+            <param name="AdminRole">ruolo amministrativo da verificare</param>
+            <param name="TargetParentCode">parentcode del gruppo su cui verificare la presenza del ruolo amministrativo</param>
+            <returns><c>bool</c> booleano che indica se l'appartenenza è verficata oppure no</returns>
+            per chiamare con ruolo amministrativo e target role passare +#RuoloAmministrativo#TargetRole
+            per chiamare con diritto e livello e gruppo appartenenza passare =#Diritto#Livello#GruppoAppz
+            per chiamare con RBACROLE passare -#RuoloRBAC
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.UserIp">
+            <summary>
+            Recupera dal Context ip dell'utente che sta lavorando
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.IsInRole(System.String,System.Int32)">
+            <summary>
+            Metodo che indica se l'utente di cui si 
+            è in precedenza costrutita l'identità, abbia potestà di tipo amministrativo 
+            sul gruppo passato in input nella firma del metodo
+            </summary>
+            <param name="AdminRole">Ruolo applicativo dell'utente</param>
+            <param name="TargetID">id del gruppo su cui effettuare la verifica</param>
+            <returns><c>bool</c> booleano che indica se esiste la potestà sul gruppo oppure no</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.IsInAnyRole(System.String[])">
+            <summary>
+            Metodo che verifica se l'utente  di cui si 
+            è in precedenza costrutita l'identità, appartiene ad uno dei ruoli passati in 
+            input nella firma del metodo, all'interno dell'array. 
+            </summary>
+            <param name="AdminRoles">lista di ruoli di cui contrallare l'appartenenza</param>
+            <returns><c>bool</c> booleano che indica se appartiene ad uno dei ruoli</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.IsInAnyRole(System.String)">
+            <summary>
+            Metodo pubblico che verifica se l'utente
+             di cui si 
+            è in precedenza costrutita l'identità,
+            appartiene al gruppo passato 
+            in input
+            </summary>
+            <param name="TargetParentCode">parentcode del gruppo di cui verificare l'appartenenza</param>
+            <returns><c>bool</c> booleano che indica se esiste appartenenza</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.IsInAnyRoleName(System.String)">
+            <summary>
+            Metodo pubblico che verifica se l'utente
+             di cui si 
+            è in precedenza costrutita l'identità,
+            appartiene al gruppo passato 
+            in input
+            </summary>
+            <param name="TargetNome">nome del gruppo di cui verificare l'appartenenza</param>
+            <returns><c>bool</c> booleano che indica se esiste appartenenza</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.IsInAnyRole(System.Int32)">
+            <summary>
+            Metodo pubblico che verifica se l'utente
+              di cui si 
+            è in precedenza costrutita l'identità,
+            appartiene al gruppo passato in input
+            </summary>
+            <param name="TargetID">Id del gruppo di cui verificare l'appartenenza</param>
+            <returns><c>bool</c> booleano che indica se esiste appartenenza</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Com.Unisys.Security.Provider.MyPrincipal.getTargets(System.String)" -->
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.getMembership(System.Int32)">
+            <summary>
+             Metodo che restituisce una lista di gruppi di cui l'utente
+             di cui si 
+            è in precedenza costrutita l'identità,
+             è parte
+            </summary>
+            <param name="refappz">identificativo applicazione</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Com.Unisys.Security.Provider.MyPrincipal.getTargets" -->
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.getAdminRoles">
+            <summary>
+            Metodo che restituisce una lista di ruoli applicativi di appartenenza dell'utente,
+             di cui si 
+            è in precedenza costrutita l'identità,
+            </summary>
+            <returns><c>IList</c> lista di stringhe con il nome del ruolo applicativo di appartenenza dell'utente
+            </returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.checkIP(System.String,System.String)">
+            <summary>
+            Metodo che verifica se l'indirizzo ip passato in input è abilitato nell'applicazione 
+            richiesta
+            </summary>
+            <param name="IP">ip da verificare </param>
+            <param name="AppCode"> codice applicazione</param>
+            <returns><c>bool</c> booleano che indica l'abilitazione oppure no</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.checkTWorkTime(System.String)">
+            <summary>
+            Metodo che verfica se l'applicazione passata nella firma del metodo
+            può lavorare nel tempo attuale todo
+            </summary>
+            <param name="AppCode">applicazione di cui effettuare la verifica</param>
+            <returns><c>bool</c> proprietà booleana che indica se l'\applicazione può lavorare in quel momento</returns>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.WorkingHours">
+            <summary>
+            Ora lavorative consentite all'utente
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.WorkingDays">
+            <summary>
+            Giorni lavorativi possibili per l'utente
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.Admins">
+            <summary>
+            Lista degli amministratori
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.Gruppi">
+            <summary>
+            Lista dei gruppi
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.AuthorizedNameDays">
+            <summary>
+            Stringa con l'elenco dei giorni di lavoro autorizzati per l'utente
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.CanWork">
+            <summary>
+            Proprietà interno per la verifica della possibilità dell'utente di lavorare in quel momento
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.CanWorkNow">
+            <summary>
+            Proprietà interno per la verifica della possibilità dell'utente di lavorare in quel momento
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MyPrincipal.ipGruppo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.checkIp(System.String,Com.Unisys.Security.Provider.GroupMemeberShip)">
+            <summary>
+            
+            </summary>
+            <param name="ip"></param>
+            <param name="g"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MyPrincipal.CheckWorkTime(System.TimeSpan,System.TimeSpan)">
+            <summary>
+            
+            </summary>
+            <param name="StartTime"></param>
+            <param name="EndTime"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Com.Unisys.Security.Provider.MySecurityProvider">
+            <summary>
+            Classe che costruisce il principal in base ai dati dell'identità 
+            dell'utente passato in input quindi espone il principal costruito come proprietà
+            pubblica. La base dati cui accede è configurabile.
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MySecurityProvider.Principal">
+            <summary>
+            Metodo statico che espone il principal costruito in precedenza negli altri metodi
+            </summary>
+        </member>
+        <member name="P:Com.Unisys.Security.Provider.MySecurityProvider.PrincipalName">
+            <summary>
+            Stringa che restituisce il nome utente in base al principal costruito nei metodi precedenti
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MySecurityProvider.BuildPrincipal(Com.Unisys.Security.Provider.MyIdentity,System.String)">
+            <summary>
+            Metodo che costruisce il principal dell'utente a partire dai dati dell'identità
+            passati in firma
+            </summary>
+            <param name="identity">identità dell'utente di cui costruire il principal</param>
+            <param name="appcode">applicazione all'interno della quale costrutire il principal</param>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MySecurityProvider.ImpersonateGroup(Com.Unisys.Security.Provider.MyPrincipal@,System.String)">
+            <summary>
+            Metodo che consente all'utente attraverso il principal passato in input di
+            impersonare un ruolo, di  cui non sarebbe parte passato nella firma del metodo
+            </summary>
+            <param name="principal">principal dell'utente</param>
+            <param name="role">ruolo da impersonare</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MySecurityProvider.BuildNewIdentity(System.String,System.String,System.String)">
+            <summary>
+            Metodo che costruisce una nuova identità in base ai parametri passati 
+            in input
+            </summary>
+            <param name="username">Username dell'utente di cui istanziare l'identità</param>
+            <param name="password">password dell'utente di cui istanziare l'identità</param>
+            <param name="type">tipo di storage su cui effettuare le modifiche</param>
+            <returns>MyIdentity</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MySecurityProvider.GetRights(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MySecurityProvider.BuildNewIdentity(System.String)">
+            <summary>
+            Metodo che costruisce una nuova identità in base ai parametri passati 
+            in input
+            </summary>
+            <param name="username">Username dell'utente di cui istanziare l'identità</param>
+            <returns>MyIdentity</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MySecurityProvider.UpdateLastLogonDate(Com.Unisys.Security.Provider.MyPrincipal@)">
+            <summary>
+            Metodo che aggiorna l'ultima data di logon dell'utente
+            </summary>
+            <param name="principal"><c>MyPrincipal</c> principal contenente il profilo utente da aggiornare</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MySecurityProvider.LockUser(System.String)">
+            <summary>
+            Metodo che effettua il blocco dell'utente in base dati 
+            </summary>
+            <param name="username">username dell'utente da bloccare</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MySecurityProvider.ChangePassword(System.String,System.String)">
+            <summary>
+            Metodo che effettua il cambio password in base dati 
+            </summary>
+            <param name="username">username dell'utente di cui effettuare il cambio password</param>
+            <param name="newPassword">nuova password da inserire in base dati</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MySecurityProvider.GetPassword(System.String)">
+            <summary>
+            Metodo che ritorna la password di un utente passato in input 
+            col parametro username
+            </summary>
+            <param name="username">username dell'utente di cui recuperare la password</param>
+            <returns><c>string</c> stringa con la password dell'utente</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MySecurityProvider.GeneratePassword(System.Int32)">
+            <summary>
+            Metodo che genera una password casauale in base alla lunghezza richiesta passata in input
+            </summary>
+            <param name="PWLength">lunghezza password da generare</param>
+            <returns><c>string</c> nuova password generata</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Provider.MySecurityProvider.PlainToSHA1(System.String)">
+            <summary>
+            Metodo che opera la criptazione della stringa passata in input
+            </summary>
+            <param name="Stringa">stringa in input da convertire</param>
+            <returns><c>String</c> strina criptata</returns>
+        </member>
+        <member name="T:Com.Unisys.Security.Store.IStore">
+            <summary>
+            Interfaccia di accesso alla base dati per la gestione del profilo
+            utente e dei gruppi di appartenenza semplici e con ruoli amministrativi
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.IStore.GetName">
+            <summary>
+            Nome del tipo di storage 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.IStore.GetProfile(System.String,Com.Unisys.Security.Provider.MyIdentity@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.GroupMemeberShip}@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.AppRoleMemberShip}@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.AdminRoleMembership}@)">
+            <summary>
+            Metodo non implementato che dovrebbe ritornare il profilo utente completo in 
+            base ai parametri passati in input
+            </summary>
+            <param name="appCode">Codice Applicazione</param>
+            <param name="userProfile">Profilo Utente</param>
+            <param name="Gruppi">Lista di Gruppi di appartenenza</param>
+            <param name="Ruoli">Ruoli</param>
+            <param name="Ruoli_Amministrativi">Ruoli Amministrativi</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.IStore.GetFullProfile(Com.Unisys.Security.Provider.MyIdentity@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.GroupMemeberShip}@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.AppRoleMemberShip}@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.AdminRoleMembership}@)">
+            <summary>
+            Metodo per il recupero dalla base dati, in base ai parametri 
+            passati in input, del profilo utente.
+            Il metodo effettua lo spacchettamento del profilo utente e lo restituisce negli 
+            oggetti passati nella firma del metodo, come referenza. 
+            Questo metodo popola la lista dei gruppi di appartenenza, dei ruoli applicativi di 
+            appartenenza e dei gruppi su cui ha potestà amministrativa
+            </summary>
+            <param name="up">Identità dell'utente di cui recuperare il profilo</param>
+            <param name="Gruppi">Lista di Gruppi appartenenza</param>
+            <param name="Ruoli">Lista di Ruoli su cui ha potestà amministrativa</param>
+            <param name="Ruoli_Amministrativi">Ruoli amministrativi posseduti dall'utente</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.IStore.LockUser(System.String)">
+            <summary>
+            Metodo per la sospensione dell'utente
+            </summary>
+            <param name="user">Utente su cui effettuare il blocco del profilo</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.IStore.ChangePassword(System.String,System.String)">
+            <summary>
+            Metodo per il cambio password dell'utente
+            </summary>
+            <param name="user">username dell'utente cui cambiare la password</param>
+            <param name="password">nuova password</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.IStore.GetPassword(System.String)">
+            <summary>
+            Metodo per il recupero della password dalla base dati
+            </summary>
+            <param name="user">utente di cui recuperare la password</param>
+            <returns><c>String</c> stringa con la password</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.IStore.UpdateLastLogonDate(System.Decimal)">
+            <summary>
+            Metodo per l'aggiornamento della data dell'ultimo logon
+            </summary>
+            <param name="user">utente di cui recuperare la password</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.IStore.GetAccessRights(System.String,System.Collections.Generic.List{Com.Unisys.Security.Provider.AccessRight}@)">
+            <summary>
+            Metodo per il recupero dei diritti assegnato ad un determinato gruppo
+            </summary>
+            <param name="id">identificativo del gruppo di cui si vogliono verificare i diritti</param>
+            <param name="Diritti">Oggetto Access Rights con l'elenco dei diritti del gruppo</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.OracleStore.OracleStore.Com#Unisys#Security#Store#IStore#GetName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.OracleStore.OracleStore.Com#Unisys#Security#Store#IStore#GetProfile(System.String,Com.Unisys.Security.Provider.MyIdentity@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.GroupMemeberShip}@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.AppRoleMemberShip}@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.AdminRoleMembership}@)">
+            <summary>
+            Metodo non implementato che dovrebbe ritornare il profilo utente completo in 
+            base ai parametri passati in input
+            </summary>
+            <param name="appCode">Codice Applicazione</param>
+            <param name="userProfile">Profilo Utente</param>
+            <param name="Gruppi">Lista di Gruppi di appartenenza</param>
+            <param name="Ruoli">Ruoli</param>
+            <param name="Ruoli_Amministrativi">Ruoli Amministrativi</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.OracleStore.OracleStore.Com#Unisys#Security#Store#IStore#GetFullProfile(Com.Unisys.Security.Provider.MyIdentity@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.GroupMemeberShip}@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.AppRoleMemberShip}@,System.Collections.Generic.IList{Com.Unisys.Security.Provider.AdminRoleMembership}@)">
+            <summary>
+            Metodo per il recupero dalla base dati, in base ai parametri 
+            passati in input, del profilo utente.
+            Il metodo effettua lo spacchettamento del profilo utente e lo restituisce negli 
+            oggetti passati nella firma del metodo, come referenza. 
+            Questo metodo popola la lista dei gruppi di appartenenza, dei ruoli applicativi di 
+            appartenenza e dei gruppi su cui ha potestà amministrativa
+            </summary>
+            <param name="up">Identità dell'utente di cui recuperare il profilo</param>
+            <param name="Gruppi">Lista di Gruppi appartenenza</param>
+            <param name="Ruoli">Lista di Ruoli su cui ha potestà amministrativa</param>
+            <param name="Ruoli_Amministrativi">Ruoli amministrativi posseduti dall'utente</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.OracleStore.OracleStore.Com#Unisys#Security#Store#IStore#LockUser(System.String)">
+            <summary>
+            Metodo per la sospensione dell'utente
+            </summary>
+            <param name="user">Utente su cui effettuare il blocco del profilo</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.OracleStore.OracleStore.Com#Unisys#Security#Store#IStore#UpdateLastLogonDate(System.Decimal)">
+            <summary>
+            Metodo per l'aggiornamento della data dell'ultimo logon
+            </summary>
+            <param name="user">utente di cui recuperare la password</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.OracleStore.OracleStore.Com#Unisys#Security#Store#IStore#ChangePassword(System.String,System.String)">
+            <summary>
+            Metodo per il cambio password dell'utente
+            </summary>
+            <param name="user">username dell'utente cui cambiare la password</param>
+            <param name="password">nuova password</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.OracleStore.OracleStore.Com#Unisys#Security#Store#IStore#GetPassword(System.String)">
+            <summary>
+            Metodo per il recupero della password dalla base dati
+            </summary>
+            <param name="user">utente di cui recuperare la password</param>
+            <returns><c>String</c> stringa con la password</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.OracleStore.OracleStore.Com#Unisys#Security#Store#IStore#GetAccessRights(System.String,System.Collections.Generic.List{Com.Unisys.Security.Provider.AccessRight}@)">
+            <summary>
+            Metodo per il recupero dei diritti assegnato ad un determinato gruppo
+            </summary>
+            <param name="id">identificativo del gruppo di cui si vogliono verificare i diritti</param>
+            <param name="Diritti">Oggetto Access Rights con l'elenco dei diritti del gruppo</param>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.OracleStore.OracleStore.GetWorkingTimeDays(System.Decimal)">
+            <summary>
+            Metodo per il recupero delle fascie orarie e settimanali di lavoro del gruppo
+            </summary>
+            <param name="id">identificativo del gruppo</param>
+            <returns>Tabella contenente con i dati delle fascie orarie di lavoro</returns>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.OracleStore.OracleStore.prepareSelectAdapter">
+            <summary>
+            Metodo interno che costruisce il dataadapter per le classi che estendono 
+            la presente
+            </summary>
+            <returns>Un oracle dataadapter con la strina di connessione impostata ripresa dal DaoSession</returns>
+        </member>
+        <member name="T:Com.Unisys.Security.Store.OracleStore.UserProfile">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:Com.Unisys.Security.Store.OracleStore.UserProfile.DataTable1DataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:Com.Unisys.Security.Store.OracleStore.UserProfile.DataTable1Row">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:Com.Unisys.Security.Store.OracleStore.UserProfile.DataTable1RowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:Com.Unisys.Security.Store.OracleStore.UserProfileTableAdapters.DataTable1TableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:Com.Unisys.Security.Store.StoreFactory">
+            <summary>
+            Classe statica che espone l'interfaccia di accesso alla base dati
+            </summary>
+        </member>
+        <member name="M:Com.Unisys.Security.Store.StoreFactory.GetStore(System.String)">
+            <summary>
+            Proprietà statica che espone l'interfaccia per la gestione dell'accesso 
+            alla base dati.
+            </summary>
+            <param name="name">nome dell'interfaccia </param>
+            <returns><c>IStore</c> Interfaccia di accesso alla base dati</returns>
+        </member>
+    </members>
+</doc>

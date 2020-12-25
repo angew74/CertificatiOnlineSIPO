@@ -1,0 +1,5 @@
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWSDati\bin\Debug\Com.Unisys.CdR.Certi.WS.Dati.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWSDati\bin\Debug\Com.Unisys.CdR.Certi.WS.Dati.pdb
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWSDati\obj\Debug\CertiWSDati.csproj.CoreCompileInputs.cache
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWSDati\obj\Debug\Com.Unisys.CdR.Certi.WS.Dati.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiWSDati\obj\Debug\Com.Unisys.CdR.Certi.WS.Dati.pdb

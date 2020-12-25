@@ -1,0 +1,110 @@
+
+.multi-steps > li.is-active:before, .multi-steps > li.is-active ~ li:before {
+  content: counter(stepNum);
+  font-family: inherit;
+  font-weight: 700;
+}
+.multi-steps > li.is-active:after, .multi-steps > li.is-active ~ li:after {
+  background-color: #ededed;
+}
+
+.multi-steps {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+.multi-steps > li {
+  counter-increment: stepNum;
+  text-align: center;
+  display: table-cell;
+  position: relative;
+  color: #8E001C;
+
+  //text-shadow: 1px 1px 1px #ccc;
+  font-size: 80%;
+}
+.multi-steps > li:before {
+  content: '\f00c';
+  display: block;
+  margin: 0 auto 4px;
+  background-color: #fff;
+  width: 31px;
+  height: 31px;
+  line-height: 27px;
+  text-align: center;
+  font-family: 'FontAwesome';
+  border-width: 2px;
+  border-style: solid;
+  border-color: #8E001C;
+  border-radius: 50%;
+}
+.multi-steps > li:after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  background-color: #FF8C00;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  z-index: -1;
+}
+.multi-steps > li:last-child:after {
+  display: none;
+}
+.multi-steps > li.is-active:before {
+  background-color: #fff;
+  border-color: #8E001C;
+}
+.multi-steps > li.is-active ~ li {
+  color: #808080;
+}
+.multi-steps > li.is-active ~ li:before {
+  background-color: #ededed;
+  border-color: #ededed;
+}
+
+
+
+
+.multi-steps > li:before {
+  content: '\f00c';
+  display: block;
+  margin: 0 auto 4px;
+  background-color: #fff;
+  width: 31px;
+  height: 31px;
+  line-height: 27px;
+  text-align: center;
+  font-family: 'FontAwesome';
+  border-width: 2px;
+  border-style: solid;
+  border-color: #8E001C;
+  border-radius: 50%;
+color: #FF8C00;
+}
+.multi-steps > li:after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  background-color: #FF8C00;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  z-index: -1;
+}
+.multi-steps > li:last-child:after {
+  display: none;
+}
+.multi-steps > li.is-active:before {
+  background-color: #fff;
+  border-color: #8E001C;
+}
+.multi-steps > li.is-active ~ li {
+  color: #808080;
+}
+.multi-steps > li.is-active ~ li:before {
+  background-color: #ededed;
+  border-color: #ededed;
+color: #808080;
+}
+*/

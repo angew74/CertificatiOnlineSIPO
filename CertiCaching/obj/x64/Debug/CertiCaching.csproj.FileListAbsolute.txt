@@ -1,0 +1,10 @@
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiCaching\bin\x64\Debug\Com.Unisys.CdR.Certi.Caching.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiCaching\bin\x64\Debug\Com.Unisys.CdR.Certi.Caching.pdb
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiCaching\bin\x64\Debug\Com.Unisys.CdR.Certi.Utils.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiCaching\bin\x64\Debug\log4net.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiCaching\bin\x64\Debug\Com.Unisys.CdR.Certi.Utils.pdb
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiCaching\obj\x64\Debug\CertiCaching.csprojAssemblyReference.cache
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiCaching\obj\x64\Debug\CertiCaching.csproj.CoreCompileInputs.cache
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiCaching\obj\x64\Debug\CertiCaching.csproj.CopyComplete
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiCaching\obj\x64\Debug\Com.Unisys.CdR.Certi.Caching.dll
+C:\Users\Nick\RootPrj\CertificatiOnlineSIPO\CertiCaching\obj\x64\Debug\Com.Unisys.CdR.Certi.Caching.pdb

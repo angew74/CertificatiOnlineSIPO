@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Apps\CertiWS</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/CdRDataObjects.dll">
+      <publishTime>11/29/2020 20:30:31</publishTime>
+    </File>
+    <File Include="bin/CdRDataObjects.pdb">
+      <publishTime>11/29/2020 20:30:31</publishTime>
+    </File>
+    <File Include="bin/CertificatiComponent.dll">
+      <publishTime>11/29/2020 20:32:23</publishTime>
+    </File>
+    <File Include="bin/CertificatiComponent.pdb">
+      <publishTime>11/29/2020 20:32:23</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Caching.dll">
+      <publishTime>11/29/2020 20:30:33</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Caching.pdb">
+      <publishTime>11/29/2020 20:30:33</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.DataLayer.dll">
+      <publishTime>11/29/2020 20:32:22</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.DataLayer.pdb">
+      <publishTime>11/29/2020 20:32:22</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Objects.dll">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Objects.pdb">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Utils.dll">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.Utils.pdb">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WS.Business.dll">
+      <publishTime>11/29/2020 20:32:23</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WS.Business.dll.config">
+      <publishTime>09/30/2020 08:31:55</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WS.Business.pdb">
+      <publishTime>11/29/2020 20:32:23</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WS.Dati.dll">
+      <publishTime>11/29/2020 20:32:22</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WS.Dati.pdb">
+      <publishTime>11/29/2020 20:32:22</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WS.dll">
+      <publishTime>11/29/2020 20:32:25</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.CdR.Certi.WS.pdb">
+      <publishTime>11/29/2020 20:32:25</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.Data.UnisysStub.dll">
+      <publishTime>11/29/2020 20:30:33</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.Data.UnisysStub.pdb">
+      <publishTime>11/29/2020 20:30:33</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.Logging.dll">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Com.Unisys.Logging.pdb">
+      <publishTime>11/29/2020 20:30:32</publishTime>
+    </File>
+    <File Include="bin/Crypto.dll">
+      <publishTime>11/29/2020 20:32:22</publishTime>
+    </File>
+    <File Include="bin/DistributedTransaction.dll">
+      <publishTime>11/29/2020 20:32:22</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>05/14/2020 09:13:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Services2.dll">
+      <publishTime>02/22/2005 09:45:24</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>01/06/2011 21:24:40</publishTime>
+    </File>
+    <File Include="bin/Oracle.DataAccess.dll">
+      <publishTime>05/24/2017 11:56:36</publishTime>
+    </File>
+    <File Include="bin/OracleProvider.dll">
+      <publishTime>11/29/2020 20:32:22</publishTime>
+    </File>
+    <File Include="bin/StorageComponent.dll">
+      <publishTime>11/29/2020 20:32:23</publishTime>
+    </File>
+    <File Include="bin/Unisys.CdR.CustomProfile.dll">
+      <publishTime>05/21/2020 20:37:11</publishTime>
+    </File>
+    <File Include="bin/Unisys.CdR.SOAPUtilities.dll">
+      <publishTime>05/21/2020 20:36:31</publishTime>
+    </File>
+    <File Include="bin/Unisys.CdR.Tracer.dll">
+      <publishTime>05/21/2020 20:17:47</publishTime>
+    </File>
+    <File Include="CertiService.asmx">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="config/IMG/logoPDF.png">
+      <publishTime>11/25/2020 09:51:00</publishTime>
+    </File>
+    <File Include="config/XML/LISTA_DECODIFICA_MESSAGGI.xml">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="config/XML/LISTA_ERRORI_SOAP.xml">
+      <publishTime>05/15/2020 16:44:45</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/FOP.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.AWT.WinForms.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.OpenJDK.Core.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.OpenJDK.Media.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.OpenJDK.Security.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.OpenJDK.SwingAWT.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.OpenJDK.Text.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.OpenJDK.Util.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.OpenJDK.XML.API.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.OpenJDK.XML.Bind.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.OpenJDK.XML.Parse.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.OpenJDK.XML.Transform.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.OpenJDK.XML.XPath.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.Runtime.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Lib/IKVM.Runtime.JNI.dll">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="log4net.config">
+      <publishTime>10/08/2020 16:09:01</publishTime>
+    </File>
+    <File Include="policyCache.config">
+      <publishTime>05/14/2020 09:08:58</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>11/26/2020 19:07:34</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
