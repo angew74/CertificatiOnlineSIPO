@@ -137,10 +137,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Com.Unisys\Com.Unisys.Data.UnisysStub\Com.Unisys.Data.UnisysStub.csproj">
-      <Project>{3c92454e-4eff-4c8f-b6f5-779d6073b4aa}</Project>
-      <Name>Com.Unisys.Data.UnisysStub</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\UnisysLibrary\Com.Unisys.Logging\Com.Unisys.Logging.csproj">
       <Project>{f35a26ae-e79f-4fc2-832a-01f6f4550128}</Project>
       <Name>Com.Unisys.Logging</Name>

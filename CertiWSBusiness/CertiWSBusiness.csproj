@@ -146,10 +146,6 @@
     <Compile Include="sipo\SIPORequestJson.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Com.Unisys\Com.Unisys.Data.UnisysStub\Com.Unisys.Data.UnisysStub.csproj">
-      <Project>{3c92454e-4eff-4c8f-b6f5-779d6073b4aa}</Project>
-      <Name>Com.Unisys.Data.UnisysStub</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\SecureStorage\Crypto\Crypto.csproj">
       <Project>{9CF28B97-EB38-45E1-8F7D-17409B5630B8}</Project>
       <Name>Crypto</Name>

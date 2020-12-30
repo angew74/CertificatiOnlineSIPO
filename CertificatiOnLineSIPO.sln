@@ -58,8 +58,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleProvider", "..\Secure
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Unisys.Security", "..\UserManager\Com.Unisys.Security\Com.Unisys.Security.csproj", "{7E4E512A-B54B-4DFF-9E86-24DB492884CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Unisys.Data.UnisysStub", "..\Com.Unisys\Com.Unisys.Data.UnisysStub\Com.Unisys.Data.UnisysStub.csproj", "{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -383,24 +381,6 @@ Global
 		{7E4E512A-B54B-4DFF-9E86-24DB492884CD}.x|x64.Build.0 = Release|x64
 		{7E4E512A-B54B-4DFF-9E86-24DB492884CD}.x|x86.ActiveCfg = Release|Any CPU
 		{7E4E512A-B54B-4DFF-9E86-24DB492884CD}.x|x86.Build.0 = Release|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Debug|x64.ActiveCfg = Debug|x64
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Debug|x64.Build.0 = Debug|x64
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Debug|x86.Build.0 = Debug|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Release|x64.ActiveCfg = Release|x64
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Release|x64.Build.0 = Release|x64
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Release|x86.ActiveCfg = Release|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.Release|x86.Build.0 = Release|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.x|Any CPU.ActiveCfg = Release|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.x|Any CPU.Build.0 = Release|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.x|x64.ActiveCfg = Release|x64
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.x|x64.Build.0 = Release|x64
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.x|x86.ActiveCfg = Release|Any CPU
-		{3C92454E-4EFF-4C8F-B6F5-779D6073B4AA}.x|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
